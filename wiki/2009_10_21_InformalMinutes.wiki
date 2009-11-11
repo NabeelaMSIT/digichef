@@ -1,4 +1,4 @@
-#summary Informal Meeting Minutes 21st Oct
+#summary Informal Meeting Minutes for 21st Oct
 
 12:30, Computer science Atrium
 
@@ -33,4 +33,3 @@
 
  * Rob: Post to basecamp good sites to learn about django
  * All: Read up on django
-
