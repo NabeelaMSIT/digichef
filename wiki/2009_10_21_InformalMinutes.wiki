@@ -20,7 +20,6 @@
  * Brainstorming of milestones headers
   * Database
   * Web interface
-
  * Discussion of possibilities for a server
   * Running django on school's servers?
   * Getting an old machine to use as a server?
