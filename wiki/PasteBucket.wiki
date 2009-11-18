@@ -22,3 +22,11 @@ def search(request):
         "query": query
     })
 }}}
+
+
+=== newforms is the better version of forms===
+`from django import newforms as forms`
+
+
+==generate docs with epydoc==
+`PYTHONPATH=/home/django/ DJANGO_SETTINGS_MODULE=myuni.settings epydoc --html --parse-only --docformat plaintext re -v -o /home/django/myuni/html --graph all myuni`
