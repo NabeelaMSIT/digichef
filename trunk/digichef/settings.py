@@ -80,3 +80,9 @@ INSTALLED_APPS = (
 	'digichef.recipes',
 	'digichef.tagging',
 )
+
+try:
+	from local_settings_DONT_SVN import *
+except ImportError:
+	print "No local settings file, ignoring"
+	pass
