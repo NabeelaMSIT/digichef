@@ -16,7 +16,7 @@ def recipes(request):
 def recipe_detail(request, recipe_id):
 	"""View for a detailed look at a single recipe
 
-		returns 404 error is recipe not found"""
+		returns 404 error if recipe not found"""
 	recipe = get_object_or_404(Recipe, pk=recipe_id)
 	ingredient_list = recipe.ingredients.split("\n")
 	return render_to_response('recipe_detail.html', {'recipe' : recipe, 'ingredient_list' : ingredient_list})
