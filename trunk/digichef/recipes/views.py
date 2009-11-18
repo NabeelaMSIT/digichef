@@ -3,6 +3,10 @@ from models import Recipe
 from django.shortcuts import render_to_response, get_object_or_404
 
 
+def search(request):
+	"""Search page"""
+	return render_to_response('index.html')
+
 def recipes(request):
 	"""View of a list of recipes"""
 	recipe_list = Recipe.objects.all().order_by('title')
