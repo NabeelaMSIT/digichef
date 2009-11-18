@@ -1,10 +1,12 @@
 from django.conf.urls.defaults import *
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+import recipes.views
 
-urlpatterns = patterns('',
+# Uncomment the next two lines to enable the admin:
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('django.views.generic.simple',
     # Example:
     # (r'^digichef/', include('digichef.foo.urls')),
 
@@ -13,5 +15,10 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # (r'^admin/(.*)', admin.site.root),
+	(r'^admin/(.*)', admin.site.root),
+
+    (r'^$', 'redirect_to', {'url': '/search/'} ),
+    (r'^search/$', recipes.views.search),
+
+    (r'^recipe/(?P<recipe_id>\d).*$', recipes.views.recipe_detail),
 )
