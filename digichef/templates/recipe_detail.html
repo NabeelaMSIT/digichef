@@ -1,5 +1,8 @@
-{{recipe.title}}
+<h1>{{recipe.title}}</h1>
 
-{{recipe.ingredients}}
+{% for ingredient in ingredient_list %}
+<li> {{ ingredient }} </li>
+{% endfor %}
 
-{{recipe.instructions}}
+
+{{recipe.instructions|linebreaks}}
