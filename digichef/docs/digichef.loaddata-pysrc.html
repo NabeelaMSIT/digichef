@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.loaddata</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        Module&nbsp;loaddata
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.loaddata-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="digichef.loaddata-module.html">Module digichef.loaddata</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package digichef=digichef-module.html"><a title="digichef" class="py-name" href="#" onclick="return doclink('link-0', 'digichef', 'link-0');">digichef</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="digichef" class="py-name" href="#" onclick="return doclink('link-1', 'digichef', 'link-0');">digichef</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package digichef.recipes=digichef.recipes-module.html,Function digichef.recipes.views.recipes()=digichef.recipes.views-module.html#recipes"><a title="digichef.recipes
+digichef.recipes.views.recipes" class="py-name" href="#" onclick="return doclink('link-2', 'recipes', 'link-2');">recipes</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html"><a title="digichef.recipes.models
+digichef.tagging.models
+digichef.tagging.tests.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-3');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="digichef" class="py-name" href="#" onclick="return doclink('link-4', 'digichef', 'link-0');">digichef</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package digichef.tagging=digichef.tagging-module.html"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-5', 'tagging', 'link-5');">tagging</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="digichef.recipes.models
+digichef.tagging.models
+digichef.tagging.tests.models" class="py-name" href="#" onclick="return doclink('link-6', 'models', 'link-3');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="digichef.recipes.models
+digichef.tagging.models
+digichef.tagging.tests.models" class="py-name" href="#" onclick="return doclink('link-7', 'models', 'link-3');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="load_data"></a><div id="load_data-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="load_data-toggle" onclick="return toggle('load_data');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.loaddata-module.html#load_data">load_data</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="load_data-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="load_data-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"deleting auth database (or most of it)..."</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-name">users</tt> <tt class="py-op">=</tt> <tt class="py-name">User</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable digichef.tagging.models.Tag.objects=digichef.tagging.models.Tag-class.html#objects,Variable digichef.tagging.models.TaggedItem.objects=digichef.tagging.models.TaggedItem-class.html#objects"><a title="digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects" class="py-name" href="#" onclick="return doclink('link-8', 'objects', 'link-8');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-comment">#Cheers :)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">user</tt> <tt class="py-keyword">in</tt> <tt class="py-name">users</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                <tt class="py-name">user</tt><tt class="py-op">.</tt><tt class="py-name">delete</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Loading basic data into database..."</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-comment">#===============PEOPLE======================</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">User</tt><tt class="py-op">(</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">username</tt><tt class="py-op">=</tt><tt class="py-string">'rob'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">first_name</tt><tt class="py-op">=</tt><tt class="py-string">'Rob'</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">last_name</tt><tt class="py-op">=</tt><tt class="py-string">'Miles'</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">is_superuser</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">is_staff</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">email</tt><tt class="py-op">=</tt><tt class="py-string">"afromonkey0@gmail.com"</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">set_password</tt><tt class="py-op">(</tt><tt class="py-string">"iamrob"</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">User</tt><tt class="py-op">(</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">username</tt><tt class="py-op">=</tt><tt class="py-string">'dhruv'</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">first_name</tt><tt class="py-op">=</tt><tt class="py-string">'Dhruv'</tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">last_name</tt><tt class="py-op">=</tt><tt class="py-string">'Gairola'</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">is_superuser</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-name">is_staff</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-name">email</tt><tt class="py-op">=</tt><tt class="py-string">""</tt> <tt class="py-comment">#idk</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">set_password</tt><tt class="py-op">(</tt><tt class="py-string">"iamdhruv"</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">         </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-comment">#===============RECIPES======================</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">         </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name" targets="Class digichef.recipes.models.Recipe=digichef.recipes.models.Recipe-class.html"><a title="digichef.recipes.models.Recipe" class="py-name" href="#" onclick="return doclink('link-9', 'Recipe', 'link-9');">Recipe</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt id="link-10" class="py-name" targets="Variable digichef.recipes.models.Recipe.title=digichef.recipes.models.Recipe-class.html#title"><a title="digichef.recipes.models.Recipe.title" class="py-name" href="#" onclick="return doclink('link-10', 'title', 'link-10');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">'Blueberry Peach Muffins'</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt id="link-11" class="py-name" targets="Variable digichef.recipes.models.Recipe.ingredients=digichef.recipes.models.Recipe-class.html#ingredients"><a title="digichef.recipes.models.Recipe.ingredients" class="py-name" href="#" onclick="return doclink('link-11', 'ingredients', 'link-11');">ingredients</a></tt><tt class="py-op">=</tt><tt class="py-string">"""375 g all-purpose flour</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-string">100 g white sugar</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-string">110 g brown sugar</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-string">10 g baking powder</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-string">1 g salt</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-string">3 eggs</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-string">235 ml milk</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-string">115 g melted butter</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-string">145 g blueberries</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-string">170 g peeled and diced fresh peaches</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-string">8 g white sugar</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-string">2 g ground cinnamon</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-string">2 g ground nutmeg</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-string">30 g melted butter"""</tt><tt class="py-op">,</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Variable digichef.recipes.models.Recipe.instructions=digichef.recipes.models.Recipe-class.html#instructions"><a title="digichef.recipes.models.Recipe.instructions" class="py-name" href="#" onclick="return doclink('link-12', 'instructions', 'link-12');">instructions</a></tt><tt class="py-op">=</tt><tt class="py-string">"""Preheat the oven to 400 degrees F (200 degrees C). Grease muffin tins, or line with paper liners.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-string">In a large bowl, stir together the flour, 1/2 cup white sugar, brown sugar, baking powder and salt. In a  separate bowl, mix together the eggs, milk  and 1/2 cup of melted butter until well blended. Pour the wet ingredients into the dry, and mix until just blended. Fold in the blueberries and peaches. Fill muffin cups with batter.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-string">Bake for 18 to 20 minutes in the preheated oven, or until the tops spring back when lightly touched. In a small bowl, stir together the remaining sugar, cinnamon and nutmeg. Brush muffins with remaining melted butter, and sprinkle with the cinnamon mixture. Cool in the pan over a wire rack."""</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Variable digichef.recipes.models.Recipe.tags=digichef.recipes.models.Recipe-class.html#tags,Variable digichef.tagging.tests.models.FormTest.tags=digichef.tagging.tests.models.FormTest-class.html#tags"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-13', 'tags', 'link-13');">tags</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'brown_sugar baking_powder salt egg milk butter blueberry peach white_sugar cinnamon nutmeg'</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="digichef.recipes.models.Recipe" class="py-name" href="#" onclick="return doclink('link-14', 'Recipe', 'link-9');">Recipe</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="digichef.recipes.models.Recipe.title" class="py-name" href="#" onclick="return doclink('link-15', 'title', 'link-10');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">"Ferg's Ulster Fry-up"</tt><tt class="py-op">,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt id="link-16" class="py-name"><a title="digichef.recipes.models.Recipe.ingredients" class="py-name" href="#" onclick="return doclink('link-16', 'ingredients', 'link-11');">ingredients</a></tt><tt class="py-op">=</tt><tt class="py-string">"""2 thick slices Irish bacon</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"><tt class="py-string">26 g sausages</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"><tt class="py-string">1 soda bread farl, sliced in half horizontally</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line"><tt class="py-string">2 potato bread farls</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"><tt class="py-string">15 ml vegetable oil, or as needed</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line"><tt class="py-string">2 slices black pudding</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"><tt class="py-string">1 tomato, halved</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line"><tt class="py-string">2 eggs"""</tt><tt class="py-op">,</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="digichef.recipes.models.Recipe.instructions" class="py-name" href="#" onclick="return doclink('link-17', 'instructions', 'link-12');">instructions</a></tt><tt class="py-op">=</tt><tt class="py-string">"""Preheat oven to 300 degrees F (150 degrees C).</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"><tt class="py-string">In a large non-stick skillet over medium heat, cook the bacon and sausages, until they are browned.  Reserving the fat in the pan, transfer to a heat resistant dish. Keep warm in the oven.</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line"><tt class="py-string">Fry both sides of the potato and soda farls in the reserved fat for a few minutes, or until they are golden and crispy. Meanwhile, heat oil in smaller skillet over medium heat and cook black pudding slices and tomato halves. Transfer everything to the dish in the oven to keep warm.</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line"><tt class="py-string">Crack eggs into the pan with any residual bacon grease, adding more oil to the skillet if necessary.  Fry until egg whites are set but yolks are still runny, or to your liking. Divide everything onto 2 separate plates and serve immediately."""</tt><tt class="py-op">,</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="digichef.recipes.models.Recipe.tags
+digichef.tagging.tests.models.FormTest.tags" class="py-name" href="#" onclick="return doclink('link-18', 'tags', 'link-13');">tags</a></tt><tt class="py-op">=</tt><tt class="py-string">'bacon sausage farl oil black_pudding tomato egg'</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno">91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno">93</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Function digichef.loaddata.load_data()=digichef.loaddata-module.html#load_data"><a title="digichef.loaddata.load_data" class="py-name" href="#" onclick="return doclink('link-19', 'load_data', 'link-19');">load_data</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno">94</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Nov 19 14:33:16 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

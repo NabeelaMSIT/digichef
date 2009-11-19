@@ -14,6 +14,6 @@ reply = raw_input("Are you seriously sure (type 'yes' to continue)? ")
 #if they are sure
 if reply == 'yes':
 	os.system("python manage.py reset recipes tagging --noinput")# wipe DB
-	ppath = MEDIA_ROOT = os.path.join(PATH, '..')
+	ppath = os.path.join(PATH, '..')
 	os.system("PYTHONPATH=\"%s\" DJANGO_SETTINGS_MODULE=digichef.settings python loaddata.py" % ppath)# fill with default data
 
