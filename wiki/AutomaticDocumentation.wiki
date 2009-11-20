@@ -9,4 +9,4 @@ Epydoc is the best choice for this project because it was designed for projects 
 
 = Details =
 
-*some details*
+Right now a copy of the documentation is in the repository, this will change in future. The ideal system would have a server that serves the main site, which downloads the latest copy of the code from the repository whenever it is changed. Whenever the server downloads new code, it will generate new documentation for the new code, and, since it's html, serve it on the website so that we can easily browse it. Because the server generates the docs automatically, we don't need to install epydoc on our computers, and we don't need to know about how docs are made etc.
