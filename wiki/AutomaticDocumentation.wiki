@@ -1,0 +1,12 @@
+#summary Information about automatic documentation for the project
+
+= Introduction =
+
+A number of tools exist to generate documentation for large projects, they're all pretty similar, for example javadoc, doxygen and epydoc. They all examine the code and the comments in the code (which can be specially formatted) and generate HTML pages or PDF files of documentation.
+
+Epydoc is the best choice for this project because it was designed for projects written in Python, and will generate UML class diagrams automatically.
+
+
+= Details =
+
+*some details*
