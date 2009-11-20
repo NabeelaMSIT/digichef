@@ -51,9 +51,9 @@ We can also stick the unit tests in there too.
 def addnums(x,y):
   """Add 2 numbers together
 
-    >>> add(6,7)
+    >>> addnums(6,7)
     13
-    >>> add(10,-5)
+    >>> addnums(10,-5)
     5
 
     @type  x: number
