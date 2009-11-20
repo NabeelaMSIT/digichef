@@ -41,4 +41,30 @@ def addnums(x,y):
   return x + y
 }}}
 
-Which would make really extensive documentation
+Which would make really extensive documentation.
+
+==== Tests ====
+
+We can also stick the unit tests in there too.
+
+{{{
+def addnums(x,y):
+  """Add 2 numbers together
+
+    >>> add(6,7)
+    13
+    >>> add(10,-5)
+    5
+
+    @type  x: number
+    @param x: The first number
+    @type  y: number
+    @param y: The second number
+    @rtype:   number
+    @return:  The result of adding the numbers together M{x+y}.
+  """
+
+  return x + y
+}}}
+
+The code after `>>>` is run, and the result has to match the next line.
