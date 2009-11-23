@@ -12,17 +12,22 @@
 	
 <div id='header'>Digital Chef</div>
 
-
 <div id='sidebar'>
 	<ul>
-		<li><a href='index.html'>Home</a></li>
+		<li><a href='/'>Home</a></li>
 </div>	
 
 
 
 <div id='mainSection'>
 	
+	{% for recipe in recipe_list %}
 	
+	<li><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></li>
+
+	{% endfor %}
+
+
 	
 </div>
 

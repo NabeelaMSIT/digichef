@@ -1,5 +1,4 @@
 from django.conf.urls.defaults import *
-
 import recipes.views
 
 # Uncomment the next two lines to enable the admin:
@@ -18,7 +17,9 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^admin/(.*)', admin.site.root),
 
     (r'^$', 'redirect_to', {'url': '/search/'} ),
-    (r'^search/$', recipes.views.search),
+    (r'^search/?$', recipes.views.search),
 
     (r'^recipe/(?P<recipe_id>\d).*$', recipes.views.recipe_detail),
+
+    (r'^recipes/?$', recipes.views.recipes_all),
 )
