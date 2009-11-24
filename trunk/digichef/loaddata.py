@@ -89,6 +89,57 @@ Crack eggs into the pan with any residual bacon grease, adding more oil to the s
 	r.save()
 	r.tags='bacon sausage farl oil black_pudding tomato egg'
 
+
+
+	r = Recipe(
+	title="World's Best Lasagna",
+	ingredients="""455 g sweet Italian sausage
+340 g lean ground beef
+80 g minced onion
+2 cloves garlic, crushed
+1 (28 ounce) can crushed tomatoes
+2 (6 ounce) cans tomato paste
+364 g canned tomato sauce
+120 ml water
+25 g white sugar
+1 g dried basil leaves
+1 g fennel seeds
+2 g Italian seasoning
+20 g salt
+0.5 g ground black pepper
+15 g chopped fresh parsley
+12 lasagna noodles
+455 g ricotta cheese
+1 egg
+3 g salt
+340 g mozzarella cheese, sliced
+60 g grated Parmesan cheese""",
+	instructions="""In a Dutch oven, cook sausage, ground beef, onion, and garlic over medium heat until well browned. Stir in crushed tomatoes, tomato paste, tomato sauce, and water. Season with sugar, basil, fennel seeds, Italian seasoning, 1 tablespoon salt, pepper, and 2 tablespoons parsley. Simmer, covered, for about 1 1/2 hours, stirring occasionally.
+Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes. Drain noodles, and rinse with cold water.  In a mixing bowl, combine ricotta cheese with egg, remaining parsley, and 1/2 teaspoon salt.
+Preheat oven to 375  degrees F (190 degrees C).
+To assemble, spread 1 1/2 cups of meat sauce in the bottom of a 9x13 inch baking dish.  Arrange 6 noodles lengthwise over meat sauce. Spread with one half of the ricotta cheese mixture. Top with a third of mozzarella cheese slices. Spoon 1 1/2 cups meat sauce over mozzarella, and sprinkle with 1/4 cup Parmesan cheese.  Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray, or make sure the foil does not touch the cheese.
+Bake in preheated oven for 25 minutes. Remove foil, and bake an additional 25 minutes. Cool for 15 minutes before serving.""",
+	)
+	r.save()
+	r.tags='sausage beef onion garlic tomato tomato_paste tomato_sauce water white_sugar basil fennel_seed salt black_pepper parsley pasta ricotta egg mozzarella parmesan'
+
+
+	r = Recipe(
+	title="Apple Pie by Grandma Ople",
+	ingredients="""1 recipe pastry for a 9 inch double crust pie
+115 g unsalted butter
+25 g all-purpose flour
+60 ml water
+100 g white sugar
+110 g packed brown sugar
+8 Granny Smith apples - peeled, cored and sliced""",
+	instructions="""Preheat oven to 425 degrees F (220 degrees C). Melt the butter in a saucepan. Stir in flour to form a paste. Add water, white sugar and brown sugar, and bring to a boil. Reduce temperature and let simmer.
+Place the bottom crust in your pan. Fill with apples, mounded slightly. Cover with a lattice work of crust.  Gently pour the sugar and butter liquid over the crust.  Pour slowly so that it does not run off.
+Bake 15 minutes in the preheated oven. Reduce the temperature to 350 degrees F (175 degrees C). Continue baking for 35 to 45 minutes, until apples are soft.""",
+	)
+	r.save()
+	r.tags='pastry butter flour water white_sugar brown_sugar apple'
+
 if __name__ == "__main__":
     load_data()
 
