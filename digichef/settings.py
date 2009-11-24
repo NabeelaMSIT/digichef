@@ -82,6 +82,8 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 )
 
+
+#try to override settings wil local ones to make the server run on different machines
 try:
 	from local_settings_DONT_SVN import *
 except ImportError:

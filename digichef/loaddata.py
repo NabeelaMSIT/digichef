@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
+"""Dump a bunch of default data into the database for testing.
+This file isn't meant to be run on its own, use remakeDatabase.py"""
+
 import digichef
 
 from digichef.recipes.models import *
 from digichef.tagging.models import *
-
 
 from django.contrib.auth.models import User
 
@@ -139,6 +141,71 @@ Bake 15 minutes in the preheated oven. Reduce the temperature to 350 degrees F (
 	)
 	r.save()
 	r.tags='pastry butter flour water white_sugar brown_sugar apple'
+
+	r = Recipe(
+	title="Chantal's New York Cheesecake",
+	ingredients="""15 graham crackers, crushed
+30 g butter, melted
+
+896 g cream cheese
+300 g white sugar
+180 ml milk
+4 eggs
+230 g sour cream
+15 ml vanilla extract
+30 g all-purpose flour""",
+	instructions="""Preheat oven to 350 degrees F (175 degrees C). Grease a 9 inch springform pan.
+In a medium bowl, mix graham cracker crumbs with melted butter. Press onto bottom of springform pan.
+In a large bowl, mix cream cheese with sugar until smooth. Blend in milk, and then mix in the eggs one at a time, mixing just enough to incorporate. Mix in sour cream, vanilla and flour until smooth. Pour filling into prepared crust.
+Bake in preheated oven for 1 hour. Turn the oven off, and let cake cool in oven with the door closed for 5 to 6 hours; this prevents cracking. Chill in refrigerator until serving.""",
+	)
+	r.save()
+	r.tags='graham_crackers butter cream_cheese white_sugar milk egg sour_cream vanilla_extract flour'
+
+
+	r = Recipe(
+	title='Chicken Pot Pie',
+	ingredients="""455 g skinless, boneless chicken breast halves - cubed
+120 g sliced carrots
+150 g frozen green peas
+60 g sliced celery
+75 g butter
+55 g chopped onion
+40 g all-purpose flour
+3 g salt
+0.5 g black pepper
+0.5 g celery seed
+415 ml chicken broth
+160 ml milk
+
+2 (9 inch)  unbaked pie crusts""",
+	instructions="""Preheat oven to 425 degrees F (220 degrees C.)
+In a saucepan, combine chicken, carrots, peas, and celery. Add water to cover and boil for 15 minutes. Remove from heat, drain and set aside.
+In the saucepan over medium heat, cook onions in butter until soft and translucent. Stir in flour, salt, pepper, and celery seed. Slowly stir in chicken broth and milk. Simmer over medium-low heat until thick. Remove from heat and set aside.
+Place the chicken mixture in bottom pie crust. Pour hot liquid mixture over. Cover with top crust, seal edges, and cut away excess dough. Make several small slits in the top to allow steam to escape.
+Bake in the preheated oven for 30 to 35 minutes, or until pastry is golden brown and filling is bubbly. Cool for 10 minutes before serving.""",
+	)
+	r.save()
+	r.tags='chicken carrot pea celery butter onion flour salt black_pepper celery_seed chicken_broth milk pie_crust'
+
+	r = Recipe(
+	title="Grilled Salmon",
+	ingredients="""680 g salmon fillets
+lemon pepper to taste
+garlic powder to taste
+salt to taste
+80 ml soy sauce
+75 g brown sugar
+80 ml water
+60 ml vegetable oil""",
+	instructions="""Season salmon fillets with lemon pepper, garlic powder, and salt.
+In a small bowl, stir together soy sauce, brown sugar, water, and vegetable oil until sugar is dissolved. Place fish in a large resealable plastic bag with the soy sauce mixture, seal, and turn to coat. Refrigerate for at least 2 hours.
+Preheat grill for medium heat.
+Lightly oil grill grate. Place salmon on the preheated grill, and discard marinade. Cook salmon for 6 to 8 minutes per side, or until the fish flakes easily with a fork.""",
+	)
+	r.save()
+	r.tags='salmon lemon_pepper garlic_powder salt soy_sauce brown_sugar water vegetable_oil'
+
 
 if __name__ == "__main__":
     load_data()
