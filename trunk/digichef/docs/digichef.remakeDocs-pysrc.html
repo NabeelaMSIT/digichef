@@ -57,18 +57,22 @@
 <a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
 <a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
 <a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
-<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable digichef.remakeDatabase.PATH=digichef.remakeDatabase-module.html#PATH,Variable digichef.remakeDocs.PATH=digichef.remakeDocs-module.html#PATH"><a title="digichef.remakeDatabase.PATH
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable digichef.local_settings_DONT_SVN.PATH=digichef.local_settings_DONT_SVN-module.html#PATH,Variable digichef.remakeDatabase.PATH=digichef.remakeDatabase-module.html#PATH,Variable digichef.remakeDocs.PATH=digichef.remakeDocs-module.html#PATH"><a title="digichef.local_settings_DONT_SVN.PATH
+digichef.remakeDatabase.PATH
 digichef.remakeDocs.PATH" class="py-name" href="#" onclick="return doclink('link-0', 'PATH', 'link-0');">PATH</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
 <a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable digichef.remakeDatabase.ppath=digichef.remakeDatabase-module.html#ppath,Variable digichef.remakeDocs.ppath=digichef.remakeDocs-module.html#ppath"><a title="digichef.remakeDatabase.ppath
-digichef.remakeDocs.ppath" class="py-name" href="#" onclick="return doclink('link-1', 'ppath', 'link-1');">ppath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="digichef.remakeDatabase.PATH
+digichef.remakeDocs.ppath" class="py-name" href="#" onclick="return doclink('link-1', 'ppath', 'link-1');">ppath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="digichef.local_settings_DONT_SVN.PATH
+digichef.remakeDatabase.PATH
 digichef.remakeDocs.PATH" class="py-name" href="#" onclick="return doclink('link-2', 'PATH', 'link-0');">PATH</a></tt><tt class="py-op">,</tt> <tt class="py-string">'..'</tt><tt class="py-op">)</tt> </tt>
-<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable digichef.remakeDocs.docpath=digichef.remakeDocs-module.html#docpath"><a title="digichef.remakeDocs.docpath" class="py-name" href="#" onclick="return doclink('link-3', 'docpath', 'link-3');">docpath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name"><a title="digichef.remakeDatabase.PATH
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable digichef.remakeDocs.docpath=digichef.remakeDocs-module.html#docpath"><a title="digichef.remakeDocs.docpath" class="py-name" href="#" onclick="return doclink('link-3', 'docpath', 'link-3');">docpath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name"><a title="digichef.local_settings_DONT_SVN.PATH
+digichef.remakeDatabase.PATH
 digichef.remakeDocs.PATH" class="py-name" href="#" onclick="return doclink('link-4', 'PATH', 'link-0');">PATH</a></tt><tt class="py-op">,</tt> <tt class="py-string">'docs'</tt><tt class="py-op">)</tt> </tt>
 <a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
-<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">system</tt><tt class="py-op">(</tt><tt class="py-string">"PYTHONPATH=\"%s\" DJANGO_SETTINGS_MODULE=digichef.settings epydoc --html --parse-only --docformat plaintext re -v -o \"%s\" --graph all digichef"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="digichef.remakeDatabase.ppath
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># big 'ol command line to run epydoc with all the right settings. Won't work on windows but I don't care.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">system</tt><tt class="py-op">(</tt><tt class="py-string">"PYTHONPATH=\"%s\" DJANGO_SETTINGS_MODULE=digichef.settings epydoc --html --parse-only --docformat plaintext re -v -o \"%s\" --graph all digichef"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="digichef.remakeDatabase.ppath
 digichef.remakeDocs.ppath" class="py-name" href="#" onclick="return doclink('link-5', 'ppath', 'link-1');">ppath</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name"><a title="digichef.remakeDocs.docpath" class="py-name" href="#" onclick="return doclink('link-6', 'docpath', 'link-3');">docpath</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -98,7 +102,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Nov 19 14:33:16 2009
+    Generated by Epydoc 3.0.1 on Tue Nov 24 23:43:48 2009
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
