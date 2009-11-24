@@ -1,8 +1,3 @@
-<!--
-In this file I changed a version I was given.
-Again feel free to change it however you want, but dont change the details of how the form actually works, like form widget names etc without letting me know since it will mean code changes. - Rob
--->
-
 <html>
 
 <head>
@@ -15,44 +10,50 @@ Again feel free to change it however you want, but dont change the details of ho
 	
 <div id='main'>
 	
-<div id='header'>Digital Chef</div>
+<div id='header'></div>
 
 <div id='sidebar'>
 	<ul>
-		<li><a href='/recipes/'>Recipes</a></li>
+		<li><a href='/'>Home</a></li>
+		<li><a href='/recipes'>Recipes</a></li>
 </div>	
+
+
 
 <div id='mainSection'>
 	
+	<h2>Please enter ingredients</h2>
+	
 	<form>
-
 	<select name="ingredient1">
-	<option value="">Nothing</option>
-	{% for ingredient in ingredients %}
-	<option value="{{ingredient.name}}">{{ingredient.name}}</option>
-	{% endfor %}
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
 	</select>
-
+		
 	<select name="ingredient2">
-	<option value="">Nothing</option>
-	{% for ingredient in ingredients %}
-	<option value="{{ingredient.name}}">{{ingredient.name}}</option>
-	{% endfor %}
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
 	</select>
-
+	
 	<select name="ingredient3">
-	<option value="">Nothing</option>
-	{% for ingredient in ingredients %}
-	<option value="{{ingredient.name}}">{{ingredient.name}}</option>
-	{% endfor %}
+		<option value="">Nothing</option>
+		{% for ingredient in ingredients %}
+		<option value="{{ingredient.name}}">{{ingredient.name}}</option>
+		{% endfor %}
 	</select>
-
-	<input type="hidden" name="submitted" value="True" />
-
-	<input type="submit" value="Search" />
-
 	</form>
 	
+	<t>
+	<ul>
+		<li>
+			<input type="hidden" name="submitted" value="True" />
+			<input type="submit" value="Search" />
+		</li>
+	</t>
 	
 	
 </div>

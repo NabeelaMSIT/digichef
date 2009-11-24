@@ -1,18 +1,48 @@
-<!-- 
-This file is the detailed view of a recipe. It's super simple and needs a design dude to look over it and make it look good. Feel free to change anything, I made this as a demo page to look at the data, i thought it may be helpful to see some examples- Rob
--->
+<html>
 
-<h1>{{recipe.title}}</h1>
+<head>
+	
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
 
-{% for ingredient in ingredient_list %}
-<li> {{ ingredient }} </li>
-{% endfor %}
+</head>
+
+<body>
+	
+<div id='main'>
+	
+<div id='header'></div>
+
+<div id='sidebar'>
+	<ul>
+		<li><a href='/'>Home</a></li>
+		<li><a href='/recipes'>Recipes</a></li>
+</div>	
 
 
-{{recipe.instructions|linebreaks}}
 
+<div id='recipeSection'>
+	
+	<h1>{{recipe.title}}</h1>
+	<h2>Ingredients:</h2>
+	
+	{% for ingredient in ingredient_list %}
+	<t> {{ ingredient }} </t>
+	{% endfor %}
+	
+	{{recipe.instructions|linebreaks}}
+			
+	<h2>Tags:</h2>
+	
+	{% for tag in recipe.tags %}
+	 {{tag.name}} |
+	{% endfor %}
+	
+</div>
 
-|
-{% for tag in recipe.tags %}
- {{tag.name}} |
-{% endfor %}
+<div id='footer'> GRP DIGI CHEF :D </div>
+
+</div>
+
+</body>
+
+</html>
