@@ -6,3 +6,9 @@
 
 
 {{recipe.instructions|linebreaks}}
+
+
+|
+{% for tag in recipe.tags %}
+ {{tag.name}} |
+{% endfor %}
