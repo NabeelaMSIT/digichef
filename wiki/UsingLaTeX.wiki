@@ -68,3 +68,43 @@ The end.
 
 \end{document}             % End of document.
 }}}
+
+== Including Code Files ==
+
+If you want to show some code in a fixed with font, use the verbatim environment;
+
+{{{
+\begin{verbatim}
+def square(i):
+  return i**2
+\end{verbatim}
+}}}
+
+If you want to include another file, use `input`. This is cool because you can have different chapters in different files and have them all imported into the main file
+
+{{{
+\input{filename.tex}
+}}}
+
+But because `verbatim` interprets text verbatim, doing 
+
+{{{
+\begin{verbatim}
+\input{mycode.py}
+\end{verbatim}
+}}}
+
+will just put `\input{mycode.py}` into the document in a fixed width font, rather than inserting the actual contents of mycode.py, so we need to use the `alltt` environment
+
+{{{
+\usepackage{alltt}
+
+\begin{alltt}
+\input{mycode.py}
+\end{alltt}
+}}}
+
+which will do the right thing
+
+
+
