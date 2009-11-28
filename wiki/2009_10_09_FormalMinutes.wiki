@@ -14,7 +14,7 @@ Minutes taker: Xu Chenjue
  * Since we use the Django to build the database, validation is included in the design of database as the situation is different.
  * Really think about exactly the time we get each stage, as the deadlines are coming, and people might have difficulties to catch up with the group project.
  * Concentrate on what to do and who to do it. Moreover, do keep follow the plan, and update it as well.
- * Think about management. At each stage or specific part of the project, we need one person do in charge (Gonna have someone to be the bad person ^_^).
+ * Think about management. At each stage or specific part of the project, we need one person do in charge (Gonna have someone to be the bad person `^_^`).
 
 ==To Do==
 
