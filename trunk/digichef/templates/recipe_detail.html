@@ -15,7 +15,7 @@
 <div id='sidebar'>
 	<ul>
 		<li><a href='/'>Home</a></li>
-		<li><a href='/recipes'>Recipes</a></li>
+		<li><a href='/recipes/'>Recipes</a></li>
 </div>	
 
 
@@ -29,6 +29,7 @@
 	<t> {{ ingredient }} </t>
 	{% endfor %}
 	
+	<h2>Instruction:</h2>
 	{{recipe.instructions|linebreaks}}
 			
 	<h2>Tags:</h2>
