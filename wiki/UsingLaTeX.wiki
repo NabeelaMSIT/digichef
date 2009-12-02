@@ -7,7 +7,7 @@ I really hardly know anything about this, when you work out how to do things tha
 
 = Details =
 
-In windows you can use [http://www.winedt.com/ winedt]
+In windows you can use [http://www.winedt.com/ winedt], Chris recommends TeXWorks.
 
 In linux use tex-live and the `pdflatex` command
 
@@ -105,6 +105,4 @@ will just put `\input{mycode.py}` into the document in a fixed width font, rathe
 }}}
 
 which will do the right thing
-
-
 
