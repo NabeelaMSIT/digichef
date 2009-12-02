@@ -59,7 +59,7 @@ p
 {
 	text-align:left;
 	margin: 0px auto 0px auto;
-	width:900;
+	width:900px;
 	background-color:#F88017;
 	color:#000000;
 }
@@ -157,9 +157,9 @@ p
 {
 	text-align:left;
 	min-height:500px;
-	width:700px;
+	width:auto;
 	margin-left:210px;
-	padding:15px 5px 15px 70px;
+	padding:15px 5px 15px 30px;
 	background-color:#ffffff;
 }
 
