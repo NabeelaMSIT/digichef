@@ -34,7 +34,7 @@
 \contentsline {subsubsection}{\numberline {8.2.4}View Design}{18}
 \contentsline {paragraph}{The \texttt {recipe\_list} View}{18}
 \contentsline {paragraph}{The \texttt {search} View}{18}
-\contentsline {subsubsection}{\numberline {8.2.5}Template Design}{18}
+\contentsline {subsubsection}{\numberline {8.2.5}Template Design}{19}
 \contentsline {section}{\numberline {9}Collaborative Filtering Technology}{20}
 \contentsline {subsection}{\numberline {9.1}About}{20}
 \contentsline {subsection}{\numberline {9.2}System Pre-requisites}{20}
