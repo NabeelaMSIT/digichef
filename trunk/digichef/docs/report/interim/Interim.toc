@@ -13,75 +13,77 @@
 \contentsline {paragraph}{Ruby on Rails}{8}
 \contentsline {paragraph}{PHP with SQL}{9}
 \contentsline {paragraph}{Web Browser Options}{9}
-\contentsline {section}{\numberline {0.5}Product Specification}{10}
-\contentsline {subsection}{\numberline {0.5.1}Minimum - v1}{10}
-\contentsline {subsection}{\numberline {0.5.2}Realistic Best - v2}{10}
-\contentsline {subsection}{\numberline {0.5.3}Ideal - v3}{11}
-\contentsline {section}{\numberline {0.6}Initial design of the proposed system and its user interface}{12}
-\contentsline {subsection}{\numberline {0.6.1}Version 1}{12}
-\contentsline {subsection}{\numberline {0.6.2}Version 2}{14}
-\contentsline {subsection}{\numberline {0.6.3}Version 3}{14}
-\contentsline {section}{\numberline {0.7}Implementation Options/Designs}{15}
-\contentsline {subsection}{\numberline {0.7.1}Summary of Project Description and Specification}{15}
-\contentsline {section}{\numberline {0.8}Implementation Decisions}{16}
-\contentsline {subsection}{\numberline {0.8.1}Decision Influences}{16}
-\contentsline {subsubsection}{Aims}{16}
-\contentsline {subsubsection}{Design Principles}{16}
-\contentsline {subsection}{\numberline {0.8.2}Decisions}{17}
-\contentsline {subsubsection}{The \texttt {recipes} App}{17}
-\contentsline {subsubsection}{URL Design}{17}
-\contentsline {subsubsection}{Model Design}{17}
-\contentsline {subsubsection}{View Design}{17}
-\contentsline {paragraph}{The \texttt {recipe\_list} View}{17}
-\contentsline {paragraph}{The \texttt {search} View}{17}
-\contentsline {subsubsection}{Template Design}{18}
-\contentsline {section}{\numberline {0.9}Collaborative Filtering Technology}{19}
-\contentsline {subsection}{\numberline {0.9.1}About}{19}
-\contentsline {subsection}{\numberline {0.9.2}System Pre-requisites}{19}
-\contentsline {subsection}{\numberline {0.9.3}Algorithms}{20}
-\contentsline {subsection}{\numberline {0.9.4}Non-Probabilistic algorithms}{20}
-\contentsline {subsubsection}{User-based Nearest Neighbour Algorithms}{20}
-\contentsline {subsubsection}{Item-based Nearest Neighbour Algorithms}{20}
-\contentsline {subsubsection}{Dimensionality Reduction Algorithms}{21}
-\contentsline {subsection}{\numberline {0.9.5}Probabilistic Algorithms}{21}
-\contentsline {subsection}{\numberline {0.9.6}General concerns about all algorithms}{21}
-\contentsline {subsection}{\numberline {0.9.7}Acquiring Ratings- Design Decision}{21}
-\contentsline {subsection}{\numberline {0.9.8}Rating Scales }{22}
-\contentsline {subsection}{\numberline {0.9.9}Cold Start Issues}{22}
-\contentsline {subsubsection}{New User}{22}
-\contentsline {subsubsection}{New Item }{22}
-\contentsline {subsubsection}{New Community}{22}
-\contentsline {subsection}{\numberline {0.9.10}Challenges with Collaborative Filtering}{22}
+\contentsline {section}{\numberline {0.5}Collaborative Filtering Technology}{10}
+\contentsline {subsection}{\numberline {0.5.1}About}{10}
+\contentsline {subsection}{\numberline {0.5.2}System Pre-requisites}{10}
+\contentsline {subsection}{\numberline {0.5.3}Algorithms}{11}
+\contentsline {subsection}{\numberline {0.5.4}Non-Probabilistic algorithms}{11}
+\contentsline {subsubsection}{User-based Nearest Neighbour Algorithms}{11}
+\contentsline {subsubsection}{Item-based Nearest Neighbour Algorithms}{11}
+\contentsline {subsubsection}{Dimensionality Reduction Algorithms}{12}
+\contentsline {subsection}{\numberline {0.5.5}Probabilistic Algorithms}{12}
+\contentsline {subsection}{\numberline {0.5.6}General concerns about all algorithms}{12}
+\contentsline {subsection}{\numberline {0.5.7}Acquiring Ratings- Design Decision}{12}
+\contentsline {subsection}{\numberline {0.5.8}Rating Scales }{13}
+\contentsline {subsection}{\numberline {0.5.9}Cold Start Issues}{13}
+\contentsline {subsubsection}{New User}{13}
+\contentsline {subsubsection}{New Item }{13}
+\contentsline {subsubsection}{New Community}{13}
+\contentsline {subsection}{\numberline {0.5.10}Challenges with Collaborative Filtering}{13}
+\contentsline {section}{\numberline {0.6}Product Specification}{15}
+\contentsline {subsection}{\numberline {0.6.1}Minimum - v1}{15}
+\contentsline {subsection}{\numberline {0.6.2}Realistic Best - v2}{15}
+\contentsline {subsection}{\numberline {0.6.3}Ideal - v3}{16}
+\contentsline {section}{\numberline {0.7}Initial design of the proposed system and its user interface}{17}
+\contentsline {subsection}{\numberline {0.7.1}Version 1}{17}
+\contentsline {subsection}{\numberline {0.7.2}Version 2}{19}
+\contentsline {subsection}{\numberline {0.7.3}Version 3}{19}
+\contentsline {section}{\numberline {0.8}Implementation Options/Designs}{20}
+\contentsline {subsection}{\numberline {0.8.1}Summary of Project Description and Specification}{20}
+\contentsline {section}{\numberline {0.9}Implementation Decisions}{21}
+\contentsline {subsection}{\numberline {0.9.1}Decision Influences}{21}
+\contentsline {subsubsection}{Aims}{21}
+\contentsline {subsubsection}{Design Principles}{21}
+\contentsline {subsection}{\numberline {0.9.2}Decisions}{22}
+\contentsline {subsubsection}{The \texttt {recipes} App}{22}
+\contentsline {subsubsection}{URL Design}{22}
+\contentsline {subsubsection}{Model Design}{22}
+\contentsline {subsubsection}{View Design}{22}
+\contentsline {paragraph}{The \texttt {recipe\_list} View}{22}
+\contentsline {paragraph}{The \texttt {search} View}{22}
+\contentsline {subsubsection}{Template Design}{23}
 \contentsline {section}{\numberline {0.10}Implementation Results}{24}
-\contentsline {section}{\numberline {0.11}Appendices}{26}
-\contentsline {subsection}{\numberline {0.11.1}Timescale}{26}
-\contentsline {subsection}{\numberline {0.11.2}Meeting Minutes}{28}
-\contentsline {paragraph}{Minutes 14.09.2009}{28}
-\contentsline {paragraph}{Present}{28}
-\contentsline {paragraph}{Tasks completed}{28}
-\contentsline {paragraph}{Issues discussed}{28}
-\contentsline {paragraph}{To do}{29}
-\contentsline {paragraph}{Minutes 07.10.2009}{30}
+\contentsline {section}{\numberline {0.11}Problems encountered so far}{26}
+\contentsline {section}{\numberline {0.12}Conclusion}{27}
+\contentsline {section}{\numberline {0.13}Appendices}{28}
+\contentsline {subsection}{\numberline {0.13.1}Timescale}{28}
+\contentsline {subsection}{\numberline {0.13.2}Meeting Minutes}{30}
+\contentsline {paragraph}{Minutes 14.09.2009}{30}
 \contentsline {paragraph}{Present}{30}
+\contentsline {paragraph}{Tasks completed}{30}
 \contentsline {paragraph}{Issues discussed}{30}
-\contentsline {paragraph}{To do}{30}
-\contentsline {paragraph}{Minutes 09.10.2009}{31}
-\contentsline {paragraph}{Present}{31}
-\contentsline {paragraph}{Tasks Completed}{31}
-\contentsline {paragraph}{Issues discussed}{31}
 \contentsline {paragraph}{To do}{31}
-\contentsline {paragraph}{Minutes 21.10.2009}{32}
+\contentsline {paragraph}{Minutes 07.10.2009}{32}
 \contentsline {paragraph}{Present}{32}
-\contentsline {paragraph}{Apologies}{32}
 \contentsline {paragraph}{Issues discussed}{32}
 \contentsline {paragraph}{To do}{32}
-\contentsline {paragraph}{Minutes 11.11.2009}{33}
+\contentsline {paragraph}{Minutes 09.10.2009}{33}
 \contentsline {paragraph}{Present}{33}
-\contentsline {paragraph}{Tasks completed}{33}
+\contentsline {paragraph}{Tasks Completed}{33}
 \contentsline {paragraph}{Issues discussed}{33}
 \contentsline {paragraph}{To do}{33}
-\contentsline {paragraph}{Minutes 18.11.2009}{34}
+\contentsline {paragraph}{Minutes 21.10.2009}{34}
 \contentsline {paragraph}{Present}{34}
-\contentsline {paragraph}{Tasks completed}{34}
+\contentsline {paragraph}{Apologies}{34}
 \contentsline {paragraph}{Issues discussed}{34}
 \contentsline {paragraph}{To do}{34}
+\contentsline {paragraph}{Minutes 11.11.2009}{35}
+\contentsline {paragraph}{Present}{35}
+\contentsline {paragraph}{Tasks completed}{35}
+\contentsline {paragraph}{Issues discussed}{35}
+\contentsline {paragraph}{To do}{35}
+\contentsline {paragraph}{Minutes 18.11.2009}{36}
+\contentsline {paragraph}{Present}{36}
+\contentsline {paragraph}{Tasks completed}{36}
+\contentsline {paragraph}{Issues discussed}{36}
+\contentsline {paragraph}{To do}{36}
