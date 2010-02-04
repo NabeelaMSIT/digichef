@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+
+</head>
+
+<body>
+	
+<div id='main'>
+	
+<div id='header'></div>
+
+<div id='sidebar'>
+	<ul>
+		<li><a href='/'>Home</a></li>
+		<li><a href='/recipes/'>Recipes</a></li>
+</div>	
+
+
+
+<div id='recipeSection'>
+	
+	<h1>{{recipe.title}}</h1>
+	<h2>Ingredients:</h2>
+	
+	{% for ingredient in ingredient_list %}
+	<t> {{ ingredient }} </t>
+	{% endfor %}
+	
+	<h2>Instruction:</h2>
+	{{recipe.instructions|linebreaks}}
+			
+	<h2>Tags:</h2>
+	
+	{% for tag in recipe.tags %}
+	 {{tag.name}} |
+	{% endfor %}
+	
+</div>
+
+<div id='footer'> GRP DIGI CHEF :D </div>
+
+</div>
+
+</body>
+
+</html>
