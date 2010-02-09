@@ -7,7 +7,7 @@ class Recipe(models.Model):
 	"""The model for a recipe object"""
 	title = models.CharField(max_length=200)
 	ingredients = models.TextField()
-	instructions = models.TextField()
+	instructions = models.TextField(blank=True)
 	
 	def _get_tags(self):
 		"return all tags associated with this object (thus all ingredients in this recipe)"
