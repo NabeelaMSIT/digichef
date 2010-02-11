@@ -4,13 +4,14 @@ from BeautifulSoup import BeautifulSoup
 
 
 def ask_tk_if_food(tagstring):
-"""Ask TrueKnowledge if it thinks the string is a type of food.
+	"""Ask TrueKnowledge if it thinks the string is a type of food.
 
-Returns True or False
-This is quite prone to false negatives but has very few false positives.
-If it passes this, you can be pretty usre it's a valid ingredient"""
+	Returns True or False
+	This is quite prone to false negatives but has very few false positives.
+	If it passes this, you can be pretty usre it's a valid ingredient"""
 
-	url = "https://api.trueknowledge.com/query?query=query%%0A[%s][is a subclass of][food]&api_account_id=api_rmiles&api_password=r8dmh8worl5c9xue" % tagstring
+	query = "[%s][is a subclass of][food]" % tagstring
+	url = "https://api.trueknowledge.com/query?query=query%%0A%s&api_account_id=api_rmiles&api_password=r8dmh8worl5c9xue" % query
 
 	data = urlopen(url).read()
 	bs = BeautifulSoup(data)
