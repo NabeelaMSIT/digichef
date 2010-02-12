@@ -17,7 +17,9 @@ urlpatterns = patterns('django.views.generic.simple',
 	(r'^admin/(.*)', admin.site.root),
 
     (r'^$', 'redirect_to', {'url': '/search/'} ),
-    (r'^search/?$', recipes.views.search),
+    (r'^search/?$', recipes.views.stupid_search),
+    (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
+
 
     (r'^recipe/(?P<recipe_id>\d).*$', recipes.views.recipe_detail),
 
