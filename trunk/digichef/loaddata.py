@@ -52,26 +52,30 @@ def load_data():
 
 	#===============RECIPES======================
 
-	soup = BeautifulStoneSoup(open("recipes.xml", "r").read())
+	DUMPXML = False
 
-#	print soup
+	if DUMPXML:
 
-	for recipe in soup.findAll("recipe"):
-		try:
-			r = Recipe(
-				title = recipe.title.string,
-				ingredients = "\n".join([ing.string for ing in recipe.ingredients.findAll("ingredient")]),
-				instructions = recipe.instructions.string or ""
-				)
-			r.save()
-			print r
-		except:
-			print recipe
-#			print type(recipe)
-			raise
+		soup = BeautifulStoneSoup(open("recipes.xml", "r").read())
+
+	#	print soup
+
+		for recipe in soup.findAll("recipe"):
+			try:
+				r = Recipe(
+					title = recipe.title.string,
+					ingredients = "\n".join([ing.string for ing in recipe.ingredients.findAll("ingredient")]),
+					instructions = recipe.instructions.string or ""
+					)
+				r.save()
+				print r
+			except:
+				print recipe
+	#			print type(recipe)
+				raise
 
 
-	if False:
+	else:
 	
 		r = Recipe(
 		title='Blueberry Peach Muffins',

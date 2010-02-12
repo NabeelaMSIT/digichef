@@ -3,9 +3,11 @@ from models import Recipe
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
 from digichef.tagging.models import Tag, TaggedItem
+from digichef.recommender.managers import RecommenderManager
 
 
-def search(request):
+
+def stupid_search(request):
 	"""Search page"""
 	if request.GET.get('submitted', ''):#if this a form submit;-
 		#load the results of the select boxes into variable
@@ -28,6 +30,31 @@ def search(request):
 		return render_to_response('index.html', {'ingredients':all_ingreds})
 
 
+def collab_search(request, search_string):
+	search_terms = [str(item.strip(',')) for item in search_string.split()]
+	man = RecommenderManager()
+	ideal_recipe = Recipe(title="DUMMY_RECIPE")
+	ideal_recipe.save()
+	ideal_recipe.tags = " ".join(search_terms)
+#	print ideal_recipe.tags
+	"""
+	tag_matrix={}
+	for rec in Recipe.objects.all():
+		tag_matrix[rec]  = rec.tags
+	"""
+	"""
+	tag_matrix={}
+	tag_matrix['it1']=['egg','milk','cheese']
+	tag_matrix['it2']=['spam','cheese']
+	tag_matrix['it3']=['bananas','sugar','monkey_brains','hair_of_dog']
+	"""
+
+	results = man.get_content_based_recs(ideal_recipe,Recipe.objects.exclude(title="DUMMY_RECIPE"),0)
+	Recipe.objects.filter(title="DUMMY_RECIPE").delete()
+
+	results.sort()
+	results.reverse()
+	assert False, results
 
 def recipes_all(request):
 	"""View all recipes"""

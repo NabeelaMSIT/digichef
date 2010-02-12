@@ -93,11 +93,11 @@ class RecommenderManager(models.Manager):
             item_tag_matrix[item] = Tag.objects.get_for_object(item)
         
         user_tags = Tag.objects.get_for_object(user)
-        
+
         recs = []
         for item,item_tags in item_tag_matrix.items():
             sim = utils.tanamoto2(item_tags, user_tags)
-            if sim>=min_value:
+            if sim>min_value:
                 recs.append((sim, item))
                 
         return recs
