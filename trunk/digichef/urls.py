@@ -21,7 +21,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
 
 
-    (r'^recipe/(?P<recipe_id>\d).*$', recipes.views.recipe_detail),
+    (r'^recipe/(?P<recipe_id>\d+).*$', recipes.views.recipe_detail),
 
     (r'^recipes/?$', recipes.views.recipes_all),
 )

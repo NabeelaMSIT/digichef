@@ -33,33 +33,23 @@ def stupid_search(request):
 def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in search_string.split()]
 	man = RecommenderManager()
-	ideal_recipe = Recipe(title="DUMMY_RECIPE")
-	ideal_recipe.save()
-	ideal_recipe.tags = " ".join(search_terms)
-#	print ideal_recipe.tags
-	"""
-	tag_matrix={}
-	for rec in Recipe.objects.all():
-		tag_matrix[rec]  = rec.tags
-	"""
-	"""
-	tag_matrix={}
-	tag_matrix['it1']=['egg','milk','cheese']
-	tag_matrix['it2']=['spam','cheese']
-	tag_matrix['it3']=['bananas','sugar','monkey_brains','hair_of_dog']
-	"""
 
-	results = man.get_content_based_recs(ideal_recipe,Recipe.objects.exclude(title="DUMMY_RECIPE"),0)
-	Recipe.objects.filter(title="DUMMY_RECIPE").delete()
+#	results = man.get_content_based_recs(ideal_recipe,Recipe.objects.exclude(title="DUMMY_RECIPE"),0)
+	results = man.get_by_relevance_to_tags(search_terms,Recipe.objects.all(),0)
 
 	results.sort()
 	results.reverse()
+
+	return recipe_list(request, [listing[1] for listing in results])
+
 	assert False, results
 
+
 def recipes_all(request):
-	"""View all recipes"""
-	recipeSet = Recipe.objects.all().order_by('title')
-	return recipe_list(request, recipeSet)
+        """View all recipes"""
+        recipeSet = Recipe.objects.all().order_by('title')
+        return recipe_list(request, recipeSet)
+
 
 def recipe_list(request, queryset):
 	"""View of a list of recipes"""
