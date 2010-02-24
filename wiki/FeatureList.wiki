@@ -1,0 +1,7 @@
+#summary A list of features we want to implement, in rough order of priority
+
+= Feature =
+
+  * Photos
+  * Default Photos based on tags
+  * 
