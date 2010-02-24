@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 
 from BeautifulSoup import BeautifulStoneSoup
 
+from digichef.util import isfood
 
 def load_data():
 
@@ -52,7 +53,7 @@ def load_data():
 
 	#===============RECIPES======================
 
-	DUMPXML = False
+	DUMPXML = True
 
 	if DUMPXML:
 
@@ -62,13 +63,16 @@ def load_data():
 
 		for recipe in soup.findAll("recipe"):
 			try:
+				ings = [ing.string for ing in recipe.ingredients.findAll("ingredient")]
 				r = Recipe(
 					title = recipe.title.string,
-					ingredients = "\n".join([ing.string for ing in recipe.ingredients.findAll("ingredient")]),
+					ingredients = "\n".join(ings),
 					instructions = recipe.instructions.string or ""
 					)
 				r.save()
-				print r
+				words = reduce(lambda x,y: x+y, [ing.split() for ing in ings])
+				r.tags = " ".join([word for word in words if isfood(word)])
+				print r, r.tags
 			except:
 				print recipe
 	#			print type(recipe)

@@ -102,6 +102,32 @@ class RecommenderManager(models.Manager):
                 
         return recs
 
+
+    def get_by_relevance_to_tags(self, search_tags, tagged_items, min_value=MIN_CONTENT_BASED_RECOMMENDATION_VALUE):
+        ''' For a given user tags and a dicc of item tags, returns the distances between the user and the items
+            >>> eng=RecommenderManager()
+            >>> user_tags=['a','b','c','d']
+            >>> tag_matrix={}
+            >>> tag_matrix['it1']=['z','a','c']
+            >>> tag_matrix['it2']=['b','c']
+            >>> tag_matrix['it3']=['a','r','t','v']
+            >>> eng.get_content_based_recs(user_tags,tag_matrix)
+            [(7.5, 'it1'), (10.0, 'it2'), (5.0, 'it3')]
+        '''
+
+        item_tag_matrix = {}
+        for item in tagged_items:
+            item_tag_matrix[item] = Tag.objects.get_for_object(item)
+        
+        recs = []
+        for item,item_tags in item_tag_matrix.items():
+            sim = utils.tanamoto2([str(tg) for tg in item_tags], [str(tg) for tg in search_tags])
+            if sim>min_value:
+                recs.append((sim, item))
+                
+        return recs
+    
+       
 # Clustering methods
     def cluster_users(self, users, items, cluster_count=2):
         user_item_matrix = self.create_matrix(users, items)
