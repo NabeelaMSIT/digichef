@@ -34,15 +34,12 @@ def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in search_string.split()]
 	man = RecommenderManager()
 
-#	results = man.get_content_based_recs(ideal_recipe,Recipe.objects.exclude(title="DUMMY_RECIPE"),0)
 	results = man.get_by_relevance_to_tags(search_terms,Recipe.objects.all(),0)
 
 	results.sort()
 	results.reverse()
 
 	return recipe_list(request, [listing[1] for listing in results])
-
-	assert False, results
 
 
 def recipes_all(request):
