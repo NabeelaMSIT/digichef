@@ -1,0 +1,252 @@
+body {
+	
+	
+}
+
+
+
+h1 {
+	font-family: Apple Chancery;
+	font-size: 20px;
+	font-color: FF6666;
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Apple Chancery;
+	font-size: 20px;
+	font-color: FF6666;
+	text-decoration: none;
+}
+
+
+#main{
+	text-align:left;
+	margin:20px 100px auto 100px;
+	background-color: #ffffcc;
+	color: #000000;
+	
+}
+
+#java {
+	position:absolute;
+	top:175px;
+}
+
+#mainSection{
+	
+	text-align: left;
+	min-height:500px;
+	margin-left:10px;
+	padding: 5px 10px 15px 10px;
+	
+}
+
+#header{
+	
+	background-color:#ffcc99;
+	width:auto;
+	height: 100px;
+	clear:both;
+	background-position:top top;
+	background-repeat:none;
+	text-align: center;
+	margin:0;
+	padding:0;
+		
+}
+
+#UserDay {
+	
+	
+	position:absolute;
+	top: 175px;
+	right:350px;
+	width: 210px;
+	background-color:#98bf21;
+	font-family:Consolas;
+	font-size:12px;
+	
+}
+
+
+#address {
+	position:absolute;
+	top: 175px;
+	right:350px;
+	width: 270px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;	
+}
+
+#search {
+	
+	
+	position:absolute;
+	top: 358px;
+	right:350px;
+	width: 210px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+	
+}
+
+#advert{
+	position: absolute;
+	top: 290px;
+	right:118px;
+}
+
+#signIn{
+		
+	float: right;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+}
+
+.input {
+	
+	border: 1px solid #006;
+	background: #ffc;
+	font-family: Consolas;
+	
+}
+
+.button {
+	border:none;
+	background: url('submit.png') no-repeat;
+	font-family: Consolas;
+}
+
+.button:hover{
+	border:none;
+	background: url('submitH.png') no-repeat;
+	font-family: Consolas;
+	
+}
+
+#menu {
+	
+	background-color: #98bf21;
+	width:auto;
+	height: 50px;
+	clear:both;
+	background-position:top top;
+	background-repeat:none;
+	text-align: center;
+	margin:0;
+	padding:0;
+	
+}
+
+#menu ul{
+	
+		list-style-type:none;
+		margin:0;
+		padding:0;
+		padding-top: 6px;
+		padding-bottom: 6px;
+}
+
+#menu a:link, a:visited{
+	font-weight:bold;
+	color: #FFFFFF;
+	background-color: #98bf21;
+	text-align: center;
+	padding: 6px;
+	text-decoration: none;
+	display:block;
+	width:140px;
+	font-family: Consolas;
+}
+
+#menu a:hover, a:active {
+	background-color: #7A991A;
+}
+
+#menu li{
+	display:inline;
+	float:left;
+}
+
+#textField{
+	
+	position: absolute;
+	top: 540px;
+	right: 350px;
+	width: 675px;
+	background-color:#FF6600;
+	font-family: Consolas;
+	
+}
+
+#form{
+	
+}
+
+
+#form form {
+	font-family:Consolas;
+	font-size:small;
+	margin:0;
+	padding:0;
+	min-width: 500px;
+	max-width: 600px;
+	width:500px;
+}
+
+#form form fieldset {
+	
+	border-color: #FF6600;
+	border-width: 1px;
+	border-style: solid;
+	padding:10px;
+	margin: 0;
+}
+
+#form form label {
+	display: block;
+	float: left;
+	width: 150px;
+	padding:0;
+	margin: 5px 0 0;
+	text-align:right;
+}
+
+
+#form form input form textarea {
+	width: auto;
+	margin: 5px 0 0 10px;
+}
+
+
+#form form input#submit, form input#Reset {
+	float:none;
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+#form textarea { overflow:auto; }
+
+#form form small {
+	display: block;
+	margin: 0 0 5px 160px;
+	padding: 1px 3px;
+	font-size: 88%;
+	
+}
+
+#form form .required{font-weight:bold;}
+
+#form form br{
+	clear:left;
+}
+
+
+#footer{
+	
+}
