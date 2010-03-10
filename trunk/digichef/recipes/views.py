@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
 from digichef.tagging.models import Tag, TaggedItem
 from digichef.recommender.managers import RecommenderManager
-
+from django.template import RequestContext
 
 
 def stupid_search(request):
@@ -27,8 +27,13 @@ def stupid_search(request):
 
 	else:#it's not a form submit, show the empty form
 		all_ingreds = Tag.objects.all() #the select boxes need to know what ingreds there are
-		return render_to_response('index.html', {'ingredients':all_ingreds})
+		return render_to_response('index.html', {'ingredients':all_ingreds}, RequestContext(request))
 
+def api_collab_search(request):
+	if request.method == "POST":
+		q = request.POST.get('q', None)
+		if q is not None:
+			return collab_search(request, q)
 
 def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in search_string.split()]

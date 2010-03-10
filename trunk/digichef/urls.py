@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 import recipes.views
+import views
 import settings
 
 
@@ -24,9 +25,10 @@ urlpatterns = patterns(
 
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'show_indexes': True}), 
 
-    (r'^$', redirect_to, {'url': '/search/'} ),
+    url(r'^$', views.homepage, name="homepage" ),
     (r'^search/?$', recipes.views.stupid_search),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
+    url(r'^api/search$', recipes.views.api_collab_search, name="api_collab_search"),
 
 #	(r'^accounts/', include('registration.backends.default.urls')),
 	(r'^accounts/', include('registration.urls')),
