@@ -10,8 +10,6 @@ from digichef.tagging.models import *
 
 from django.contrib.auth.models import User
 
-from BeautifulSoup import BeautifulStoneSoup
-
 from digichef.util import isfood
 
 def load_data():
@@ -56,6 +54,8 @@ def load_data():
 	DUMPXML = True
 
 	if DUMPXML:
+
+		from BeautifulSoup import BeautifulStoneSoup
 
 		soup = BeautifulStoneSoup(open("recipes.xml", "r").read())
 
