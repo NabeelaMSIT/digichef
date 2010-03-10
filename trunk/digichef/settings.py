@@ -82,6 +82,8 @@ INSTALLED_APPS = (
 	'digichef.voting',
 	'digichef.recommender',
 	'digichef.profiles',
+#	'digichef.registration',
+	'registration',
 	'django.contrib.admin',
 )
 
