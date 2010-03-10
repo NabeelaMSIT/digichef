@@ -49,6 +49,7 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
+PATH = os.path.abspath(os.path.dirname(__file__))
 STATIC_DOC_ROOT = os.path.join(PATH, 'media')
 
 # Make this unique, and don't share it with anybody.
