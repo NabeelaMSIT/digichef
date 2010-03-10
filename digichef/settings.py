@@ -47,6 +47,8 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
+STATIC_DOC_ROOT = os.path.join(PATH, 'media')
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '0rcz&=p$&puj=lgx$#9yk9sy_&5-*3pjba0!tsbjc&y@b&p8gp'
 
