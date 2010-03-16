@@ -20,7 +20,7 @@
 		<div id='header'><img src="/media/img/logo.bmp" /></div>
 		<div id='menu'>
 			<ul>
-				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="{% url home %}"" class="current">Home</a></li>
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">About Us</a></li>
@@ -35,12 +35,12 @@
 					<form method="post" action="{% url django.contrib.auth.views.login %}">
 					<table>
 					<tr>
-						<td>{{ form.username.label_tag }}</td>
-						<td>{{ form.username }}</td>
+						<td>{{ loginform.username.label_tag }}</td>
+						<td>{{ loginform.username }}</td>
 					</tr>
 					<tr>
-						<td>{{ form.password.label_tag }}</td>
-						<td>{{ form.password }}</td>
+						<td>{{ loginform.password.label_tag }}</td>
+						<td>{{ loginform.password }}</td>
 					</tr>
 					</table>
 

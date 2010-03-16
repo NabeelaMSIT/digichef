@@ -1,6 +1,8 @@
+#main urls.py
+
 from django.conf.urls.defaults import *
 import recipes.views
-import views
+import core
 import settings
 
 
@@ -25,7 +27,7 @@ urlpatterns = patterns(
 
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'show_indexes': True}), 
 
-    url(r'^$', views.homepage, name="homepage" ),
+    url(r'^$', 'core.views.home', name="home" ),
     (r'^search/?$', recipes.views.stupid_search),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
     url(r'^api/search$', recipes.views.api_collab_search, name="api_collab_search"),
