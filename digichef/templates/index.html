@@ -20,12 +20,12 @@
 		<div id='header'><img src="/media/img/logo.bmp" /></div>
 		<div id='menu'>
 			<ul>
-				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="{% url home %}" class="current">Home</a></li>
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="contact.html">Contact Us</a></li>
-				<li><a href="/accounts/login">Sign up/Log in</a></li>								
+				<li><a href="{% url auth_login %}">Sign up/Log in</a></li>								
 			</ul>
 			</div>
 		<div id='mainSection'>
