@@ -8,6 +8,7 @@ from digichef.tagging.models import Tag, TaggedItem
 from digichef.recommender.managers import RecommenderManager
 from django.template import RequestContext
 
+import re
 
 def stupid_search(request):
 	"""Search page"""
@@ -36,9 +37,11 @@ def api_collab_search(request):
 		q = request.POST.get('q', None)
 		if q is not None:
 			return collab_search(request, q)
+		else:
+			assert False, request.POST
 
 def collab_search(request, search_string):
-	search_terms = [str(item.strip(',')) for item in search_string.split()]
+	search_terms = [str(item.strip(',')) for item in re.split(r"[,; \t]*", search_string) if item]
 	man = RecommenderManager()
 
 	results = man.get_by_relevance_to_tags(search_terms,Recipe.objects.all(),0)
