@@ -20,12 +20,12 @@
 		<div id='header'><img src="/media/img/logo.bmp" /></div>
 		<div id='menu'>
 			<ul>
-				<li><a href="{% url home %}"" class="current">Home</a></li>
+				<li><a href="{% url home %}" class="current">Home</a></li>
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="contact.html">Contact Us</a></li>
-				<li><a href="/accounts/login">Sign up/Log in</a></li>								
+				<li><a href="{% url auth_login %}">Sign up/Log in</a></li>								
 			</ul>
 			</div>
 		<div id='mainSection'>
@@ -66,16 +66,58 @@
 				</div>
 				
 				<div id='search'>
+		<script type="text/javascript" charset="utf-8">		
+			window.addEvent('load', function(){
+			
+				// Standard initialization
+				/*var t = new TextboxList('form_tags_input', {  });
+				t.add('Tag 1').add('Tag 2').add('Tag 3');
+				
+				// With custom adding keys 
+				var t2 = new TextboxList('form_tags_input_2', {bitsOptions:{editable:{addKeys: 188}}});
+				t2.add('Tag 1').add('Tag 2');
+				*/
+				// Autocomplete initialization
+				var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
+//				t4.add('John Doe').add('Jane Roe');
+				
+				// sample data loading with json, but can be jsonp, local, etc. 
+				// the only requirement is that you call setValues with an array of this format:
+				// [
+				//	[id, bit_plaintext (on which search is performed), bit_html (optional, otherwise plain_text is used), autocomplete_html (html for the item displayed in the autocomplete suggestions dropdown)]
+				// ]
+				// read autocomplete.php for a JSON response exmaple
+				t4.container.addClass('textboxlist-loading');				
+				new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
+					t4.plugins['autocomplete'].setValues(r);
+					t4.container.removeClass('textboxlist-loading');
+				}}).send();				
+				
+				// Autocomplete with poll the server as you type
+				/*var t5 = new TextboxList('form_tags_input_4', {unique: true, plugins: {autocomplete: {
+					minLength: 3,
+					queryRemote: true,
+					remote: {url: 'autocomplete2.php'}
+				}}});
+				t5.add('John Doe').add('Jane Roe');
+				*/
+			});
+		</script>
+
 					Input the ingredients you wish to search for: <br/><br/><br/><br/><br/><br/><br/>
 					<i><small>For example: flour, butter, sugar. </small></i>
 					
 				
-					
-					<div id='searchwrapper'><form method="POST" action="{%url api_collab_search%}">
-						<input type="text" class="searchbox" name="q" value="" />
-						<input type="image" src="/media/img/blank.jpg" class="searchbox_submit" value="" />
+					<div id='searchwrapper'>
+						<form action="{%url api_collab_search%}" method="post" accept-charset="utf-8" method="POST">
+							<div class="form_friends">
+								<input type="text" name="q" value="" id="form_tags_input_3" />
+							</div>
+							<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate/remove boxes, and up/down/enter to navigate/add suggestions.</p>	
+							<p><input type="submit" value="Search" id="submitform" /></p>
+
 						</form>
-						</div>
+
 				</div>
 				
 		<div id='java'>

@@ -1,3 +1,5 @@
+#core views
+
 from digichef.tagging.models import Tag, TaggedItem
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render_to_response, get_object_or_404
