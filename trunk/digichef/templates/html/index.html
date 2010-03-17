@@ -36,15 +36,15 @@
 		<!-- sample initialization -->
 		<script type="text/javascript" charset="utf-8">		
 			window.addEvent('load', function(){
-			/*
+			
 				// Standard initialization
-				var t = new TextboxList('form_tags_input', {  });
+				/*var t = new TextboxList('form_tags_input', {  });
 				t.add('Tag 1').add('Tag 2').add('Tag 3');
 				
 				// With custom adding keys 
 				var t2 = new TextboxList('form_tags_input_2', {bitsOptions:{editable:{addKeys: 188}}});
 				t2.add('Tag 1').add('Tag 2');
-				
+				*/
 				// Autocomplete initialization
 				var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
 				t4.add('John Doe').add('Jane Roe');
@@ -60,15 +60,15 @@
 					t4.plugins['autocomplete'].setValues(r);
 					t4.container.removeClass('textboxlist-loading');
 				}}).send();				
-				*/
+				
 				// Autocomplete with poll the server as you type
-				var t5 = new TextboxList('form_tags_input_4', {unique: true, plugins: {autocomplete: {
+				/*var t5 = new TextboxList('form_tags_input_4', {unique: true, plugins: {autocomplete: {
 					minLength: 3,
 					queryRemote: true,
 					remote: {url: 'autocomplete2.php'}
 				}}});
 				t5.add('John Doe').add('Jane Roe');
-				
+				*/
 			});
 		</script>
 		
@@ -216,21 +216,22 @@
 		<p>Enter tags (with commas)</p>
 		<div class="form_tags"><input type="text" name="test2" value="" id="form_tags_input_2" /></div>
 		<p class="note">Type the tag (one or more words) and press comma (,). Use left/right arrows, backspace, delete to navigate</p>
-		
+		-->
 		<h2>TextboxList.Autocomplete (values seeded all at once)</h2>
 		<p>Select friends to email</p>
 		<div class="form_friends">
 			<input type="text" name="test3" value="" id="form_tags_input_3" />
 		</div>
 		<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate/remove boxes, and up/down/enter to navigate/add suggestions.</p>
-		-->
+		
+		<!--
 		<h2>TextboxList.Autocomplete (values seeded on demand)</h2>
 		<p>Select friends to email</p>
 		<div class="form_friends">
 			<input type="text" name="test4" value="" id="form_tags_input_4" />
 		</div>
 		<p class="note">Type the tag (one or more words) and press enter. Use left/right arrows, backspace, delete to navigate/remove boxes, and up/down/enter to navigate/add suggestions.</p>
-				
+		-->		
 		<h1>Test submit</h1>
 		<p><input type="submit" value="Submit" id="submitform" /></p>
 		
