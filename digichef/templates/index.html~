@@ -4,20 +4,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 	<head>
-		<link rel=stylesheet HREF="/media/css/style.css" TYPE="text/css">
+		<title>DigiChef</title>
+		<link rel=stylesheet HREF="/media/css/style.css" type="text/css"/>
 		<link rel="stylesheet" href="/media/css/jd.gallery.css" type="text/css" media="screen" charset="utf-8" />
-		<link href="/media/css/search.css" rel="stylesheet" media="all" />
+		<link href="/media/css/search.css" rel="stylesheet" type="text/css" media="all" />
 		<script src="/media/scripts/mootools-1.2.1-core-yc.js" 	type="text/javascript"></script>
 		<script src="/media/scripts/mootools-1.2-more.js" type="text/javascript"></script>
 		<script src="/media/scripts/History.js" type="text/javascript"></script>
 		<script src="/media/scripts/History.Routing.js" type="text/javascript"></script>
 		<script src="/media/scripts/jd.gallery.js" type="text/javascript"></script>	
+
+		<!-- required stylesheet for TextboxList.Autocomplete -->
+		<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+
 	</head>	
 	
 	<body>
 		
 	<div id='main'>
-		<div id='header'><img src="/media/img/logo.bmp" /></div>
+		<div id='header'><img src="/media/img/logo.bmp" alt="header"/></div>
 		<div id='menu'>
 			<ul>
 				<li><a href="{% url home %}" class="current">Home</a></li>
@@ -33,7 +39,7 @@
 				
 				<div id='signIn'>
 					<form method="post" action="{% url django.contrib.auth.views.login %}">
-					<table>
+					<table summary="login form">
 					<tr>
 						<td>{{ loginform.username.label_tag }}</td>
 						<td>{{ loginform.username }}</td>
@@ -50,7 +56,7 @@
 				</div>
 				
 				<div id='advert'>
-					<img src="/media/img/mcd.jpg">
+					<img src="/media/img/mcd.jpg" alt="advertisement"/>
 				</div>
 				
 				<div id='UserDay'>
@@ -60,12 +66,26 @@
 				<br/><br/>
 				<b><big>About: </big></b> <br/><br/>
 				Cookings my favourite hobby. It's a pity I'm not very good at it! 
-				<br/><br/></br>
-				<b><big>Profile:</big></b></br></br>
+				<br/><br/><br/>
+				<b><big>Profile:</big></b><br/><br/>
 				www.google.co.uk
 				</div>
 				
 				<div id='search'>
+
+
+		
+			
+
+		<!-- required for TextboxList -->
+		<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+				
+		<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+		<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>		
+		
+
 		<script type="text/javascript" charset="utf-8">		
 			window.addEvent('load', function(){
 			
@@ -109,7 +129,7 @@
 					
 				
 					<div id='searchwrapper'>
-						<form action="{%url api_collab_search%}" method="post" accept-charset="utf-8" method="POST">
+						<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
 							<div class="form_friends">
 								<input type="text" name="q" value="" id="form_tags_input_3" />
 							</div>
@@ -162,14 +182,14 @@
 </div>
 	
 	<div id='textField'>
-	<small><p>Hello {{user|capfirst}}!</p>
-			<p>Welcome to digichef. We hope you can find the recipe you are looking for :-)</p></small>
+		<p>Hello {{user|capfirst}}!</p>
+		<p>Welcome to digichef. We hope you can find the recipe you are looking for :-)</p>
 	</div>
 
 			
 		</div>
 		
-
+	</div>
 		
 		
 		
