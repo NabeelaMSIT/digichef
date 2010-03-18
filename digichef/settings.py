@@ -92,6 +92,7 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 )
 
+AUTH_PROFILE_MODULE='profiles.Profile'
 
 #try to override settings wil local ones to make the server run on different machines
 try:
