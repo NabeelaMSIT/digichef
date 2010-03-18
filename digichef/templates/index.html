@@ -5,90 +5,38 @@
 <head>
 	<meta name="generator" content=
 	"HTML Tidy for Linux/x86 (vers 7 December 2008), see www.w3.org" />
+	
+	<link href="/media/css/newstyle.css" rel="stylesheet" media="all" />
+		<!--barrack slideshow -->
+		 <link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+		<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
+    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
+	
+	
+	<!--autocomplete search -->
+	
+	<!-- required stylesheet for TextboxList -->
+		<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+		<!-- required stylesheet for TextboxList.Autocomplete -->
+		<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+		
+			
 
-	<title>DigiChef</title>
-	<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
-	<link rel="stylesheet" href="/media/css/jd.gallery.css" type="text/css" media="screen" charset="utf-8" />
-	<link href="/media/css/search.css" rel="stylesheet" type="text/css" media="all" />
-	<script src="/media/scripts/mootools-1.2.1-core-yc.js" type= "text/javascript"> </script>
-	<script src="/media/scripts/mootools-1.2-more.js" type= "text/javascript"> </script>
-	<script src="/media/scripts/History.js" type="text/javascript"> </script>
-	<script src="/media/scripts/History.Routing.js" type= "text/javascript"> </script>
-	<script src="/media/scripts/jd.gallery.js" type= "text/javascript">
-</script><!-- required stylesheet for TextboxList.Autocomplete -->
-	<link rel="stylesheet" href="/media/css/TextboxList.css" type= "text/css" media="screen" charset="utf-8" />
-	<link rel="stylesheet" href= "/media/css/TextboxList.Autocomplete.css" type="text/css" media= "screen" charset="utf-8" />
-</head>
-
-<body>
-	<div id='main'>
-		<div id='header'><img src="/media/img/logo.bmp" alt= "header" /></div>
-
-		<div id='menu'>
-			<ul>
-				<li><a href="{% url home %}" class= "current">Home</a></li>
-
-				<li><a href="#">Categories</a></li>
-
-				<li><a href="#">Profile</a></li>
-
-				<li><a href="#">About Us</a></li>
-
-				<li><a href="contact.html">Contact Us</a></li>
-
-				<li><a href="{% url auth_login %}">Sign up/Log in</a></li>
-			</ul>
-		</div>
-
-		<div id='mainSection'>
-			<div id='signIn'>
-				<form method="post" action= "{% url django.contrib.auth.views.login %}">
-					<table summary="login form">
-						<tr>
-							<td>{{ loginform.username.label_tag }}</td>
-
-							<td>{{ loginform.username }}</td>
-						</tr>
-
-						<tr>
-							<td>{{ loginform.password.label_tag }}</td>
-
-							<td>{{ loginform.password }}</td>
-						</tr>
-					</table><input type="submit" value="login" />
-					<input type="hidden" name="next" value="{{ next }}" />
-				</form>
-			</div>
-
-			<div id='advert'><img src="/media/img/mcd.jpg" alt=
-			"advertisement" /></div>
-
-			<div id='UserDay'>
-				<b><big>User of the week:</big></b><br />
-				<br />
-				Scarlett Johansson<br />
-				<br />
-				<br />
-				<b><big>About:</big></b><br />
-				<br />
-				Cookings my favourite hobby. It's a pity I'm not very good
-				at it!<br />
-				<br />
-				<br />
-				<b><big>Profile:</big></b><br />
-				<br />
-				www.google.co.uk
-			</div>
-
-			<div id='search'>
-				<!-- required for TextboxList -->
-				<script src="/media/scripts/GrowingInput.js" type= "text/javascript" charset="utf-8"> </script>
-		<script src="/media/scripts/TextboxList.js" type= "text/javascript" charset="utf-8"> </script>
-		<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"> </script>
-
-<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
-				 <script src= "/media/scripts/TextboxList.Autocomplete.Binary.js" type= "text/javascript" charset="utf-8"> </script> 
-		 <script type="text/javascript" charset="utf-8">
+		<!-- required for TextboxList -->
+		<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+				
+		<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+		<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>		
+		
+		<!-- sample initialization -->
+		<script type="text/javascript" charset="utf-8">
 //<![CDATA[
 				 
 					window.addEvent('load', function(){
@@ -106,14 +54,150 @@
 									
 					});
 				//]]>
-				</script> Input the ingredients you wish to search
-				for:<br />
+				</script> 
+		
+		<!-- sample style -->
+		<style type="text/css" media="screen">
+			.form_tags { margin-bottom: 10px; }
+			
+			/* Setting widget width example */
+			.textboxlist { width: 400px; }
+			
+			/* Preloader for autocomplete */
+			.textboxlist-loading { background: url('images/spinner.gif') no-repeat 380px center; }
+			
+			/* Autocomplete results styling */
+			.form_friends .textboxlist-autocomplete-result { overflow: hidden; zoom: 1; }
+			.form_friends .textboxlist-autocomplete-result img { float: left; padding-right: 10px; }
+			
+			.note { color: #666; font-size: 90%; }
+			#footer { margin: 50px; text-align: center; }
+		</style>
+	
+	
+	
+	
+	
+	
+</head>
+
+<body>
+	
+	
+	<div id="main">
+	<div class="orange">
+	<div id="waxcontainer">
+	<div id="waxnav">
+	<ul>
+	<li><a href="" title="" class="current"><span>Home</span></a></li>
+	<li><a href="" title=""><span>About Us</span></a></li>
+	<li><a href="" title=""><span>Services</span></a></li>
+	<li><a href="" title=""><span>Our Work</span></a></li>
+	<li><a href="" title=""><span>Contact Us</span></a></li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	
+		<div><img src="/media/img/logo.bmp" alt= "header" /></div>
+
+					<div id="signIn">
+				<form method="post" action= "{% url django.contrib.auth.views.login %}">
+					<table summary="login form">
+						<tr>
+							<td>{{ loginform.username.label_tag }}</td>
+
+							<td>{{ loginform.username }}</td>
+						</tr>
+
+						<tr>
+							<td>{{ loginform.password.label_tag }}</td>
+
+							<td>{{ loginform.password }}</td>
+						</tr>
+					</table><input type="submit" value="login" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+			</div>
+			
+<!--
+			<div>
+				<b><big>User of the week:</big></b><br />
+				<br />
+				Scarlett Johansson<br />
 				<br />
 				<br />
+				<b><big>About:</big></b><br />
+				<br />
+				Cookings my favourite hobby. It's a pity I'm not very good
+				at it!<br />
 				<br />
 				<br />
+				<b><big>Profile:</big></b><br />
 				<br />
-				<br />
+				www.google.co.uk
+			</div>
+-->
+<div id="welcomeTxt">
+				<p>Hello {{user|capfirst}}! Welcome to digichef!</p>
+				<p>Check out some the featured dishes below, or search for a suitable recipe by ingredients!</p>
+				</div>
+<br>
+<div id="advert"><img src="/media/img/mcd.jpg" alt=
+			"advertisement" /></div>
+			
+				
+			<!---JAVASCRIPT SLIDESHOW-->
+					<div id="slideshow">   
+				
+      <span id="loading">Loading</span>
+    
+      <ul id="pictures">
+        <li><img src="/media/img/cities/melbourne.jpg" alt="Melbourne" title="Melbourne" /></li>
+        <li><img src="/media/img/cities/buenos_aires.jpg" alt="Buenos Aires" title="Buenos Aires" /></li>
+        <li><img src="/media/img/cities/urubamba.jpg" alt="Urubamba" title="Urubamba" /></li>
+        <li><img src="/media/img/cities/london.jpg" alt="London" title="London" /></li>
+        <li><img src="/media/img/cities/venice.jpg" alt="Venice" title="Venice" /></li>
+        <li><img src="/media/img/cities/paris.jpg" alt="Paris" title="Paris" /></li>
+        <li><img src="/media/img/cities/osaka.jpg" alt="Osaka" title="Osaka" /></li>        
+      </ul>
+      
+      <ul id="menu">
+        <li><a href="/media/img/cities/melbourne.jpg">Melbourne</a></li>
+        <li><a href="/media/img/cities/buenos_aires.jpg">Buenos Aires</a></li>
+        <li><a href="/media/img/cities/urubamba.jpg">Urubamba</a></li>
+        <li><a href="/media/img/cities/london.jpg">London</a></li>
+        <li><a href="/media/img/cities/venice.jpg">Venice</a></li>
+        <li><a href="/media/img/cities/paris.jpg">Paris</a></li>
+        <li><a href="/media/img/cities/osaka.jpg">Osaka</a></li>
+      </ul>
+    </div>
+		<div id="slideshow-options">
+      
+      <!-- <h3><label for="option-auto">Auto</label> <input type="checkbox" name="auto" checked="checked" id="option-auto" /></h3> -->
+    
+      <p name="auto" id="option-auto" />
+		 </div>
+					<!--END OF JAVASCRIPT SLIDESHOW-->
+				
+						<div id="profile">
+				
+				
+				<img src="/media/img/user.jpg"/>
+				<p>User of the week:<br/>Scarlett Johansson.<br/>
+				About:<br/>Cookings my favourite hobby.</p>
+							
+				
+			</div>
+						
+						
+						
+					
+					<!--SEARCHBOX-->
+<!-- required for TextboxList.Autocomplete if method set to 'binary' -->
+
+				<p>Input the ingredients you wish to search
+				for:</p>
 				<i><small>For example: flour, butter, sugar.</small></i>
 
 				<div id='searchwrapper'>
@@ -122,68 +206,18 @@
 							<input type="text" name="q" value="" id= "form_tags_input_3" />
 						</div>
 
-						<p class="note">Type the tag (one or more words) and
-						press enter. Use left/right arrows, backspace, delete
-						to navigate/remove boxes, and up/down/enter to
-						navigate/add suggestions.</p>
 
 						<p><input type="submit" value="Search" id= "submitform" /></p>
 					</form>
 				</div>
-
-				<div id='java'>
-					<!---JAVASCRIPT SLIDESHOW-->
-					<script type="text/javascript">
-					//<![CDATA[
-						function startGallery() {
-										History.start();
-										var myGallery = new gallery($('myGallery'), {
-														timed: true,
-														useHistoryManager: true
-										});
-						}
-						window.addEvent('domready', startGallery);
-					//]]>
-					</script>
-
-					<div id="myGallery">
-						<div class="imageElement">
-						<h3>FEATURED RECIPE: PIE</h3>
-
-						<p>Make it today!</p><a href="here.html" title=
-						"open image" class="open"></a> <img src=
-						"/media/img/pie.jpg" class="full" alt="pie" />
-						<img src="/media/img/pie-mini.jpg" class="thumbnail"
-						alt="pie" /></div>
-
-						<div class="imageElement">
-						<h3>FEATURED RECIPE: STRUDEL</h3>
-
-						<p>Make it today!</p><a href="#" title="open image"
-						class="open"></a> <img src="/media/img/str.jpg" class=
-						"full" alt="strudel" /> <img src=
-						"/media/img/str-mini.jpg" class="thumbnail" alt=
-						"strudel" /></div>
-
-						<div class="imageElement">
-						<h3>FEATURED RECIPE: LASAGNE</h3>
-
-						<p>Make it today!</p><a href="#" title="open image"
-						class="open"></a> <img src=
-						"/media/img/lasagneimagesmm.jpg" class="full" alt=
-						"lasagne" /> <img src="/media/img/lasagne-mini.jpg"
-						class="thumbnail" alt="lasagne" /></div>
-					</div>
-				</div><!--END OF JAVASCRIPT SLIDESHOW-->
-			</div>
-
-			<div id='textField'>
-				<p>Hello {{user|capfirst}}!</p>
-
-				<p>Welcome to digichef. We hope you can find the recipe you
-				are looking for :-)</p>
-			</div>
-		</div>
+				
+<!--END OF SEARCHBOX-->
+			
+			
+			
 	</div>
+	
+
+	
 </body>
 </html>
