@@ -1,5 +1,6 @@
 #slideshow * { margin: 0; padding: 0; }
-#slideshow { background: url('../img/bg_shadow.gif') no-repeat top; position: relative; padding: 14px 0 15px; width: 603px; height: 306px; }
+/* below the bg_show image isnt used*/
+#slideshow { background: url('../img/bg_shadow2.gif') no-repeat top; position: relative; padding: 14px 0 15px; width: 603px; height: 306px; }
 #slideshow #menu, #slideshow #pictures, #slideshow #loading { position: absolute; }
 #slideshow #loading { background: url('../img/spinner.gif'); display: block; top: 158px; left: 205px; text-indent: -5000px; width: 24px; height: 24px; visibility: hidden; z-index: 5; }
 #slideshow #pictures { background: url('../img/bg.jpg'); width: 437px; height: 277px; left: 0; overflow: hidden; }
