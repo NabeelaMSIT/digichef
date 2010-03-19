@@ -12,6 +12,7 @@ from django.views.generic.simple import *
 from django.views.generic.create_update import create_object
 import recipes.models
 
+from voting.views import vote_on_object
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -33,6 +34,7 @@ urlpatterns = patterns(
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'show_indexes': True}), 
 
     url(r'^$', 'core.views.home', name="home" ),
+
     (r'^search/?$', recipes.views.stupid_search),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
     url(r'^api/search$', recipes.views.api_collab_search, name="api_collab_search"),
@@ -44,6 +46,7 @@ urlpatterns = patterns(
 
     (r'^profiles/', include('profiles.urls')),
 
+	url(r'^recipes/(?P<object_id>\d+)/(?P<direction>up|down|clear)vote/?$', vote_on_object, {'model':recipes.models.Recipe, 'template_object_name':'recipe', 'allow_xmlhttprequest':'true'}, name="recipe_voting"),
     (r'^recipe/(?P<recipe_id>\d+).*$', recipes.views.recipe_detail),
 
     (r'^recipes/new/?$', create_object, {'model': recipes.models.Recipe,'template_name': 'recipes/recipe_new.html', 'login_required': True}),

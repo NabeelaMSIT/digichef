@@ -7,6 +7,7 @@ from django.db.models import Q
 from digichef.tagging.models import Tag, TaggedItem
 from digichef.recommender.managers import RecommenderManager
 from django.template import RequestContext
+from digichef.voting.models import Vote
 
 import re
 
@@ -69,4 +70,17 @@ def recipe_detail(request, recipe_id):
 		returns 404 error if recipe not found"""
 	recipe = get_object_or_404(Recipe, pk=recipe_id)
 	ingredient_list = recipe.ingredients.split("\n")
-	return render_to_response('recipe_detail.html', {'recipe' : recipe, 'ingredient_list' : ingredient_list})
+	score = Vote.objects.get_score(recipe)
+	return render_to_response('recipe_detail.html', locals(), RequestContext(request))
+
+
+
+
+
+
+
+
+
+
+
+
