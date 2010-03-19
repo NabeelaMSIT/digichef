@@ -2,47 +2,82 @@
 
 <head>
 	
-<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+	<LINK REL=StyleSheet HREF="/media/css/style.css" TYPE="text/css">
+
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		function vote(id, direction) {
+			$.post('/recipes/'+id+'/'+direction+'vote/', {HTTP_X_REQUESTED:'XMLHttpRequest'},
+				   function(data) {
+				       if (data.success == true) {
+				           $('#score').text(data.score.score);
+				           $('#num_votes').text(data.score.num_votes);
+				       } else {
+				           alert('ERROR: ' + data.error_message);
+				       }
+				   }, 'json'
+				  )
+		}
+	</script>
+
+	<title>{{recipe.title}} - DigiChef</title>
 
 </head>
 
 <body>
-	
-<div id='main'>
-	
-<div id='header'></div>
 
-<div id='sidebar'>
-	<ul>
-		<li><a href='/'>Home</a></li>
-		<li><a href='/recipes/'>Recipes</a></li>
-</div>	
+	<div id='main'>
+
+		<div id='header'></div>
+
+		<div id='sidebar'>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href='/recipes/'>Recipes</a></li>
+			</ul>
+		</div>	
 
 
 
-<div id='recipeSection'>
-	
-	<h1>{{recipe.title}}</h1>
-	<h2>Ingredients:</h2>
-	
-	{% for ingredient in ingredient_list %}
-	<t> {{ ingredient }} </t>
-	{% endfor %}
-	
-	<h2>Instruction:</h2>
-	{{recipe.instructions|linebreaks}}
-			
-	<h2>Tags:</h2>
-	
-	{% for tag in recipe.tags %}
-	 {{tag.name}} |
-	{% endfor %}
-	
-</div>
+		<div id='recipeSection'>
 
-<div id='footer'> GRP DIGI CHEF :D </div>
+			<h1>{{recipe.title}}</h1>
+			<h2>Ingredients:</h2>
 
-</div>
+			<ul>
+				{% for ingredient in ingredient_list %}
+				<li> {{ ingredient }} </li>
+				{% endfor %}
+			</ul>
+
+			<h2>Instruction:</h2>
+			{{recipe.instructions|linebreaks}}
+
+			<h2>Tags:</h2>
+
+			{% for tag in recipe.tags %}
+			{{tag.name}} |
+			{% endfor %}
+
+			<h5>Votes <span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
+			 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
+			{% if user.is_authenticated %}
+			<ul>
+				<li><a href="#" onclick="vote('{{ recipe.id }}', 'up');">I like it!</a></li>
+				<li><a href="#" onclick="vote('{{ recipe.id }}', 'down');">I hate it!</a></li>
+				<li><a href="#" onclick="vote('{{ recipe.id }}', 'clear');">I take it back! Clear my vote.</a></li>
+			</ul>
+			{% else %}
+			<p>Please <a href="/accounts/login/">log in</a> to rate</p>
+			{% endif %}
+
+
+		</div>
+
+		<div id='footer'>GRP DIGI CHEF :D</div>
+
+	</div>
 
 </body>
 

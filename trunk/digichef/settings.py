@@ -87,14 +87,14 @@ INSTALLED_APPS = (
 	'digichef.voting',
 	'digichef.recommender',
 	'digichef.profiles',
-#	'digichef.registration',
-	'registration',
+	'digichef.registration',
+#	'registration',
 	'django.contrib.admin',
 )
 
 AUTH_PROFILE_MODULE='profiles.Profile'
 
-#try to override settings wil local ones to make the server run on different machines
+#try to override settings will local ones to make the server run on different machines
 try:
 	from local_settings_DONT_SVN import *
 except ImportError:
