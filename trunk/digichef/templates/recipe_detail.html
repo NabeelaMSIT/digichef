@@ -72,6 +72,7 @@
 		<div id='recipeSection'>
 
 			<h1>{{recipe.title}}</h1>
+			<img id="recipe_image" src="{{recipe.image_url}}" width=400px alt="{{recipe.title}}"\>
 			<h2>Ingredients:</h2>
 
 			<ul>
@@ -100,10 +101,6 @@
 			{% else %}
 			<p>Please <a href="/accounts/login/">log in</a> to rate</p>
 			{% endif %}
-
-			{%for rating, similar_recipe in similar_recipes%}
-
-			{% endfor %}
 
 			<h2>More recipes like this:</h2>
 			<ul id="similar_recipes">
