@@ -146,30 +146,23 @@
 <div id="advert"><img src="/media/img/mcd.jpg" alt=
 			"advertisement" /></div>
 			
-				
+
+			
 			<!---JAVASCRIPT SLIDESHOW-->
 					<div id="slideshow">   
 				
       <span id="loading">Loading</span>
     
       <ul id="pictures">
-        <li><img src="/media/img/cities/melbourne.jpg" alt="Melbourne" title="Melbourne" /></li>
-        <li><img src="/media/img/cities/buenos_aires.jpg" alt="Buenos Aires" title="Buenos Aires" /></li>
-        <li><img src="/media/img/cities/urubamba.jpg" alt="Urubamba" title="Urubamba" /></li>
-        <li><img src="/media/img/cities/london.jpg" alt="London" title="London" /></li>
-        <li><img src="/media/img/cities/venice.jpg" alt="Venice" title="Venice" /></li>
-        <li><img src="/media/img/cities/paris.jpg" alt="Paris" title="Paris" /></li>
-        <li><img src="/media/img/cities/osaka.jpg" alt="Osaka" title="Osaka" /></li>        
+		{%for s_recipe in slideshow_recipes%}
+        <li><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" /></li>
+		{%endfor%}   
       </ul>
       
       <ul id="menu">
-        <li><a href="/media/img/cities/melbourne.jpg">Melbourne</a></li>
-        <li><a href="/media/img/cities/buenos_aires.jpg">Buenos Aires</a></li>
-        <li><a href="/media/img/cities/urubamba.jpg">Urubamba</a></li>
-        <li><a href="/media/img/cities/london.jpg">London</a></li>
-        <li><a href="/media/img/cities/venice.jpg">Venice</a></li>
-        <li><a href="/media/img/cities/paris.jpg">Paris</a></li>
-        <li><a href="/media/img/cities/osaka.jpg">Osaka</a></li>
+		{%for s_recipe in slideshow_recipes%}
+        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title}}</a></li>
+		{%endfor%}
       </ul>
     </div>
 		<div id="slideshow-options">
