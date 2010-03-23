@@ -44,7 +44,9 @@
 				$.each(data, function(i, item){
 					var title = item.title;
 					var url = item.url;
-					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+					var img_url = item.img_url;
+//					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+					similar_recipes.append('<li><a href="'+url+'"><img class="similar_thumbnail"src="'+img_url+'" \\>'+title+'</a></li>');
 				});
 			}, 'json');
 		});
@@ -71,8 +73,9 @@
 
 		<div id='recipeSection'>
 
-			<h1>{{recipe.title}}</h1>
 			<img id="recipe_image" src="{{recipe.image_url}}" width=400px alt="{{recipe.title}}"\>
+
+			<h1>{{recipe.title}}</h1>
 			<h2>Ingredients:</h2>
 
 			<ul>

@@ -50,7 +50,10 @@ def api_similar_recipes(request, recipe_id):
 
 	similar_recipes = man.get_by_relevance_to_tags(Recipe.objects.get(id=recipe_id).tags, Recipe.objects.exclude(id=recipe_id) ,0)
 	similar_recipes.sort(reverse=True)
-	similar_recipes = [{'title':recipe.title, 'url':recipe.get_absolute_url()} for rating, recipe in similar_recipes[:5]]
+	similar_recipes = [{'title':	recipe.title,
+						'url':		recipe.get_absolute_url(),
+						'img_url':	recipe.image_url
+					} for rating, recipe in similar_recipes[:5]]
 
 	json = simplejson.dumps(similar_recipes)
 	return HttpResponse(json, mimetype="application/json")
