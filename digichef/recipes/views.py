@@ -8,6 +8,10 @@ from digichef.tagging.models import Tag, TaggedItem
 from digichef.recommender.managers import RecommenderManager
 from django.template import RequestContext
 from digichef.voting.models import Vote
+from django.contrib.auth.models import User
+
+import simplejson
+
 
 import re
 
@@ -41,14 +45,25 @@ def api_collab_search(request):
 		else:
 			assert False, request.POST
 
+def api_similar_recipes(request, recipe_id):
+	man = RecommenderManager()
+
+	similar_recipes = man.get_by_relevance_to_tags(Recipe.objects.get(id=recipe_id).tags, Recipe.objects.exclude(id=recipe_id) ,0)
+	similar_recipes.sort(reverse=True)
+	similar_recipes = [{'title':recipe.title, 'url':recipe.get_absolute_url()} for rating, recipe in similar_recipes[:5]]
+
+	json = simplejson.dumps(similar_recipes)
+	return HttpResponse(json, mimetype="application/json")
+	
+	
+
 def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in re.split(r"[,; \t]*", search_string) if item]
 	man = RecommenderManager()
 
-	results = man.get_by_relevance_to_tags(search_terms,Recipe.objects.all(),0)
+	results = man.get_by_relevance_to_tags(search_terms, Recipe.objects.all(),0)
 
-	results.sort()
-	results.reverse()
+	results.sort(reverse=True)
 
 	return recipe_list(request, [listing[1] for listing in results])
 
@@ -71,6 +86,10 @@ def recipe_detail(request, recipe_id):
 	recipe = get_object_or_404(Recipe, pk=recipe_id)
 	ingredient_list = recipe.ingredients.split("\n")
 	score = Vote.objects.get_score(recipe)
+
+
+#	similar_recipes = man.get_similar_items_from_model(recipe, User.objects.all(), Recipe, min_value=0)
+#	similar_recipes = man.get_similar_items(recipe, User.objects.all(), Recipe.objects.all()[:500], min_value=0.1)
 	return render_to_response('recipe_detail.html', locals(), RequestContext(request))
 
 

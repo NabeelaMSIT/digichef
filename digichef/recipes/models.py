@@ -19,6 +19,9 @@ class Recipe(models.Model):
 
 	tags = property(_get_tags, _set_tags)#properties map getters and setters to a variable
 
+	def get_absolute_url(self):
+		return "/recipe/%s/" % self.id
+
 	def __unicode__(self):
 		"Called implicitly when you try and print a Recipe object"
 		return self.title
