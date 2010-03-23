@@ -1,3 +1,5 @@
+#voting manager
+
 from django.conf import settings
 from django.db import connection, models
 
@@ -198,6 +200,19 @@ class VoteManager(models.Manager):
             votes = list(self.filter(content_type__pk=ctype.id,
                                      object_id__in=[obj._get_pk_val() \
                                                     for obj in objects],
+                                     user__pk=user.id))
+            vote_dict = dict([(vote.object_id, vote) for vote in votes])
+        return vote_dict
+
+    def get_for_user_from_model(self, model, user):
+        """
+        Get a dictionary mapping object ids to votes made by the given
+        user on the corresponding objects.
+        """
+        vote_dict = {}
+        if len(model.objects.all()[:1]) > 0:
+            ctype = ContentType.objects.get_for_model(model)
+            votes = list(self.filter(content_type__pk=ctype.id,
                                      user__pk=user.id))
             vote_dict = dict([(vote.object_id, vote) for vote in votes])
         return vote_dict

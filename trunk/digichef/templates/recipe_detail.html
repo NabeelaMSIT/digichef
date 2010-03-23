@@ -7,18 +7,47 @@
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
-		function vote(id, direction) {
-			$.post('/recipes/'+id+'/'+direction+'vote/', {HTTP_X_REQUESTED:'XMLHttpRequest'},
-				   function(data) {
-				       if (data.success == true) {
-				           $('#score').text(data.score.score);
-				           $('#num_votes').text(data.score.num_votes);
-				       } else {
-				           alert('ERROR: ' + data.error_message);
-				       }
-				   }, 'json'
-				  )
-		}
+		$(function() {
+			$("#voting a").click(function() {
+				var current = $(this);
+				var parent = current.parent().parent();
+				var recipeId = parent.attr('recipeId');
+
+				if (current.is("#voting-upvote")) {
+					vote(recipeId, 'up');
+				} else if (current.is("#voting-downvote")) {
+					vote(recipeId, 'down');
+				} else if (current.is("#voting-clearvote")) {
+					vote(recipeId, 'clear');
+				}
+
+				return false;
+			});
+
+			function vote(id, direction) {
+				$.post('/recipes/'+id+'/'+direction+'vote/', {HTTP_X_REQUESTED:'XMLHttpRequest'},
+					   function(data) {
+						   if (data.success == true) {
+						       $('#score').text(data.score.score);
+						       $('#num_votes').text(data.score.num_votes);
+						   } else {
+						       alert('ERROR: ' + data.error_message);
+						   }
+					   }, 'json'
+					  )
+			}
+
+			var similar_recipes = $('#similar_recipes');
+			similar_recipes.text("Loading...");
+			$.get("{%url api_similar recipe.id%}", {}, function(data) {
+				similar_recipes.text("");
+				$.each(data, function(i, item){
+					var title = item.title;
+					var url = item.url;
+					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+				});
+			}, 'json');
+		});
 	</script>
 
 	<title>{{recipe.title}} - DigiChef</title>
@@ -63,15 +92,23 @@
 			<h5>Votes <span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
 			 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
 			{% if user.is_authenticated %}
-			<ul>
-				<li><a href="#" onclick="vote('{{ recipe.id }}', 'up');">I like it!</a></li>
-				<li><a href="#" onclick="vote('{{ recipe.id }}', 'down');">I hate it!</a></li>
-				<li><a href="#" onclick="vote('{{ recipe.id }}', 'clear');">I take it back! Clear my vote.</a></li>
+			<ul id="voting" recipeId="{{ recipe.id }}">
+				<li><a id="voting-upvote" href="">I like it!</a></li>
+				<li><a id="voting-downvote" href="">I hate it!</a></li>
+				<li><a id="voting-clearvote" href="">I take it back! Clear my vote.</a></li>
 			</ul>
 			{% else %}
 			<p>Please <a href="/accounts/login/">log in</a> to rate</p>
 			{% endif %}
 
+			{%for rating, similar_recipe in similar_recipes%}
+
+			{% endfor %}
+
+			<h2>More recipes like this:</h2>
+			<ul id="similar_recipes">
+				<li>Loading recipes requires Javascript</li>
+			</ul>
 
 		</div>
 

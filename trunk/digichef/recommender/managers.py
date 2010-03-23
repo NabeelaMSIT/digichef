@@ -1,3 +1,5 @@
+#recommender managers
+
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
@@ -49,6 +51,7 @@ class RecommenderManager(models.Manager):
     def get_similar_items(self, item, user_list, item_list, min_value=MIN_SIMILARITY_VALUE):
         user_item_matrix = self.create_matrix(user_list, item_list)
         item_user_matrix = self.rotate_matrix(user_item_matrix)
+	assert False, (user_item_matrix, item_user_matrix)
         sim_list = []
         for other in item_list:
             if item==other:continue
@@ -59,6 +62,46 @@ class RecommenderManager(models.Manager):
         sim_list.sort(reverse=True)
         return sim_list
         
+
+    def get_similar_items_from_model(self, item, user_list, model, min_value=MIN_SIMILARITY_VALUE):
+        user_item_matrix = self.create_matrix_from_model(user_list, model)
+        item_user_matrix = self.rotate_matrix(user_item_matrix)
+#	assert False, (user_item_matrix, item_user_matrix)
+        sim_list = []
+	item_list=model.objects.all()
+        for other in item_list:
+            if item==other:continue
+#	    assert False, item_user_matrix[item.id]
+#            sim=utils.distance_matrix_p1_p2(item_user_matrix[item.id],item_user_matrix[other.id]) #returns a 0..1 value
+            sim=utils.distance_matrix_p1_p2(item_user_matrix.get(item.id,
+			{1:Vote()}),
+		item_user_matrix.get(other.id, 
+			{1:Vote()}))
+	    """
+            sim=utils.distance_matrix_p1_p2(item_user_matrix.get(item.id,
+			{1:Vote(	object=item,
+				object_id=item.id,
+				user=user_list[0],
+				vote=0,
+				content_type=ContentType.objects.get_for_model(item)
+			)}),
+		item_user_matrix.get(other.id, 
+			{1:Vote(	object=item,
+				object_id=item.id,
+				user=user_list[0],
+				vote=0,
+				content_type=ContentType.objects.get_for_model(item)
+			)}
+		)) #returns a 0..1 value
+	    """
+            if sim>min_value:
+                sim_list.append((sim,other))
+
+        assert False, sim_list            
+        sim_list.sort(reverse=True)
+        return sim_list
+        
+
     def create_matrix(self, users, items):
         user_item_matrix = {}
         for user in users:
@@ -67,6 +110,14 @@ class RecommenderManager(models.Manager):
         
         return user_item_matrix
     
+    def create_matrix_from_model(self, users, model):
+        user_item_matrix = {}
+        for user in users:
+            votes_for_user = Vote.objects.get_for_user_from_model(model, user)
+            user_item_matrix[user.id] = votes_for_user
+        
+        return user_item_matrix
+
     def rotate_matrix(self, matrix):
         rotated_matrix = {}
         for user in matrix:

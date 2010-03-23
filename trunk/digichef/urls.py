@@ -38,6 +38,7 @@ urlpatterns = patterns(
     (r'^search/?$', recipes.views.stupid_search),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
     url(r'^api/search$', recipes.views.api_collab_search, name="api_collab_search"),
+    url(r'^api/similar/(?P<recipe_id>\d+)/$', recipes.views.api_similar_recipes, name="api_similar"),
     url(r'^api/json_tags$', 'util.views.json_tags', name="json_tags"),
 
 #	(r'^accounts/', include('registration.backends.default.urls')),
