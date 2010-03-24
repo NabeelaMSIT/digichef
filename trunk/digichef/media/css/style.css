@@ -1,211 +1,117 @@
-body {
-	
-	
-}
-
-
-
-h1 {
-	font-family: Apple Chancery;
-	font-size: 20px;
-	font-color: FF6666;
-	text-decoration: none;
-}
-
-h2 {
-	font-family: Apple Chancery;
-	font-size: 20px;
-	font-color: FF6666;
-	text-decoration: none;
-}
-
-
 #main{
 	text-align:left;
-	margin:20px 100px auto 100px;
-	background-color: #ffffcc;
+	margin:0px 155px auto 155px;
+	background-color: #FFE297;
 	color: #000000;
 	
 }
 
-#java {
-	position:absolute;
-	top:175px;
+#ourWrap {
+	
+	margin:0 auto;
+	position:relative;
 }
+
+#ourElement {
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:100px;
+	right:100px;
+}
+#ourElement2 {
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:160px;
+	right:50px;
+}
+
+
+
+
+
+
+
 
 #mainSection{
 	
+	float: left;
 	text-align: left;
-	min-height:500px;
+	min-height:300px;
 	margin-left:10px;
 	padding: 5px 10px 15px 10px;
 	
 }
 
-#header{
-	
-	background-color:#ffcc99;
-	width:auto;
-	height: 100px;
-	clear:both;
-	background-position:top top;
-	background-repeat:none;
-	text-align: center;
-	margin:0;
-	padding:0;
-		
-}
 
-#UserDay {
+#userSearch{
 	
-	
-	position:absolute;
-	top: 175px;
-	right:350px;
-	width: 210px;
-	background-color:#98bf21;
-	font-family:Consolas;
-	font-size:12px;
-	
+	float:left;
+	min-height:300px;
+	margin: 5px 0px 0px 0px;
+	padding: 0px;
 }
 
 
-#address {
-	position:absolute;
-	top: 175px;
-	right:350px;
-	width: 270px;
-	background-color:#ffcc99;
-	font-family:Consolas;
-	font-size:12px;	
+
+#java {
+
+	float:left;
+	margin: 0px;
 }
 
-#search {
-	
-	
-	position:absolute;
-	top: 358px;
-	right:350px;
-	width: 210px;
-	background-color:#ffcc99;
-	font-family:Consolas;
-	font-size:12px;
-	
-}
 
-#advert{
-	position: absolute;
-	top: 290px;
-	right:118px;
+#sideBar{
+	
+	float: right;
+	text-align: left;
+	min-height:300px;
+	margin-left:10px;
+	padding: 5px 10px 15px 10px;
+	width:215px;
+	
 }
 
 #signIn{
-		
-	float: right;
+	
+	width:225px;
 	background-color:#ffcc99;
 	font-family:Consolas;
 	font-size:12px;
+	float:right;
 }
 
-.input {
+#welcomeTxt{
 	
-	border: 1px solid #006;
-	background: #ffc;
-	font-family: Consolas;
-	
-}
-
-.button {
-	border:none;
-	background: url('/media/img/submit.png') no-repeat;
-	font-family: Consolas;
-}
-
-.button:hover{
-	border:none;
-	background: url('/media/img/submitH.png') no-repeat;
-	font-family: Consolas;
-	
-}
-
-#menu1 {
-	
-	background-color: #98bf21;
-	width:auto;
-	height: 50px;
-	clear:both;
-	background-position:top top;
-	background-repeat:none;
-	text-align: center;
-	margin:0;
-	padding:0;
-	
-}
-
-#menu1 ul{
-	
-		list-style-type:none;
-		margin:0;
-		padding:0;
-		padding-top: 6px;
-		padding-bottom: 6px;
-}
-
-#menu1 a:link, a:visited{
-	font-weight:bold;
-	color: #FFFFFF;
-	background-color: #98bf21;
-	text-align: center;
-	padding: 6px;
-	text-decoration: none;
-	display:block;
-	width:140px;
-	font-family: Consolas;
-}
-
-#menu1 a:hover, a:active {
-	background-color: #7A991A;
-}
-
-#menu1 li{
-	display:inline;
-	float:left;
-}
-
-#textField{
-	
-	position: absolute;
-	top: 540px;
-	right: 350px;
-	width: 675px;
-	background-color:#FF6600;
-	font-family: Consolas;
-	
-}
-
-#form{
-	
-}
-
-
-#form form {
+	width:605px;
+	background-color:#ffcc99;
 	font-family:Consolas;
-	font-size:small;
-	margin:0;
-	padding:0;
-	min-width: 500px;
-	max-width: 600px;
-	width:500px;
+	font-size:12px;
+
 }
 
-#form form fieldset {
+#advert{
 	
-	border-color: #FF6600;
-	border-width: 1px;
-	border-style: solid;
-	padding:10px;
-	margin: 0;
+	
+	float:right;
+
 }
+
+#profile{
+	width:325px;
+	background-color:#ffcc99;
+	font-family:Consolas;
+	font-size:12px;
+	float:right;
+
+}
+
+#profile p{
+	float:right;
+
+}
+
 
 #form form label {
 	display: block;
@@ -216,48 +122,13 @@ h2 {
 	text-align:right;
 }
 
-
-#form form input form textarea {
-	width: auto;
-	margin: 5px 0 0 10px;
-}
-
-
-#form form input#submit, form input#Reset {
-	float:none;
-	display:inline;
-	margin:0;
-	padding:0;
-}
-
-#form textarea { overflow:auto; }
-
-#form form small {
-	display: block;
-	margin: 0 0 5px 160px;
-	padding: 1px 3px;
-	font-size: 88%;
-	
-}
-
-#form form .required{font-weight:bold;}
-
-#form form br{
-	clear:left;
-}
-
-#footer{
-	
-}
+.orange #waxcontainer{position:relative;height:48px;background:#FFE297;width:100%;font-family:"Trebuchet MS",Arial,Verdana,Helvitica,sans-serif;}
+.orange #waxnav{position:relative;height:25px;font-size:11px;font-weight:bold;background:#fff url(/media/img/orangewax_bottom.gif) repeat-x bottom left;}
+.orange #waxnav ul{margin:0px;padding:0 0 4px 0;list-style-type:none;width:auto;float:right;}
+.orange #waxnav ul li{display:block;float:left;margin:0 1px;}
+.orange #waxnav ul li a{display:block;float:left;color:#FF7E00;text-decoration:none;padding:0 0 0 12px;height:21px;line-height:195%;}
+.orange #waxnav ul li a span{padding:0 12px 0 0;}
+.orange #waxnav ul li a:hover,.orange #waxnav ul li a.current{color:#fff;background:#FF9900 url(/media/img/orangewax_navtopleft.gif) no-repeat top left;}
+.orange #waxnav ul li a:hover span,.orange #waxnav ul li a.current span{display:block;width:auto;background:#FF9900 url(/media/img/orangewax_navtopright.gif) no-repeat top right;}
 
 
-#recipe_image {
-	float:right;
-	width:400px;
-	margin:50px;
-}
-
-.similar_thumbnail {
-	height: 2em;
-	border:none;
-}

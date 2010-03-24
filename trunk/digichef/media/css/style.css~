@@ -259,4 +259,10 @@ h2 {
 
 .similar_thumbnail {
 	height: 2em;
+	border:none;
+}
+
+/* make slideshow imgs not outlined */
+#pictures a {
+	border:10px;
 }

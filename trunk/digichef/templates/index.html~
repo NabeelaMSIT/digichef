@@ -155,13 +155,13 @@
     
       <ul id="pictures">
 		{%for s_recipe in slideshow_recipes%}
-        <li><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" /></li>
+        <li><a href="{{s_recipe.get_absolute_url}}"><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" /></a></li>
 		{%endfor%}   
       </ul>
       
       <ul id="menu">
 		{%for s_recipe in slideshow_recipes%}
-        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title}}</a></li>
+        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title|truncatewords:5}}</a></li>
 		{%endfor%}
       </ul>
     </div>
@@ -196,7 +196,7 @@
 				<div id='searchwrapper'>
 					<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
 						<div class="form_friends">
-							<input type="text" name="q" value="" id= "form_tags_input_3" />
+							<input type="text" name="q" value="" id="form_tags_input_3" />
 						</div>
 
 
