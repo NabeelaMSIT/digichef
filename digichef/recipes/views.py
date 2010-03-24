@@ -10,7 +10,7 @@ from django.template import RequestContext
 from digichef.voting.models import Vote
 from django.contrib.auth.models import User
 
-import simplejson
+from digichef import simplejson
 
 
 import re
