@@ -90,6 +90,7 @@ INSTALLED_APPS = (
 	'digichef.registration',
 #	'registration',
 	'django.contrib.admin',
+	'django.contrib.admindocs',
 )
 
 AUTH_PROFILE_MODULE='profiles.Profile'
