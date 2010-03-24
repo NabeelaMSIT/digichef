@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>digichef.recommender.managers</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="digichef-module.html">Package&nbsp;digichef</a> ::
+        <a href="digichef.recommender-module.html">Package&nbsp;recommender</a> ::
+        Module&nbsp;managers
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="digichef.recommender.managers-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="digichef.recommender.managers-module.html">Module digichef.recommender.managers</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#recommender managers</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">contenttypes</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">ContentType</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module digichef.profiles.utils=digichef.profiles.utils-module.html,Module digichef.recommender.utils=digichef.recommender.utils-module.html,Module digichef.tagging.utils=digichef.tagging.utils-module.html"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-3', 'utils', 'link-3');">utils</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package digichef.voting=digichef.voting-module.html"><a title="digichef.voting" class="py-name" href="#" onclick="return doclink('link-4', 'voting', 'link-4');">voting</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class digichef.voting.models.Vote=digichef.voting.models.Vote-class.html"><a title="digichef.voting.models.Vote" class="py-name" href="#" onclick="return doclink('link-6', 'Vote', 'link-6');">Vote</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name" targets="Package digichef.tagging=digichef.tagging-module.html"><a title="digichef.tagging" class="py-name" href="#" onclick="return doclink('link-7', 'tagging', 'link-7');">tagging</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="digichef.core.models
+digichef.profiles.models
+digichef.recipes.models
+digichef.recommender.models
+digichef.registration.models
+digichef.tagging.models
+digichef.tagging.tests.models
+digichef.voting.models
+digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-8', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class digichef.tagging.models.Tag=digichef.tagging.models.Tag-class.html"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-9', 'Tag', 'link-9');">Tag</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager"></a><div id="RecommenderManager-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="RecommenderManager-toggle" onclick="return toggle('RecommenderManager');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html">RecommenderManager</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Manager</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RecommenderManager-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable digichef.recommender.managers.RecommenderManager.MIN_RECOMMENDATION_VALUE=digichef.recommender.managers.RecommenderManager-class.html#MIN_RECOMMENDATION_VALUE"><a title="digichef.recommender.managers.RecommenderManager.MIN_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-10', 'MIN_RECOMMENDATION_VALUE', 'link-10');">MIN_RECOMMENDATION_VALUE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE=digichef.recommender.managers.RecommenderManager-class.html#MIN_SIMILARITY_VALUE"><a title="digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE" class="py-name" href="#" onclick="return doclink('link-11', 'MIN_SIMILARITY_VALUE', 'link-11');">MIN_SIMILARITY_VALUE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.25</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable digichef.recommender.managers.RecommenderManager.MIN_CONTENT_BASED_RECOMMENDATION_VALUE=digichef.recommender.managers.RecommenderManager-class.html#MIN_CONTENT_BASED_RECOMMENDATION_VALUE"><a title="digichef.recommender.managers.RecommenderManager.MIN_CONTENT_BASED_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-12', 'MIN_CONTENT_BASED_RECOMMENDATION_VALUE', 'link-12');">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.25</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">     </tt>
+<a name="RecommenderManager.get_best_items_for_user"></a><div id="RecommenderManager.get_best_items_for_user-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_best_items_for_user-toggle" onclick="return toggle('RecommenderManager.get_best_items_for_user');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_best_items_for_user">get_best_items_for_user</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">,</tt> <tt class="py-param">user_list</tt><tt class="py-op">,</tt> <tt class="py-param">item_list</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-13" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-13', 'MIN_RECOMMENDATION_VALUE', 'link-10');">MIN_RECOMMENDATION_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_best_items_for_user-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_best_items_for_user-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method digichef.recommender.managers.RecommenderManager.create_matrix()=digichef.recommender.managers.RecommenderManager-class.html#create_matrix"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-14', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_list</tt><tt class="py-op">,</tt> <tt class="py-name">item_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">recs</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-15', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Function digichef.recommender.utils.get_usb_recommendations()=digichef.recommender.utils-module.html#get_usb_recommendations"><a title="digichef.recommender.utils.get_usb_recommendations" class="py-name" href="#" onclick="return doclink('link-16', 'get_usb_recommendations', 'link-16');">get_usb_recommendations</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name" targets="Variable digichef.profiles.models.Profile.user=digichef.profiles.models.Profile-class.html#user,Variable digichef.registration.models.RegistrationProfile.user=digichef.registration.models.RegistrationProfile-class.html#user,Variable digichef.voting.models.Vote.user=digichef.voting.models.Vote-class.html#user"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-17', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">,</tt> <tt class="py-name">user_item_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-name">recs</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">         </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">ctype</tt> <tt class="py-op">=</tt> <tt class="py-name">ContentType</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable digichef.recommender.models.Recommender.objects=digichef.recommender.models.Recommender-class.html#objects,Variable digichef.registration.models.RegistrationProfile.objects=digichef.registration.models.RegistrationProfile-class.html#objects,Variable digichef.tagging.models.Tag.objects=digichef.tagging.models.Tag-class.html#objects,Variable digichef.tagging.models.TaggedItem.objects=digichef.tagging.models.TaggedItem-class.html#objects,Variable digichef.voting.models.Vote.objects=digichef.voting.models.Vote-class.html#objects"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-18', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">get_for_model</tt><tt class="py-op">(</tt><tt class="py-name">item_list</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-name">items</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">ctype</tt><tt class="py-op">.</tt><tt class="py-name">get_object_for_this_type</tt><tt class="py-op">(</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">rec</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">rec</tt> <tt class="py-keyword">in</tt> <tt class="py-name">recs</tt> <tt class="py-keyword">if</tt> <tt class="py-name">value</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">]</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">items</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">         </tt>
+<a name="RecommenderManager.get_similar_users"></a><div id="RecommenderManager.get_similar_users-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_similar_users-toggle" onclick="return toggle('RecommenderManager.get_similar_users');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_users">get_similar_users</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">,</tt> <tt class="py-param">user_list</tt><tt class="py-op">,</tt> <tt class="py-param">item_list</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-19" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE" class="py-name" href="#" onclick="return doclink('link-19', 'MIN_SIMILARITY_VALUE', 'link-11');">MIN_SIMILARITY_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_similar_users-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_similar_users-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-20', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_list</tt><tt class="py-op">,</tt> <tt class="py-name">item_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">other</tt> <tt class="py-keyword">in</tt> <tt class="py-name">user_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-21" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-21', 'user', 'link-17');">user</a></tt><tt class="py-op">==</tt><tt class="py-name">other</tt><tt class="py-op">:</tt><tt class="py-keyword">continue</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">            <tt class="py-name">sim</tt><tt class="py-op">=</tt><tt id="link-22" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-22', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Function digichef.recommender.utils.distance_matrix_p1_p2()=digichef.recommender.utils-module.html#distance_matrix_p1_p2"><a title="digichef.recommender.utils.distance_matrix_p1_p2" class="py-name" href="#" onclick="return doclink('link-23', 'distance_matrix_p1_p2', 'link-23');">distance_matrix_p1_p2</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">[</tt><tt id="link-24" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-24', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">[</tt><tt class="py-name">other</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-comment">#returns a 0..1 value</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sim</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">sim</tt><tt class="py-op">,</tt><tt class="py-name">other</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">             </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">sim_list</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.get_best_users_for_item"></a><div id="RecommenderManager.get_best_users_for_item-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_best_users_for_item-toggle" onclick="return toggle('RecommenderManager.get_best_users_for_item');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_best_users_for_item">get_best_users_for_item</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">,</tt> <tt class="py-param">user_list</tt><tt class="py-op">,</tt> <tt class="py-param">item_list</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-25" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-25', 'MIN_RECOMMENDATION_VALUE', 'link-10');">MIN_RECOMMENDATION_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_best_users_for_item-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_best_users_for_item-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-26', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_list</tt><tt class="py-op">,</tt> <tt class="py-name">item_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">item_user_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Method digichef.recommender.managers.RecommenderManager.rotate_matrix()=digichef.recommender.managers.RecommenderManager-class.html#rotate_matrix"><a title="digichef.recommender.managers.RecommenderManager.rotate_matrix" class="py-name" href="#" onclick="return doclink('link-27', 'rotate_matrix', 'link-27');">rotate_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">recs</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-28', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="digichef.recommender.utils.get_usb_recommendations" class="py-name" href="#" onclick="return doclink('link-29', 'get_usb_recommendations', 'link-16');">get_usb_recommendations</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">,</tt> <tt class="py-name">item_user_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">recs</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">users</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">User</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-30', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">rec</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">rec</tt> <tt class="py-keyword">in</tt> <tt class="py-name">recs</tt> <tt class="py-keyword">if</tt> <tt class="py-name">value</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">]</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">         </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">users</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">     </tt>
+<a name="RecommenderManager.get_similar_items"></a><div id="RecommenderManager.get_similar_items-def"><a name="L51"></a><tt class="py-lineno"> 51</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_similar_items-toggle" onclick="return toggle('RecommenderManager.get_similar_items');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_items">get_similar_items</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">,</tt> <tt class="py-param">user_list</tt><tt class="py-op">,</tt> <tt class="py-param">item_list</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-31" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE" class="py-name" href="#" onclick="return doclink('link-31', 'MIN_SIMILARITY_VALUE', 'link-11');">MIN_SIMILARITY_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_similar_items-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_similar_items-expanded"><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-32', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_list</tt><tt class="py-op">,</tt> <tt class="py-name">item_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">item_user_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.rotate_matrix" class="py-name" href="#" onclick="return doclink('link-33', 'rotate_matrix', 'link-27');">rotate_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">,</tt> <tt class="py-name">item_user_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">other</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">item</tt><tt class="py-op">==</tt><tt class="py-name">other</tt><tt class="py-op">:</tt><tt class="py-keyword">continue</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">sim</tt><tt class="py-op">=</tt><tt id="link-34" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-34', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="digichef.recommender.utils.distance_matrix_p1_p2" class="py-name" href="#" onclick="return doclink('link-35', 'distance_matrix_p1_p2', 'link-23');">distance_matrix_p1_p2</a></tt><tt class="py-op">(</tt><tt class="py-name">item_user_matrix</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">item_user_matrix</tt><tt class="py-op">[</tt><tt class="py-name">other</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-comment">#returns a 0..1 value</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sim</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">sim</tt><tt class="py-op">,</tt><tt class="py-name">other</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">             </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">sim_list</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">         </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.get_similar_items_from_model"></a><div id="RecommenderManager.get_similar_items_from_model-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_similar_items_from_model-toggle" onclick="return toggle('RecommenderManager.get_similar_items_from_model');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_similar_items_from_model">get_similar_items_from_model</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">,</tt> <tt class="py-param">user_list</tt><tt class="py-op">,</tt> <tt class="py-param">model</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-36" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_SIMILARITY_VALUE" class="py-name" href="#" onclick="return doclink('link-36', 'MIN_SIMILARITY_VALUE', 'link-11');">MIN_SIMILARITY_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_similar_items_from_model-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_similar_items_from_model-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Method digichef.recommender.managers.RecommenderManager.create_matrix_from_model()=digichef.recommender.managers.RecommenderManager-class.html#create_matrix_from_model"><a title="digichef.recommender.managers.RecommenderManager.create_matrix_from_model" class="py-name" href="#" onclick="return doclink('link-37', 'create_matrix_from_model', 'link-37');">create_matrix_from_model</a></tt><tt class="py-op">(</tt><tt class="py-name">user_list</tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name" targets="Variable digichef.tagging.forms.TagAdminForm.Meta.model=digichef.tagging.forms.TagAdminForm.Meta-class.html#model"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-38', 'model', 'link-38');">model</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">item_user_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.rotate_matrix" class="py-name" href="#" onclick="return doclink('link-39', 'rotate_matrix', 'link-27');">rotate_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-comment">#       assert False, (user_item_matrix, item_user_matrix)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">item_list</tt><tt class="py-op">=</tt><tt id="link-40" class="py-name"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-40', 'model', 'link-38');">model</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-41', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">other</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">item</tt><tt class="py-op">==</tt><tt class="py-name">other</tt><tt class="py-op">:</tt><tt class="py-keyword">continue</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-comment">#           assert False, item_user_matrix[item.id]</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-comment">#            sim=utils.distance_matrix_p1_p2(item_user_matrix[item.id],item_user_matrix[other.id]) #returns a 0..1 value</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">sim</tt><tt class="py-op">=</tt><tt id="link-42" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-42', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="digichef.recommender.utils.distance_matrix_p1_p2" class="py-name" href="#" onclick="return doclink('link-43', 'distance_matrix_p1_p2', 'link-23');">distance_matrix_p1_p2</a></tt><tt class="py-op">(</tt><tt class="py-name">item_user_matrix</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">,</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                        <tt class="py-op">{</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt id="link-44" class="py-name"><a title="digichef.voting.models.Vote" class="py-name" href="#" onclick="return doclink('link-44', 'Vote', 'link-6');">Vote</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-name">item_user_matrix</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">other</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">,</tt>  </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                        <tt class="py-op">{</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt id="link-45" class="py-name"><a title="digichef.voting.models.Vote" class="py-name" href="#" onclick="return doclink('link-45', 'Vote', 'link-6');">Vote</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-string">"""</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-string">            sim=utils.distance_matrix_p1_p2(item_user_matrix.get(item.id,</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-string">                        {1:Vote(        object=item,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-string">                                object_id=item.id,</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-string">                                user=user_list[0],</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-string">                                vote=0,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-string">                                content_type=ContentType.objects.get_for_model(item)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-string">                        )}),</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-string">                item_user_matrix.get(other.id, </tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-string">                        {1:Vote(        object=item,</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-string">                                object_id=item.id,</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-string">                                user=user_list[0],</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-string">                                vote=0,</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-string">                                content_type=ContentType.objects.get_for_model(item)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-string">                        )}</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-string">                )) #returns a 0..1 value</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-string">            """</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sim</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">sim</tt><tt class="py-op">,</tt><tt class="py-name">other</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">sim_list</tt>             </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">sim_list</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">sim_list</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.create_matrix"></a><div id="RecommenderManager.create_matrix-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="RecommenderManager.create_matrix-toggle" onclick="return toggle('RecommenderManager.create_matrix');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#create_matrix">create_matrix</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">users</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.create_matrix-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.create_matrix-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-46" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-46', 'user', 'link-17');">user</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">users</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-name">votes_for_user</tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="digichef.voting.models.Vote" class="py-name" href="#" onclick="return doclink('link-47', 'Vote', 'link-6');">Vote</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-48', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method digichef.voting.managers.VoteManager.get_for_user_in_bulk()=digichef.voting.managers.VoteManager-class.html#get_for_user_in_bulk"><a title="digichef.voting.managers.VoteManager.get_for_user_in_bulk" class="py-name" href="#" onclick="return doclink('link-49', 'get_for_user_in_bulk', 'link-49');">get_for_user_in_bulk</a></tt><tt class="py-op">(</tt><tt class="py-name">items</tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-50', 'user', 'link-17');">user</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt class="py-name">user_item_matrix</tt><tt class="py-op">[</tt><tt id="link-51" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-51', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">votes_for_user</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">         </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">user_item_matrix</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">     </tt>
+<a name="RecommenderManager.create_matrix_from_model"></a><div id="RecommenderManager.create_matrix_from_model-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="RecommenderManager.create_matrix_from_model-toggle" onclick="return toggle('RecommenderManager.create_matrix_from_model');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#create_matrix_from_model">create_matrix_from_model</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">users</tt><tt class="py-op">,</tt> <tt class="py-param">model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.create_matrix_from_model-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.create_matrix_from_model-expanded"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-52" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-52', 'user', 'link-17');">user</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">users</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-name">votes_for_user</tt> <tt class="py-op">=</tt> <tt id="link-53" class="py-name"><a title="digichef.voting.models.Vote" class="py-name" href="#" onclick="return doclink('link-53', 'Vote', 'link-6');">Vote</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-54', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Method digichef.voting.managers.VoteManager.get_for_user_from_model()=digichef.voting.managers.VoteManager-class.html#get_for_user_from_model"><a title="digichef.voting.managers.VoteManager.get_for_user_from_model" class="py-name" href="#" onclick="return doclink('link-55', 'get_for_user_from_model', 'link-55');">get_for_user_from_model</a></tt><tt class="py-op">(</tt><tt id="link-56" class="py-name"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-56', 'model', 'link-38');">model</a></tt><tt class="py-op">,</tt> <tt id="link-57" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-57', 'user', 'link-17');">user</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">user_item_matrix</tt><tt class="py-op">[</tt><tt id="link-58" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-58', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">votes_for_user</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">         </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">user_item_matrix</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.rotate_matrix"></a><div id="RecommenderManager.rotate_matrix-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="RecommenderManager.rotate_matrix-toggle" onclick="return toggle('RecommenderManager.rotate_matrix');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#rotate_matrix">rotate_matrix</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">matrix</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.rotate_matrix-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.rotate_matrix-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-name">rotated_matrix</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-59" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-59', 'user', 'link-17');">user</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">matrix</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">matrix</tt><tt class="py-op">[</tt><tt id="link-60" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-60', 'user', 'link-17');">user</a></tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                <tt class="py-name">rotated_matrix</tt><tt class="py-op">.</tt><tt class="py-name">setdefault</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-name">rotated_matrix</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt id="link-61" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-61', 'user', 'link-17');">user</a></tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">matrix</tt><tt class="py-op">[</tt><tt id="link-62" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-62', 'user', 'link-17');">user</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">]</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">rotated_matrix</tt> </tt>
+</div><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">         </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-comment"># Content Based Recommendations</tt> </tt>
+<a name="RecommenderManager.get_content_based_recs"></a><div id="RecommenderManager.get_content_based_recs-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_content_based_recs-toggle" onclick="return toggle('RecommenderManager.get_content_based_recs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_content_based_recs">get_content_based_recs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">,</tt> <tt class="py-param">tagged_items</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-63" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_CONTENT_BASED_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-63', 'MIN_CONTENT_BASED_RECOMMENDATION_VALUE', 'link-12');">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_content_based_recs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_content_based_recs-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-docstring">''' For a given user tags and a dicc of item tags, returns the distances between the user and the items</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; eng=RecommenderManager()</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; user_tags=['a','b','c','d']</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix={}</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it1']=['z','a','c']</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it2']=['b','c']</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it3']=['a','r','t','v']</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; eng.get_content_based_recs(user_tags,tag_matrix)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">            [(7.5, 'it1'), (10.0, 'it2'), (5.0, 'it3')]</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">item_tag_matrix</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tagged_items</tt><tt class="py-op">:</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-name">item_tag_matrix</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-64" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-64', 'Tag', 'link-9');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-65', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name" targets="Method digichef.tagging.models.TagManager.get_for_object()=digichef.tagging.models.TagManager-class.html#get_for_object"><a title="digichef.tagging.models.TagManager.get_for_object" class="py-name" href="#" onclick="return doclink('link-66', 'get_for_object', 'link-66');">get_for_object</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">         </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-name">user_tags</tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-67', 'Tag', 'link-9');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-68', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="digichef.tagging.models.TagManager.get_for_object" class="py-name" href="#" onclick="return doclink('link-69', 'get_for_object', 'link-66');">get_for_object</a></tt><tt class="py-op">(</tt><tt id="link-70" class="py-name"><a title="digichef.profiles.models.Profile.user
+digichef.registration.models.RegistrationProfile.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-70', 'user', 'link-17');">user</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">recs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt><tt class="py-op">,</tt><tt class="py-name">item_tags</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item_tag_matrix</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-name">sim</tt> <tt class="py-op">=</tt> <tt id="link-71" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-71', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-72" class="py-name" targets="Function digichef.recommender.utils.tanamoto2()=digichef.recommender.utils-module.html#tanamoto2"><a title="digichef.recommender.utils.tanamoto2" class="py-name" href="#" onclick="return doclink('link-72', 'tanamoto2', 'link-72');">tanamoto2</a></tt><tt class="py-op">(</tt><tt class="py-name">item_tags</tt><tt class="py-op">,</tt> <tt class="py-name">user_tags</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sim</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                <tt class="py-name">recs</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">sim</tt><tt class="py-op">,</tt> <tt class="py-name">item</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                 </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">recs</tt> </tt>
+</div><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.get_by_relevance_to_tags"></a><div id="RecommenderManager.get_by_relevance_to_tags-def"><a name="L157"></a><tt class="py-lineno">157</tt> <a class="py-toggle" href="#" id="RecommenderManager.get_by_relevance_to_tags-toggle" onclick="return toggle('RecommenderManager.get_by_relevance_to_tags');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#get_by_relevance_to_tags">get_by_relevance_to_tags</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">search_tags</tt><tt class="py-op">,</tt> <tt class="py-param">tagged_items</tt><tt class="py-op">,</tt> <tt class="py-param">min_value</tt><tt class="py-op">=</tt><tt id="link-73" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.MIN_CONTENT_BASED_RECOMMENDATION_VALUE" class="py-name" href="#" onclick="return doclink('link-73', 'MIN_CONTENT_BASED_RECOMMENDATION_VALUE', 'link-12');">MIN_CONTENT_BASED_RECOMMENDATION_VALUE</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.get_by_relevance_to_tags-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.get_by_relevance_to_tags-expanded"><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-docstring">''' For a given user tags and a dicc of item tags, returns the distances between the user and the items</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; eng=RecommenderManager()</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; user_tags=['a','b','c','d']</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix={}</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it1']=['z','a','c']</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it2']=['b','c']</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; tag_matrix['it3']=['a','r','t','v']</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">            &gt;&gt;&gt; eng.get_content_based_recs(user_tags,tag_matrix)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring">            [(7.5, 'it1'), (10.0, 'it2'), (5.0, 'it3')]</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-name">item_tag_matrix</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tagged_items</tt><tt class="py-op">:</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">            <tt class="py-name">item_tag_matrix</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="digichef.tagging.models.Tag" class="py-name" href="#" onclick="return doclink('link-74', 'Tag', 'link-9');">Tag</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="digichef.recommender.models.Recommender.objects
+digichef.registration.models.RegistrationProfile.objects
+digichef.tagging.models.Tag.objects
+digichef.tagging.models.TaggedItem.objects
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-75', 'objects', 'link-18');">objects</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="digichef.tagging.models.TagManager.get_for_object" class="py-name" href="#" onclick="return doclink('link-76', 'get_for_object', 'link-66');">get_for_object</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">         </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-name">recs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt><tt class="py-op">,</tt><tt class="py-name">item_tags</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item_tag_matrix</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">            <tt class="py-name">sim</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-77', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="digichef.recommender.utils.tanamoto2" class="py-name" href="#" onclick="return doclink('link-78', 'tanamoto2', 'link-72');">tanamoto2</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">tg</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">tg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">item_tags</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">tg</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">tg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">search_tags</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">sim</tt><tt class="py-op">&gt;</tt><tt class="py-name">min_value</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                <tt class="py-name">recs</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">sim</tt><tt class="py-op">,</tt> <tt class="py-name">item</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                 </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">recs</tt> </tt>
+</div><a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">     </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-comment"># Clustering methods</tt> </tt>
+<a name="RecommenderManager.cluster_users"></a><div id="RecommenderManager.cluster_users-def"><a name="L183"></a><tt class="py-lineno">183</tt> <a class="py-toggle" href="#" id="RecommenderManager.cluster_users-toggle" onclick="return toggle('RecommenderManager.cluster_users');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#cluster_users">cluster_users</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">users</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">,</tt> <tt class="py-param">cluster_count</tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.cluster_users-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.cluster_users-expanded"><a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-79', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">users</tt><tt class="py-op">,</tt> <tt class="py-name">items</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-80" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-80', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name" targets="Function digichef.recommender.utils.kcluster()=digichef.recommender.utils-module.html#kcluster"><a title="digichef.recommender.utils.kcluster" class="py-name" href="#" onclick="return doclink('link-81', 'kcluster', 'link-81');">kcluster</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">,</tt> <tt class="py-name">items</tt><tt class="py-op">,</tt> <tt class="py-name">cluster_count</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="RecommenderManager.cluster_items"></a><div id="RecommenderManager.cluster_items-def"><a name="L187"></a><tt class="py-lineno">187</tt> <a class="py-toggle" href="#" id="RecommenderManager.cluster_items-toggle" onclick="return toggle('RecommenderManager.cluster_items');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.recommender.managers.RecommenderManager-class.html#cluster_items">cluster_items</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">users</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">,</tt> <tt class="py-param">cluster_count</tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RecommenderManager.cluster_items-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RecommenderManager.cluster_items-expanded"><a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">user_item_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.create_matrix" class="py-name" href="#" onclick="return doclink('link-82', 'create_matrix', 'link-14');">create_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">users</tt><tt class="py-op">,</tt> <tt class="py-name">items</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">item_user_matrix</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="digichef.recommender.managers.RecommenderManager.rotate_matrix" class="py-name" href="#" onclick="return doclink('link-83', 'rotate_matrix', 'link-27');">rotate_matrix</a></tt><tt class="py-op">(</tt><tt class="py-name">user_item_matrix</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-84" class="py-name"><a title="digichef.profiles.utils
+digichef.recommender.utils
+digichef.tagging.utils" class="py-name" href="#" onclick="return doclink('link-84', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="digichef.recommender.utils.kcluster" class="py-name" href="#" onclick="return doclink('link-85', 'kcluster', 'link-81');">kcluster</a></tt><tt class="py-op">(</tt><tt class="py-name">item_user_matrix</tt><tt class="py-op">,</tt> <tt class="py-name">users</tt><tt class="py-op">,</tt> <tt class="py-name">cluster_count</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Mar 23 21:07:57 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -85,15 +85,17 @@
 			</ul>
 
 			<h2>Instruction:</h2>
-			{{recipe.instructions|linebreaks}}
+			<p>{{recipe.instructions|linebreaks}}</p>
 
 			<h2>Tags:</h2>
 
+			<p>
 			{% for tag in recipe.tags %}
-			{{tag.name}} |
+			{{tag.name}}{%if not forloop.last%} |{%endif%}
 			{% endfor %}
+			</p>
 
-			<h5>Votes <span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
+			<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
 			 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
 			{% if user.is_authenticated %}
 			<ul id="voting" recipeId="{{ recipe.id }}">

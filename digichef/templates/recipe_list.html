@@ -2,7 +2,7 @@
 
 <head>
 	
-<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+<LINK REL=StyleSheet HREF="/media/css/style.css" TYPE="text/css">
 
 </head>
 
@@ -21,12 +21,14 @@
 
 
 <div id='recipeSection'>
-	
-	{% for recipe in recipe_list %}
-	
-	<a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></br>
 
-	{% endfor %}
+	{%if recipe_list%}
+		{% for recipe in recipe_list %}
+			<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
+		{% endfor %}
+	{%else%}
+		<p>No recipes found for your search</p>
+	{%endif%}
 
 	
 </div>

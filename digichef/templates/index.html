@@ -6,7 +6,7 @@
 	<meta name="generator" content=
 	"HTML Tidy for Linux/x86 (vers 7 December 2008), see www.w3.org" />
 	
-	<link href="/media/css/newstyle.css" rel="stylesheet" media="all" />
+	<link href="/media/css/style.css" rel="stylesheet" media="all" />
 		<!--barrack slideshow -->
 		 <link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
 		<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
@@ -155,13 +155,13 @@
     
       <ul id="pictures">
 		{%for s_recipe in slideshow_recipes%}
-        <li><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" /></li>
+        <li><a href="{{s_recipe.get_absolute_url}}"><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" /></a></li>
 		{%endfor%}   
       </ul>
       
       <ul id="menu">
 		{%for s_recipe in slideshow_recipes%}
-        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title}}</a></li>
+        <li><a href="{{s_recipe.image_url}}">{{s_recipe.title|truncatewords:5}}</a></li>
 		{%endfor%}
       </ul>
     </div>
