@@ -9,6 +9,8 @@ from digichef.recommender.managers import RecommenderManager
 from django.template import RequestContext
 from digichef.voting.models import Vote
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.views.generic.simple import redirect_to
 
 from digichef import simplejson
 
@@ -71,12 +73,14 @@ def api_recommended_recipes(request, number):
 	return HttpResponse(json, mimetype="application/json")
 
 def api_collab_search(request):
-	if request.method == "POST":
+	if request.method == 'POST':
 		q = request.POST.get('q', None)
 		if q is not None:
-			return collab_search(request, q)
+			return redirect_to(request, url='/search/%s'%q)
 		else:
-			assert False, request.POST	
+			assert False, "This API method requires the post variable 'q', the query"
+	else:
+		assert False, "This API method requires POST data"
 	
 
 def collab_search(request, search_string):
@@ -98,7 +102,22 @@ def recipes_all(request):
 
 def recipe_list(request, queryset):
 	"""View of a list of recipes"""
-	return render_to_response('recipe_list.html', {'recipe_list' : queryset})
+
+	paginator = Paginator(queryset, 25) # Show 25 contacts per page
+
+	# Make sure page request is an int. If not, deliver first page.
+	try:
+		page = int(request.GET.get('page', '1'))
+	except ValueError:
+		page = 1
+
+	# If page request (9999) is out of range, deliver last page of results.
+	try:
+		recipes = paginator.page(page)
+	except (EmptyPage, InvalidPage):
+		recipes = paginator.page(paginator.num_pages)
+
+	return render_to_response('recipe_list.html', {'recipes' : recipes})
 
 
 def recipe_detail(request, recipe_id):
