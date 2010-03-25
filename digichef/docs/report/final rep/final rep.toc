@@ -1,0 +1,93 @@
+\contentsline {section}{\numberline {1}An Introduction to the ``Problem''}{4}
+\contentsline {section}{\numberline {2}Expanded Problem Description}{5}
+\contentsline {section}{\numberline {3}Research}{6}
+\contentsline {subsection}{\numberline {3.1}BBC Recipes}{6}
+\contentsline {subsection}{\numberline {3.2}RecipeZaar.com}{7}
+\contentsline {subsection}{\numberline {3.3}Supercook.com}{8}
+\contentsline {section}{\numberline {4}Results of Technical Research}{10}
+\contentsline {subsection}{\numberline {4.1}Platform Decisions}{10}
+\contentsline {paragraph}{Microsoft Windows}{10}
+\contentsline {paragraph}{Mac OSX}{10}
+\contentsline {paragraph}{Linux}{10}
+\contentsline {subsection}{\numberline {4.2}Technologies}{11}
+\contentsline {paragraph}{Django}{11}
+\contentsline {paragraph}{Ruby on Rails}{11}
+\contentsline {paragraph}{PHP with SQL}{12}
+\contentsline {subsection}{\numberline {4.3}Web Browser Options}{12}
+\contentsline {section}{\numberline {5}Collaborative Filtering Technology}{13}
+\contentsline {subsection}{\numberline {5.1}About}{13}
+\contentsline {subsection}{\numberline {5.2}System Pre-requisites}{13}
+\contentsline {subsection}{\numberline {5.3}Algorithms}{14}
+\contentsline {subsection}{\numberline {5.4}Non-Probabilistic algorithms}{14}
+\contentsline {subsubsection}{\numberline {5.4.1}User-based Nearest Neighbour Algorithms}{14}
+\contentsline {subsubsection}{\numberline {5.4.2}Item-based Nearest Neighbour Algorithms}{15}
+\contentsline {subsubsection}{\numberline {5.4.3}Dimensionality Reduction Algorithms}{15}
+\contentsline {subsection}{\numberline {5.5}Probabilistic Algorithms}{16}
+\contentsline {subsection}{\numberline {5.6}General concerns about all algorithms}{16}
+\contentsline {subsection}{\numberline {5.7}Acquiring Ratings- Design Decision}{16}
+\contentsline {subsection}{\numberline {5.8}Rating Scales }{16}
+\contentsline {subsection}{\numberline {5.9}Cold Start Issues}{17}
+\contentsline {subsubsection}{\numberline {5.9.1}New User}{17}
+\contentsline {subsubsection}{\numberline {5.9.2}New Item }{17}
+\contentsline {subsubsection}{\numberline {5.9.3}New Community}{17}
+\contentsline {subsection}{\numberline {5.10}Challenges with Collaborative Filtering}{17}
+\contentsline {section}{\numberline {6}Product Specification}{18}
+\contentsline {subsection}{\numberline {6.1}Minimum - v1}{18}
+\contentsline {subsection}{\numberline {6.2}Realistic Best - v2}{18}
+\contentsline {subsection}{\numberline {6.3}Ideal - v3}{19}
+\contentsline {section}{\numberline {7}Initial design of the proposed system and its user interface}{20}
+\contentsline {subsection}{\numberline {7.1}Version 1}{20}
+\contentsline {subsection}{\numberline {7.2}Version 2}{22}
+\contentsline {subsection}{\numberline {7.3}Version 3}{22}
+\contentsline {section}{\numberline {8}Implementation Options/Designs}{23}
+\contentsline {subsection}{\numberline {8.1}Summary of Project Description and Specification}{23}
+\contentsline {section}{\numberline {9}Implementation Decisions}{24}
+\contentsline {subsection}{\numberline {9.1}Decision Influences}{24}
+\contentsline {subsubsection}{\numberline {9.1.1}Aims}{24}
+\contentsline {subsubsection}{\numberline {9.1.2}Design Principles}{24}
+\contentsline {subsection}{\numberline {9.2}Decisions}{25}
+\contentsline {subsubsection}{\numberline {9.2.1}The \texttt {recipes} App}{25}
+\contentsline {subsubsection}{\numberline {9.2.2}URL Design}{25}
+\contentsline {subsubsection}{\numberline {9.2.3}Model Design}{25}
+\contentsline {subsubsection}{\numberline {9.2.4}View Design}{25}
+\contentsline {paragraph}{The \texttt {recipe\_list} View}{25}
+\contentsline {paragraph}{The \texttt {search} View}{25}
+\contentsline {subsubsection}{\numberline {9.2.5}Template Design}{26}
+\contentsline {section}{\numberline {10}Implementation Results}{27}
+\contentsline {section}{\numberline {11}Reflections on project}{29}
+\contentsline {subsection}{\numberline {11.1}Technical Issues}{29}
+\contentsline {subsection}{\numberline {11.2}Time Management Issues}{29}
+\contentsline {subsection}{\numberline {11.3}Group Working Issues}{29}
+\contentsline {section}{\numberline {12}Conclusion}{29}
+\contentsline {section}{\numberline {13}Appendices}{31}
+\contentsline {subsection}{\numberline {13.1}Timescale}{31}
+\contentsline {subsection}{\numberline {13.2}Meeting Minutes}{33}
+\contentsline {paragraph}{Minutes 14.09.2009}{33}
+\contentsline {paragraph}{Present}{33}
+\contentsline {paragraph}{Tasks completed}{33}
+\contentsline {paragraph}{Issues discussed}{33}
+\contentsline {paragraph}{To do}{34}
+\contentsline {paragraph}{Minutes 07.10.2009}{35}
+\contentsline {paragraph}{Present}{35}
+\contentsline {paragraph}{Issues discussed}{35}
+\contentsline {paragraph}{To do}{35}
+\contentsline {paragraph}{Minutes 09.10.2009}{36}
+\contentsline {paragraph}{Present}{36}
+\contentsline {paragraph}{Tasks Completed}{36}
+\contentsline {paragraph}{Issues discussed}{36}
+\contentsline {paragraph}{To do}{36}
+\contentsline {paragraph}{Minutes 21.10.2009}{37}
+\contentsline {paragraph}{Present}{37}
+\contentsline {paragraph}{Apologies}{37}
+\contentsline {paragraph}{Issues discussed}{37}
+\contentsline {paragraph}{To do}{37}
+\contentsline {paragraph}{Minutes 11.11.2009}{38}
+\contentsline {paragraph}{Present}{38}
+\contentsline {paragraph}{Tasks completed}{38}
+\contentsline {paragraph}{Issues discussed}{38}
+\contentsline {paragraph}{To do}{38}
+\contentsline {paragraph}{Minutes 18.11.2009}{39}
+\contentsline {paragraph}{Present}{39}
+\contentsline {paragraph}{Tasks completed}{39}
+\contentsline {paragraph}{Issues discussed}{39}
+\contentsline {paragraph}{To do}{39}
