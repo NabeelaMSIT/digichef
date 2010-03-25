@@ -37,27 +37,46 @@ def stupid_search(request):
 		all_ingreds = Tag.objects.all() #the select boxes need to know what ingreds there are
 		return render_to_response('index.html', {'ingredients':all_ingreds}, RequestContext(request))
 
+def api_similar_recipes(request, recipe_id, number):
+	if not number:
+		number = 5
+	else:
+		number = int(number)
+	man = RecommenderManager()
+	similar_recipes = man.get_by_relevance_to_tags(Recipe.objects.get(id=recipe_id).tags, Recipe.objects.exclude(id=recipe_id) ,0)
+	similar_recipes.sort(reverse=True)
+	similar_recipes = [{'title':	recipe.title,
+						'url':		recipe.get_absolute_url(),
+						'img_url':	recipe.image_url,
+					} for rating, recipe in similar_recipes[:number]]
+
+	json = simplejson.dumps(similar_recipes)
+	return HttpResponse(json, mimetype="application/json")
+
+def api_recommended_recipes(request, number):
+	if not number:
+		number = 5
+	else:
+		number = int(number)
+	man = RecommenderManager()
+
+	recommended_recipes = man.get_best_items_for_user(request.user, User.objects.all(), Recipe.objects.all(), 0)
+	recommended_recipes.sort(reverse=True)
+	recommended_recipes = [{'title':	recipe.title,
+						'url':		recipe.get_absolute_url(),
+						'img_url':	recipe.image_url,
+					} for rating, recipe in recommended_recipes[:number]]
+
+	json = simplejson.dumps(recommended_recipes)
+	return HttpResponse(json, mimetype="application/json")
+
 def api_collab_search(request):
 	if request.method == "POST":
 		q = request.POST.get('q', None)
 		if q is not None:
 			return collab_search(request, q)
 		else:
-			assert False, request.POST
-
-def api_similar_recipes(request, recipe_id):
-	man = RecommenderManager()
-
-	similar_recipes = man.get_by_relevance_to_tags(Recipe.objects.get(id=recipe_id).tags, Recipe.objects.exclude(id=recipe_id) ,0)
-	similar_recipes.sort(reverse=True)
-	similar_recipes = [{'title':	recipe.title,
-						'url':		recipe.get_absolute_url(),
-						'img_url':	recipe.image_url
-					} for rating, recipe in similar_recipes[:5]]
-
-	json = simplejson.dumps(similar_recipes)
-	return HttpResponse(json, mimetype="application/json")
-	
+			assert False, request.POST	
 	
 
 def collab_search(request, search_string):
@@ -90,9 +109,6 @@ def recipe_detail(request, recipe_id):
 	ingredient_list = recipe.ingredients.split("\n")
 	score = Vote.objects.get_score(recipe)
 
-
-#	similar_recipes = man.get_similar_items_from_model(recipe, User.objects.all(), Recipe, min_value=0)
-#	similar_recipes = man.get_similar_items(recipe, User.objects.all(), Recipe.objects.all()[:500], min_value=0.1)
 	return render_to_response('recipe_detail.html', locals(), RequestContext(request))
 
 
