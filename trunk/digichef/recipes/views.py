@@ -103,7 +103,7 @@ def recipes_all(request):
 def recipe_list(request, queryset):
 	"""View of a list of recipes"""
 
-	paginator = Paginator(queryset, 25) # Show 25 contacts per page
+	paginator = Paginator(queryset, 25, orphans=3) # Show 25 contacts per page, min 3 per page
 
 	# Make sure page request is an int. If not, deliver first page.
 	try:
