@@ -1,61 +1,83 @@
-<html>
+{% extends "base.html" %}
 
-<head>
-	
-<LINK REL=StyleSheet HREF="/media/css/style.css" TYPE="text/css">
+{%block styles%}
+	<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
 
-</head>
+	<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
+{%endblock styles%}
 
-<body>
-	
-	<div id='main'>
-	
-		<div id='header'></div>
+{%block scripts%}
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
 
-		<div id='sidebar'>
-			<ul>
-				<li><a href='/'>Home</a></li>
-				<li><a href='/recipes/'>Recipes</a></li>
-			</ul>
-		</div>	
+	<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
+	<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>
 
+	<script type="text/javascript" charset="utf-8">
+		//<![CDATA[
 
+		window.addEvent('load', function(){
 
-		<div id='recipeSection'>
+			// Autocomplete initialization
+			var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
+//			t4.add('John Doe').add('Jane Roe');
 
-			{%if recipes.object_list%}
-				<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipes.</p>
+			t4.container.addClass('textboxlist-loading');													 
+			new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
+				t4.plugins['autocomplete'].setValues(r);
+				t4.container.removeClass('textboxlist-loading');
+			}}).send();														 
 
-				{% for recipe in recipes.object_list %}
-					<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
-				{% endfor %}
+		});
+		//]]>
+	</script> 
+{%endblock scripts%}
 
-				<div class="pagination">
-					<span class="step-links">
-						{% if recipes.has_previous %}
-							<a href="?page={{ recipes.previous_page_number }}">previous</a>
-						{% endif %}
+{%block content%}
 
-						<span class="current">
-							Page {{ recipes.number }} of {{ recipes.paginator.num_pages }}.
-						</span>
-
-						{% if recipes.has_next %}
-							<a href="?page={{ recipes.next_page_number }}">next</a>
-						{% endif %}
-					</span>
-				</div>
-
-			{%else%}
-				<p>No recipes found for your search</p>
-			{%endif%}
-
-		</div>
-
-		<div id='footer'> GRP DIGI CHEF :D </div>
-
+	<div id='search-wrapper'>
+		<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
+			<div class="form_friends">
+				<input type="text" name="q" value="" id="form_tags_input_3" />
+				<input type="submit" value="Search" id="submitform" />
+				<div class="clear"></div>
+			</div>
+		</form>
 	</div>
 
-</body>
+	<div class='page'>
+		{%if recipes.object_list%}
+			<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipe{{recipes.paginator.count|pluralize}}.</p>
 
-</html>
+			{% for recipe in recipes.object_list %}
+				<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
+			{% endfor %}
+
+			<div class="pagination">
+				<span class="step-links">
+					{% if recipes.has_previous %}
+						<a href="?page={{ recipes.previous_page_number }}">previous</a>
+					{% endif %}
+
+					<span class="current">
+						Page {{ recipes.number }} of {{ recipes.paginator.num_pages }}.
+					</span>
+
+					{% if recipes.has_next %}
+						<a href="?page={{ recipes.next_page_number }}">next</a>
+					{% endif %}
+				</span>
+			</div>
+
+		{%else%}
+			<p>No recipes found for your search</p>
+		{%endif%}
+	</div><!-- end page div-->
+{%endblock content%}
