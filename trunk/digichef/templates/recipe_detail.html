@@ -1,8 +1,49 @@
-{%extends 'base.html'%}
+{% extends "base.html" %}
 
-{%block title%}
-{{recipe.title}} - DigiChef
-{%endblock title%}
+{%block styles%}
+
+<style type="text/css">
+body{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif; 
+	font-size:11px;
+}
+a.button{
+	background:url(/media/img/button.gif);
+	display:block;
+	color:#555555;
+	font-weight:bold;
+	height:30px;
+	line-height:29px;
+	margin-bottom:14px;
+	text-decoration:none;
+	width:191px;
+	float:left;
+}
+a:hover.button{
+	color:#0066CC;
+}
+
+/* -------------------- */
+/* CLASSES				*/
+/* -------------------- */
+	.add{
+		background:url(/media/img/add.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.delete{
+		background:url(/media/img/delete.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+	.recycle{
+		background:url(/media/img/recycle.gif) no-repeat 10px 8px;
+		text-indent:30px;
+		display:block;
+	}
+</style>
+{%endblock styles%}
+
 
 {%block scripts%}
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
@@ -55,12 +96,26 @@
 
 {%endblock scripts%}
 
+{% block header	%}
 
 {% block home_link %}
-	<h2>Digichef</h2>
+	<h1>Digichef</h1>
 {% endblock home_link%}
-
+{% endblock header%}
 {%block content%}
+	
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="" title=""><span>Home</span></a></li>
+        <li><a href="" title=""><span>My Profile</span></a></li>
+        <li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+		
 <div id="page">
 	<div class="photo-wrapper" id="recipe_image_wrapper">
 		<span></span>
@@ -91,9 +146,10 @@
 	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
 	{% if user.is_authenticated %}
 	<ul id="voting" recipeId="{{ recipe.id }}">
-		<li><a id="voting-upvote" href="">I like it!</a></li>
-		<li><a id="voting-downvote" href="">I hate it!</a></li>
-		<li><a id="voting-clearvote" href="">I take it back! Clear my vote.</a></li>
+	
+		<li><a id="voting-upvote" href="" class="button"><span class="add">I like it.</span></a></li>
+		<li><a id="voting-downvote" href="" class="button"><span class="delete">I hate it.</span></a></li>
+		<li><a id="voting-clearvote" href="" class="button"><span class="recycle">Clear my vote.</span></a></li>
 	</ul>
 	{% else %}
 	<p>Please <a href="/accounts/login/">log in</a> to rate</p>
@@ -103,6 +159,7 @@
 </div><!-- end div page -->
 
 <h2>More recipes like this:</h2>
+
 <ul id="similar_recipes">
 	<li>Loading recipes requires Javascript</li>
 </ul>
