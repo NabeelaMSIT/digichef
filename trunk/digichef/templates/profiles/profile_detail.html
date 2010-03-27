@@ -1,7 +1,26 @@
+{%extends 'base.html'%}
 
+{%block title%}
+{{profile.user.get_full_name}}'s Profile - Digichef
+{%endblock title%}
 
-<title>{{profile.user.get_full_name}}'s Profile - Digichef</title>
+{%block header %}
 <h1>{{profile.user.get_full_name}}'s Profile</h1>
+{%endblock header %}
 
-<h2>About me</h2>
-<p>{{profile.about}}</p>
+{%block content%}
+<div id='page'>
+	<div class="photo-wrapper">
+		<span></span>
+		<img src="/media/img/profile-pictures/{{profile.user.username}}-300x300.jpg" />
+	</div>
+
+	<h2>About me</h2>
+	<p>{{profile.about}}</p>
+
+	<h2>I like these:</h2>
+	{%for recipe in recipes_liked%}
+	<p>{{recipe.title}}<p>
+	{%endfor%}
+</div>
+{%endblock content%}
