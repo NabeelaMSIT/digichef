@@ -18,8 +18,8 @@
 }
 
 #search-wrapper {
-	width:830px;
-	padding:5px;
+	width:820px;
+	padding:10px;
 	margin:0 auto;
 	background:#FF9900;
 	-moz-border-radius: 5px;
@@ -47,7 +47,7 @@
 }
 
 .textboxlist {
-	width: 760px;
+	width: 740px;
 	background:#fff;
 	display:inline;
 	float: left;
@@ -88,6 +88,11 @@
 	text-align:center;
 	width:840px;
 	background:#ffe297;
+}
+
+#paginate {
+	color:#cd5c5c;
+	font-size:12px;
 }
 
 #num-recipes {
@@ -171,6 +176,15 @@
 
 }
 
+#page a {
+	text-decoration: none;
+}
+
+
+#page a:hover {
+	color:orange;
+}
+
 #page h2 {
 	background:url(/media/img/ribbon-small.png) no-repeat;
 	height:44px;
@@ -181,6 +195,10 @@
 	font-size:26px;
 	color:#fff;
 	text-shadow: #7d1e00 0px -1px 0px;
+}
+
+#page h5 {
+	font-size:14px;
 }
 
 #recipe_image_wrapper {
