@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {%block styles%}
-	<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
-
 	<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
 {%endblock styles%}
@@ -10,10 +8,7 @@
 {%block scripts%}
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
-	<script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
-
+	
 	<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
 		
 	<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
@@ -41,42 +36,53 @@
 		//]]>
 	</script> 
 {%endblock scripts%}
+ 
+{% block header	%}
 
 {% block home_link %}
-	<h2>Digichef</h2>
+	<h1>Digichef</h1>
 {% endblock home_link%}
+{% endblock header%}
 
 {%block content%}
-	<div id='search-wrapper'>
-		<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
-			<div class="form_friends">
-				<input type="text" name="q" value="" id="form_tags_input_3" />
-				<input type="submit" value="Search" id="submitform" />
-				<div class="clear"></div>
-			</div>
-		</form>
-	</div>
+	
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="?page={{ recipes.next_page_number }}" title=""><span>Home</span></a></li>
+        <li><a href="" title=""><span>My Profile</span></a></li>
+        <li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+		
+	
 
 	<div id='page'>
+	<h1>Recipes Returned</h1>
 		{%if recipes.object_list%}
 			<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipe{{recipes.paginator.count|pluralize}}.</p>
-
+			<br />
 			{% for recipe in recipes.object_list %}
-				<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
+	<!--		<p><a id="voting-upvote" href="/recipe/{{recipe.id}}" class="button"><span class="add">{{recipe.title}}</span></a></p>
+		-->
+			<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
 			{% endfor %}
-
+			<br />
 			<div class="pagination">
 				<span class="step-links">
 					{% if recipes.has_previous %}
-						<a href="?page={{ recipes.previous_page_number }}">previous</a>
+						<a href="?page={{ recipes.previous_page_number }}" id="paginate"><< Previous</a>
 					{% endif %}
 
 					<span class="current">
-						Page {{ recipes.number }} of {{ recipes.paginator.num_pages }}.
+						Page {{ recipes.number }} of {{ recipes.paginator.num_pages }}
 					</span>
 
 					{% if recipes.has_next %}
-						<a href="?page={{ recipes.next_page_number }}">next</a>
+						<a href="?page={{ recipes.next_page_number }}" id="paginate">Next >></a>
 					{% endif %}
 				</span>
 			</div>
@@ -85,4 +91,5 @@
 			<p>No recipes found for your search</p>
 		{%endif%}
 	</div><!-- end page div-->
+	
 {%endblock content%}
