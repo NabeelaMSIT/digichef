@@ -41,9 +41,9 @@
 	</script> 
 {%endblock scripts%}
 
-{% block header	%}
+{% block home_link %}
 	<h1>Digichef<h1>
-{% endblock header%}
+{% endblock home_link%}
 
 {% block content%}
 	<div id='search-wrapper'>
@@ -108,8 +108,8 @@
 			</div>
 
 			<div id="user-showcase">
-				<div class="photo-wrapper">
-					<img class="user-thumbnail" id="user-showcase-thumbnail" src="/media/img/user.jpg" alt="User thumbnail"/>
+				<div class="photo-wrapper"  id="user-showcase-thumbnail">
+					<img class="user-thumbnail" src="/media/img/user.jpg" alt="User thumbnail"/>
 				</div>
 				<p>User of the week:<br/>Scarlett Johansson.<br/>
 				About:<br/>Cookings my favourite hobby.</p>
