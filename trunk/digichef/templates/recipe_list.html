@@ -27,7 +27,9 @@
 
 			// Autocomplete initialization
 			var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
-//			t4.add('John Doe').add('Jane Roe');
+			{%for tag in taglist%}
+			t4.add('{{tag}}');
+			{%endfor%}
 
 			t4.container.addClass('textboxlist-loading');													 
 			new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
@@ -40,8 +42,11 @@
 	</script> 
 {%endblock scripts%}
 
-{%block content%}
+{% block home_link %}
+	<h2>Digichef</h2>
+{% endblock home_link%}
 
+{%block content%}
 	<div id='search-wrapper'>
 		<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
 			<div class="form_friends">
@@ -52,7 +57,7 @@
 		</form>
 	</div>
 
-	<div class='page'>
+	<div id='page'>
 		{%if recipes.object_list%}
 			<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipe{{recipes.paginator.count|pluralize}}.</p>
 
