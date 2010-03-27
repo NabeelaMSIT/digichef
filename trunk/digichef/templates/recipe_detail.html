@@ -141,7 +141,7 @@ a:hover.button{
 	{{tag.name}}{%if not forloop.last%} |{%endif%}
 	{% endfor %}</p>
 	-->
-
+	<h2>Vote recipe</h2>
 	<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
 	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
 	{% if user.is_authenticated %}
@@ -156,12 +156,15 @@ a:hover.button{
 	{% endif %}
 
 	<div class="clear"></div>
-</div><!-- end div page -->
-
-<h2>More recipes like this:</h2>
+	
+<h2>Similar stuff</h2>
 
 <ul id="similar_recipes">
 	<li>Loading recipes requires Javascript</li>
 </ul>
+	
+	</div><!-- end div page -->
+
+
 
 {%endblock content%}
