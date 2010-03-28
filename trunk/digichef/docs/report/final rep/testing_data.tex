@@ -1,0 +1,41 @@
+Obtaining suitable testing data for the project was technical challenge of substantial proportions. This section deals with the requirements decisions we made and the technical solutions we used.
+
+\subsubsection{Requirements}
+In order for testing to be effective for a database-driven project of this type it was necessary to have a large database of recipes, for several reasons.
+
+Firstly, performance and scalability, while not explicitly in the specification, are implicit goals for any software implementation. A large database is required to test the system's performance on large quantities of data.
+
+Secondly, collaborative filtering systems work better the more data they have. Filters, by definition, act by filtering out large amounts of data leaving only the best matches. Having more data both increases the chance of good matches existing in the dataset, and increases the amount of available information that the system can use to find those matches.
+
+The database also had to consist of real data. A large database of randomly generated fake recipes would have been easy to create, and could be used to test scalability and performance, but would not have worked for testing filtering quality. The only way to test the \textit{quality} of the output of a collaborative filtering system is for a human to assess it for utility and reasonableness. A human would find it difficult to assess the quality of the output from a system that used a random database.
+
+After assessing the datasets of other recipe sites and the technical properties of the platform it was decided that a database of approximately 1000 recipes would be suitable for testing. Due to the size of this requirement it was decided that manual data entry was off limits, as it would be far too time consuming.
+
+For collaborative filtering to be possible, the recipes also need to be tagged with what ingredients they contain, as it is this data that the system uses to draw connections between related recipes.
+
+Finally, the design team requested that the recipes have images related to them, to improve the aesthetic qualities of the site and differentiate intuitively between recipes.
+
+So to summarise the technical requirements;
+
+\begin{quotation}
+A database of about 1000 real recipes, each with relevant semantic metadata representing their ingredients, and a relevant image, \textit{without} any human input.
+\end{quotation}
+
+\subsubsection{Solutions}
+
+Obtaining raw recipe data was achieved by use of a recursive web-spider. All recipe detail pages of the website \texttt{AllRecipes.com} were downloaded as html files. The required data were scraped from the resulting 941 html files using a python scraping script, which used the XML/HTML parsing package BeautifulSoup to extract the data from the files in bulk, reformatted the data a little, and interfaced directly with the django database API to input the recipes into the database.
+
+Applying tags to represent ingredients was less simple. The solution would require automated semantic analysis, as the ingredients are listed in an unknown format. For example, the ingredient `onion' could be listed in many different ways; `1 onion', `One onion', `One large onion', '1 chopped onion', `Onion (peeled and chopped)', `1 cup chopped onion', `3 onions'. To solve this problem a novel approximate solution was invented, making use of the semantic knowledge engine TrueKnowledge, which exposes an XML web API to developers. Every word in the ingredients sections of every page was extracted, de-pluralised and put into a \texttt{set} data structure, to prevent duplication of API queries, of which a limited number are allowed in a given timeframe. Each word was then loaded into an API query which effectively asked \textit{`is $<$word$>$ food?'}. Recipes were then tagged with every word in their ingredients list which was considered to be food. In this way the system was able to know that words like `chopped', `peeled', and `cup' do not warrant tags, while `onion' does. The system is somewhat approximate, as strings such as `30g onion powder` will be tagged simply `onion', but it is good enough for testing data.
+
+To find suitable images, a custom script was written to query Google Image Search. Since Google's image API is licensed for live web services not bulk data acquisition, it could not be used. Google implements some measures to prevent Google Image Search from being accessed programmatically, but these were circumvented by User Agent spoofing. Initially there were issues with images too large, too small, or on occasion too obscene to be used, but soon the right settings were found to ensure medium-sized, safe images. The intention was to provide images which were distinct and food related, but the system consistently surpasses that, producing images which are generally attractive, professionally photographed and surprisingly accurate, even for complex recipes. The images are of many different aspect ratios, which is useful for the design team, as the images in a production system would be provided by the users, so it is important to ensure that the page styling works with arbitrary images.
+
+
+
+
+
+
+
+
+
+
+
