@@ -7,7 +7,7 @@ from django.contrib.auth.models import User, AnonymousUser
 class Recipe(models.Model):
 	"""The model for a recipe object"""
 	title = models.CharField(max_length=200)	# The title of the recipe
-	uploader = models.ForeignKey(User, default=1, related_name="uploaded-recipes")
+	uploader = models.ForeignKey(User, default=-1, related_name="uploaded_recipes")
 	ingredients = models.TextField()
 	instructions = models.TextField(blank=True)
 	image_url = models.TextField(blank=True)	# Url to a photo of the dish
