@@ -222,6 +222,7 @@
 	width:100px;
 }
 
+/*Below is the styling for the menubar; source: http://13styles.com/css-menus/wax/ */
 .orange #waxcontainer{position:relative;height:48px;background:#FFFFFF;width:840px;font-family:"Trebuchet MS",Arial,Verdana,Helvitica,sans-serif;}
 .orange #waxnav{position:relative;height:25px;font-size:11px;font-weight:bold;background:#fff url(/media/img/orangewax_bottom.gif) repeat-x bottom left;}
 .orange #waxnav ul{margin:0px;padding:0 0 4px 0;list-style-type:none;width:auto;float:left;}
@@ -230,14 +231,3 @@
 .orange #waxnav ul li a span{padding:0 12px 0 0;}
 .orange #waxnav ul li a:hover,.orange #waxnav ul li a.current{color:#fff;background:#FF9900 url(/media/img/orangewax_navtopleft.gif) no-repeat top left;}
 .orange #waxnav ul li a:hover span,.orange #waxnav ul li a.current span{display:block;width:auto;background:#FF9900 url(/media/img/orangewax_navtopright.gif) no-repeat top right;}
-
-
-p a { color: #BE7A40; }
-h1 { font: 20px "Georgia"; color: #666; }
-p, ul { font: 13px "Lucida Grande", "Verdana"; color: #333; }
-#back a { font-size: 11px; }
-#demo { margin: 40px 70px 70px; }
-h2 { font: 18px "Georgia"; color: #666; margin-top: 0; }
-h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: uppercase; font-weight: bold; }
-#slideshow-options ul { padding: 0; }
-#slideshow-options ul li { list-style-type: none; display: inline; padding-right: 0; }
