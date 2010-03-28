@@ -23,20 +23,14 @@
 		<br />
 		
 <div id="container">
-<form action="vars.php" method="post" class="niceform">
+<form action="" method="post" class="niceform">
 	<fieldset>
     	<legend>Edit Profile</legend>
 		<dl>
-        	<dt><label for="email">About:</label></dt>
-            <dd><input type="text" name="email" id="email" size="32" maxlength="128" /></dd>
+        	<dt><label for="email">{{ field.label_tag }}</label></dt>
+            <dd><input type="text" name="email" id="email" size="32" maxlength="128" />{{ field }}</dd>
         </dl>
-        <dl>
-        	<dt><label for="comments">Gender:</label></dt>
-            <dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
-        </dl>
-		<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-		<input type="submit" name="submit" id="submit" value="Submit" />
+       <p><input type="submit" value="Submit" /></p>
     </fieldset>
     
 </form>
