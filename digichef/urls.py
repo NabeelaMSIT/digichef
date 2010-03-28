@@ -40,6 +40,7 @@ urlpatterns = patterns(
 #	(r'^accounts/', include('registration.backends.default.urls')),
 	(r'^accounts/', include('registration.urls')),
     (r'^profiles/', include('profiles.urls')),
+    (r'^users/(?P<username>\w+)/?$','django.views.generic.simple.redirect_to', {'url': '/profiles/%(username)s', 'permanent': False}),
 
 	url(r'^recipes/(?P<object_id>\d+)/(?P<direction>up|down|clear)vote/?$', vote_on_object, {'model':recipes.models.Recipe, 'template_object_name':'recipe', 'allow_xmlhttprequest':'true'}, name="recipe_voting"),
     (r'^recipe/(?P<recipe_id>\d+).*$', recipes.views.recipe_detail),
