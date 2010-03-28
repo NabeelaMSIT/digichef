@@ -17,7 +17,6 @@ a.button{
 	margin-bottom:14px;
 	text-decoration:none;
 	width:191px;
-	float:left;
 }
 a:hover.button{
 	color:#0066CC;
@@ -143,7 +142,7 @@ a:hover.button{
 	-->
 	<h2>Vote recipe</h2>
 	<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
-	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5>
+	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5><br />
 	{% if user.is_authenticated %}
 	<ul id="voting" recipeId="{{ recipe.id }}">
 	
