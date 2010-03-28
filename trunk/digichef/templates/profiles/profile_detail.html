@@ -19,8 +19,17 @@
 	<p>{{profile.about}}</p>
 
 	<h2>I like these:</h2>
+	<ul>
 	{%for recipe in recipes_liked%}
-	<p>{{recipe.title}}<p>
+		<li><a href="{{recipe.get_absolute_url}}">
+				<span class="photo-wrapper recipe-thumbnail">
+					<img class="recipe_thumbnail" src="{{recipe.image_url}}" />
+				</span>
+				{{recipe.title}}
+			</a>
+		</li>
 	{%endfor%}
+	</ul>
+
 </div>
 {%endblock content%}
