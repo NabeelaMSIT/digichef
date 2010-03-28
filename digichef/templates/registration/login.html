@@ -6,19 +6,12 @@
 
 {%endblock styles%}
 
-{% block header	%}
-
-{% block home_link %}
-	<h1>Digichef</h1>
-{% endblock home_link%}
-{% endblock header%}
-
 {%block content%}
 <div class="orange">
 	<div id="waxcontainer">
 		<div id="waxnav">
 			<ul>
-				<li><a href="" title=""><span>Home</span></a></li>
+				<li><a href="/" title=""><span>Home</span></a></li>
 				<li><a href="" title=""><span>My Profile</span></a></li>
 				<li><a href="" title=""><span>About Us</span></a></li>
 			</ul>
@@ -31,8 +24,9 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-
-
+<br />
+		
+<div id="container">
 <form method="post" action="{% url django.contrib.auth.views.login %}" class="niceform">
 	<fieldset>
     	<legend>Input Username/Password</legend>
@@ -49,7 +43,7 @@
     </fieldset>
    
 </form>
-
+</div>
 
 <!--
 

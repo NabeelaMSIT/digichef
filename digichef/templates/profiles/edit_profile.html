@@ -1,3 +1,50 @@
+{% extends "base.html" %}
+
+
+{%block styles%}
+<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
+
+{%endblock styles%}
+
+{%block content%}
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="/" title=""><span>Home</span></a></li>
+        {%if user.is_authenticated%}
+		<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
+		{%endif%}
+		<li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>	
+		<br />
+		
+<div id="container">
+<form action="vars.php" method="post" class="niceform">
+	<fieldset>
+    	<legend>Edit Profile</legend>
+		<dl>
+        	<dt><label for="email">About:</label></dt>
+            <dd><input type="text" name="email" id="email" size="32" maxlength="128" /></dd>
+        </dl>
+        <dl>
+        	<dt><label for="comments">Gender:</label></dt>
+            <dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
+        </dl>
+		<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+		<input type="submit" name="submit" id="submit" value="Submit" />
+    </fieldset>
+    
+</form>
+</div>
+		
+		
+<!--		
+	
 <form action="" method="post">
     {% for field in form %}
         <div class="fieldWrapper">
@@ -7,4 +54,5 @@
     {% endfor %}
     <p><input type="submit" value="Submit" /></p>
 </form>
-
+-->
+{%endblock content%}

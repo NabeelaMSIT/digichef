@@ -1,6 +1,29 @@
-<h1>All Profiles</h1>
+{%extends 'base.html'%}
+
+{%block title%}
+All Profiles - Digichef
+{%endblock title%}
+
+
+{%block content%}
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="/" title=""><span>Home</span></a></li>
+        {%if user.is_authenticated%}
+		<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+		{%endif%}
+		<li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+		
+		<h1>All Profiles</h1>
 <ul>
 {%for object in object_list%}
 <li>{{object}}</li>
 {%endfor%}
 </ul>
+{%endblock content%}
