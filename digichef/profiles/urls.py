@@ -26,7 +26,6 @@ from django.conf.urls.defaults import *
 
 from profiles import views
 
-
 urlpatterns = patterns('',
                        url(r'^create/$',
                            views.create_profile,

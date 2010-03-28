@@ -104,16 +104,18 @@ a:hover.button{
 {%block content%}
 	
 <div class="orange">
-        <div id="waxcontainer">
-        <div id="waxnav">
-        <ul>
-        <li><a href="" title=""><span>Home</span></a></li>
-        <li><a href="" title=""><span>My Profile</span></a></li>
-        <li><a href="" title=""><span>About Us</span></a></li>
-        </ul>
-        </div>
-        </div>
-        </div>
+	<div id="waxcontainer">
+		<div id="waxnav">
+			<ul>
+				<li><a href="/" title=""><span>Home</span></a></li>
+				{%if user.is_authenticated%}
+				<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+				{%endif%}
+				<li><a href="" title=""><span>About Us</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 		
 <div id="page">
 	<div class="photo-wrapper" id="recipe_image_wrapper">
@@ -145,7 +147,6 @@ a:hover.button{
 	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5><br />
 	{% if user.is_authenticated %}
 	<ul id="voting" recipeId="{{ recipe.id }}">
-	
 		<li><a id="voting-upvote" href="" class="button"><span class="add">I like it.</span></a></li>
 		<li><a id="voting-downvote" href="" class="button"><span class="delete">I hate it.</span></a></li>
 		<li><a id="voting-clearvote" href="" class="button"><span class="recycle">Clear my vote.</span></a></li>

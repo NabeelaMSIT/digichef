@@ -17,6 +17,9 @@ from django.contrib.auth.models import User
 
 from profiles import utils
 
+from digichef.recipes.models import Recipe
+from digichef.voting.models import Vote
+
 
 def create_profile(request, form_class=None, success_url=None,
                    template_name='profiles/create_profile.html',
@@ -281,8 +284,12 @@ def profile_detail(request, username, public_profile_field=None,
     for key, value in extra_context.items():
         context[key] = callable(value) and value() or value
     
+    recipes_voted = Vote.objects.get_for_user_in_bulk(Recipe.objects.all(), user)
+    recipes_liked = [vote.object for number, vote in recipes_voted.items() if vote.is_upvote()][:5]
+    context.update({'recipes_liked':recipes_liked})
+
     return render_to_response(template_name,
-                              { 'profile': profile_obj },
+                              { 'profile': profile_obj,},
                               context_instance=context)
 
 def profile_list(request, public_profile_field=None,
