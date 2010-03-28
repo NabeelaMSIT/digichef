@@ -37,12 +37,6 @@
 	</script> 
 {%endblock scripts%}
  
-{% block header	%}
-
-{% block home_link %}
-	<h1>Digichef</h1>
-{% endblock home_link%}
-{% endblock header%}
 
 {%block content%}
 	
@@ -50,9 +44,11 @@
         <div id="waxcontainer">
         <div id="waxnav">
         <ul>
-        <li><a href="?page={{ recipes.next_page_number }}" title=""><span>Home</span></a></li>
-        <li><a href="" title=""><span>My Profile</span></a></li>
-        <li><a href="" title=""><span>About Us</span></a></li>
+        <li><a href="/" title=""><span>Home</span></a></li>
+        {%if user.is_authenticated%}
+		<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+		{%endif%}
+		<li><a href="" title=""><span>About Us</span></a></li>
         </ul>
         </div>
         </div>

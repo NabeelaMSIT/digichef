@@ -1,3 +1,13 @@
+{% extends "base.html" %}
+
+
+{%block styles%}
+<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
+
+{%endblock styles%}
+
+{%block content%}
+
 <form action="" method="post">
     {% for field in form %}
         <div class="fieldWrapper">
@@ -8,3 +18,4 @@
     <p><input type="submit" value="Submit" /></p>
 </form>
 
+{%endblock content%}

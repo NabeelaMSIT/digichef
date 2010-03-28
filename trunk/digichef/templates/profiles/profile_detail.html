@@ -4,12 +4,24 @@
 {{profile.user.get_full_name}}'s Profile - Digichef
 {%endblock title%}
 
-{%block header %}
-<h1>{{profile.user.get_full_name}}'s Profile</h1>
-{%endblock header %}
-
 {%block content%}
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="/" title=""><span>Home</span></a></li>
+        {%if user.is_authenticated%}
+		<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
+		{%endif%}
+		<li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>	
+
+		
 <div id='page'>
+	<h1>{{profile.user.get_full_name}}'s Profile</h1>
 	<div class="photo-wrapper clipped_image_wrapper">
 		<span></span>
 		<img src="/media/img/profile-pictures/{{profile.user.username}}-300x300.jpg" />
@@ -18,7 +30,7 @@
 	<h2>About me</h2>
 	<p>{{profile.about}}</p>
 
-	<h2>I like these:</h2>
+	<h2>Recipes Liked</h2>
 	<ul>
 	{%for recipe in recipes_liked%}
 		<li><a href="{{recipe.get_absolute_url}}">
@@ -30,6 +42,7 @@
 		</li>
 	{%endfor%}
 	</ul>
-
+	<h2>Recommended</h2>
+	
 </div>
 {%endblock content%}

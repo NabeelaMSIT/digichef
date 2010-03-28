@@ -6,27 +6,22 @@
 
 {%endblock styles%}
 
-
-{% block header	%}
-
-{% block home_link %}
-	<h1>Digichef</h1>
-{% endblock home_link%}
-{% endblock header%}
 {%block content%}
 <div class="orange">
         <div id="waxcontainer">
         <div id="waxnav">
         <ul>
-        <li><a href="" title=""><span>Home</span></a></li>
-        <li><a href="" title=""><span>My Profile</span></a></li>
-        <li><a href="" title=""><span>About Us</span></a></li>
+        <li><a href="/" title=""><span>Home</span></a></li>
+        {%if user.is_authenticated%}
+		<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+		{%endif%}
+		<li><a href="" title=""><span>About Us</span></a></li>
         </ul>
         </div>
         </div>
         </div>
 		<br/><br/>
-		<div id="container">
+<div id="container">
 <form action="vars.php" method="post" class="niceform">
 	<fieldset>
     	<legend>Upload Recipe</legend>
