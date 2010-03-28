@@ -47,4 +47,6 @@ urlpatterns = patterns(
     (r'^recipes/new/?$', create_object, {'model': recipes.models.Recipe,'template_name': 'recipes/recipe_new.html', 'login_required': True}),
 
     (r'^recipes/?$', recipes.views.recipes_all),
+    (r'^recipes/all?$', recipes.views.recipes_all),
+    (r'^recipes/by-rating?$', recipes.views.recipes_by_rating),
 )

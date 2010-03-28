@@ -46,7 +46,8 @@ def api_similar_recipes(request, recipe_id, number):
 		number = int(number)
 	man = RecommenderManager()
 	similar_recipes = man.get_by_relevance_to_tags(Recipe.objects.get(id=recipe_id).tags, Recipe.objects.exclude(id=recipe_id) ,0)
-	similar_recipes.sort(reverse=True)
+	similar_recipes.sort()
+	similar_recipes.reverse()
 	similar_recipes = [{'title':	recipe.title,
 						'url':		recipe.get_absolute_url(),
 						'img_url':	recipe.image_url,
@@ -91,7 +92,7 @@ def collab_search(request, search_string):
 
 	results.sort(reverse=True)
 
-	return recipe_list(request, [listing[1] for listing in results])
+	return recipe_list(request, [listing[1] for listing in results], search_terms)
 
 
 def recipes_all(request):
@@ -99,8 +100,13 @@ def recipes_all(request):
         recipeSet = Recipe.objects.all().order_by('title')
         return recipe_list(request, recipeSet)
 
+def recipes_by_rating(request):
+	"""View all recipes ordered by their rating"""
+	recipeSet = Vote.objects.get_scores_in_bulk(Recipe.objects.all())
+	recipeSet = sorted([(recipeSet[elem]['score'], Recipe.objects.get(id=elem))for elem in recipeSet], reverse=True)
+	return recipe_list(request, [item[1] for item in recipeSet])
 
-def recipe_list(request, queryset):
+def recipe_list(request, queryset, taglist=[]):
 	"""View of a list of recipes"""
 
 	paginator = Paginator(queryset, 25, orphans=3) # Show 25 contacts per page, min 3 per page
@@ -117,7 +123,7 @@ def recipe_list(request, queryset):
 	except (EmptyPage, InvalidPage):
 		recipes = paginator.page(paginator.num_pages)
 
-	return render_to_response('recipe_list.html', {'recipes' : recipes})
+	return render_to_response('recipe_list.html', {'recipes' : recipes, 'taglist':taglist})
 
 
 def recipe_detail(request, recipe_id):
