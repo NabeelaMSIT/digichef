@@ -18,8 +18,8 @@
 }
 
 #search-wrapper {
-	width:830px;
-	padding:5px;
+	width:820px;
+	padding:10px;
 	margin:0 auto;
 	background:#FF9900;
 	-moz-border-radius: 5px;
@@ -47,7 +47,7 @@
 }
 
 .textboxlist {
-	width: 760px;
+	width: 740px;
 	background:#fff;
 	display:inline;
 	float: left;
@@ -60,17 +60,43 @@
 }
 
 #intro {
-	padding:50px 0px 50px 0px;
+	padding:5px 0px 5px 0px;
+}
+
+#intro img {
+	float:left;
 }
 
 .one-of-three {
 	float:left;
-	width:260px;
 	padding:10px;
+}
+
+#welcome-message {
+	text-align:center;
+	width:456px;
+	height:92px;
+	background:#ffcc99;
+	float:right;
 }
 
 #how-many-recipes {
 	text-align:center;
+	width:215px;
+	height:92px;
+	float:right;
+	background:#ffe297;
+}
+
+#join-now {
+	text-align:center;
+	width:840px;
+	background:#ffe297;
+}
+
+#paginate {
+	color:#cd5c5c;
+	font-size:12px;
 }
 
 #num-recipes {
@@ -154,11 +180,20 @@
 
 }
 
+#page a {
+	text-decoration: none;
+}
+
+
+#page a:hover {
+	color:orange;
+}
+
 #page h2 {
 	background:url(/media/img/ribbon-small.png) no-repeat;
 	height:44px;
 	width:173px;
-	padding:14px 10px 14px 11px;
+	padding:11px 10px 14px 16px;
 	margin:30px 0px 16px -41px;
 	display:inline-block;
 	font-size:26px;
@@ -166,7 +201,11 @@
 	text-shadow: #7d1e00 0px -1px 0px;
 }
 
-#recipe_image_wrapper {
+#page h5 {
+	font-size:14px;
+}
+
+#clipped_image_wrapper {
 	float:right;
 	margin:-30px 0px 30px 30px;
 }
@@ -182,3 +221,23 @@
 .recipe-thumbnail img{
 	width:100px;
 }
+
+.orange #waxcontainer{position:relative;height:48px;background:#FFFFFF;width:840px;font-family:"Trebuchet MS",Arial,Verdana,Helvitica,sans-serif;}
+.orange #waxnav{position:relative;height:25px;font-size:11px;font-weight:bold;background:#fff url(/media/img/orangewax_bottom.gif) repeat-x bottom left;}
+.orange #waxnav ul{margin:0px;padding:0 0 4px 0;list-style-type:none;width:auto;float:left;}
+.orange #waxnav ul li{display:block;float:left;margin:0 1px;}
+.orange #waxnav ul li a{display:block;float:left;color:#FF7E00;text-decoration:none;padding:0 0 0 12px;height:21px;line-height:195%;}
+.orange #waxnav ul li a span{padding:0 12px 0 0;}
+.orange #waxnav ul li a:hover,.orange #waxnav ul li a.current{color:#fff;background:#FF9900 url(/media/img/orangewax_navtopleft.gif) no-repeat top left;}
+.orange #waxnav ul li a:hover span,.orange #waxnav ul li a.current span{display:block;width:auto;background:#FF9900 url(/media/img/orangewax_navtopright.gif) no-repeat top right;}
+
+
+p a { color: #BE7A40; }
+h1 { font: 20px "Georgia"; color: #666; }
+p, ul { font: 13px "Lucida Grande", "Verdana"; color: #333; }
+#back a { font-size: 11px; }
+#demo { margin: 40px 70px 70px; }
+h2 { font: 18px "Georgia"; color: #666; margin-top: 0; }
+h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: uppercase; font-weight: bold; }
+#slideshow-options ul { padding: 0; }
+#slideshow-options ul li { list-style-type: none; display: inline; padding-right: 0; }

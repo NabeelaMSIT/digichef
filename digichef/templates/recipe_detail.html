@@ -87,7 +87,7 @@ a:hover.button{
 					var url = item.url;
 					var img_url = item.img_url;
 //					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
-					similar_recipes.append('<li><a href=\"'+url+'\"><span class=\"photo-wrapper recipe-thumbnail\"><img class=\"similar_thumbnail\" src=\"'+img_url+'\" /></span>'+title+'</a></li>');
+					similar_recipes.append('<li><span class=\"thumbnail_item\"><a href=\"'+url+'\"><span class=\"photo-wrapper recipe-thumbnail\"><img class=\"similar_thumbnail\" src=\"'+img_url+'\" /></span>'+title+'</a></span></li>');
 				});
 			}, 'json');
 		});
@@ -118,7 +118,7 @@ a:hover.button{
 </div>
 		
 <div id="page">
-	<div class="photo-wrapper" id="recipe_image_wrapper">
+	<div class="photo-wrapper clipped_image_wrapper" id="recipe_image_wrapper">
 		<span></span>
 		<img id="recipe_image" src="{{recipe.image_url}}" alt="{{recipe.title}}"\>
 	</div>

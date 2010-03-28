@@ -205,7 +205,7 @@
 	font-size:14px;
 }
 
-#recipe_image_wrapper {
+.clipped_image_wrapper {
 	float:right;
 	margin:-30px 0px 30px 30px;
 }
