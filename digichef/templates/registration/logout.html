@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 
-{%block content%}
+{%block styles%}
+<style type="text/css">
+h1 {
+	text-align:center;
+}
+</style>
+{%endblock styles%}
 
-<p>You have logged out</p>
+{% block header	%}
+
+{% block home_link %}
+	<h1>Digichef</h1>
+{% endblock home_link%}
+{% endblock header%}
+
+{%block content%}
+<div class="orange">
+        <div id="waxcontainer">
+        <div id="waxnav">
+        <ul>
+        <li><a href="" title=""><span>Home</span></a></li>
+        <li><a href="" title=""><span>My Profile</span></a></li>
+        <li><a href="" title=""><span>About Us</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>	
+<h1>You have logged out. Thank you for using our services.</h1>
 
 {%endblock content%}
