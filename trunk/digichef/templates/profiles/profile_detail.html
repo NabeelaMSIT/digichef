@@ -21,11 +21,12 @@
 
 		
 <div id='page'>
-	<h1>{{profile.user.get_full_name}}'s Profile</h1>
 	<div class="photo-wrapper clipped_image_wrapper">
 		<span></span>
 		<img src="/media/img/profile-pictures/{{profile.user.username}}-300x300.jpg" />
 	</div>
+
+	<h1>{{profile.user.get_full_name}}'s Profile</h1>
 
 	<h2>About me</h2>
 	<p>{{profile.about}}</p>
