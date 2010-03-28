@@ -71,6 +71,21 @@ people_list = [
 		'dislikes':		[],
 	},
 
+	{	'username':		'chef',
+		'first_name':	'Swedish',
+		'last_name':	'Chef',
+		'is_superuser':	0,
+		'is_staff':		0,
+		'email':		"",
+		'password':		"iamchef",
+
+		'gender':		'M',
+		'about':		"""I cun't stup eateeng thuse-a demn Svedeesh Feesh!!""",
+
+		'likes':		['meatball', 'swedish', 'sweden'],
+		'dislikes':		[],
+	},
+
 ]
 
 #### DON'T EDIT PAST HERE unless you're sure #####
