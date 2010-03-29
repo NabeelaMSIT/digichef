@@ -24,7 +24,7 @@ redirect. If you don't use that name, remember to explicitly pass
 
 from django.conf.urls.defaults import *
 
-from profiles import views
+from profiles import views, forms
 
 urlpatterns = patterns('',
                        url(r'^create/$',
@@ -32,7 +32,7 @@ urlpatterns = patterns('',
                            name='profiles_create_profile'),
                        url(r'^edit/$',
                            views.edit_profile,
-                           name='profiles_edit_profile'),
+                           name='profiles_edit_profile',),
                        url(r'^(?P<username>\w+)/$',
                            views.profile_detail,
                            name='profiles_profile_detail'),

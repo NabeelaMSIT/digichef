@@ -14,6 +14,9 @@ import recipes.models
 
 from voting.views import vote_on_object
 
+
+from digichef.profiles.forms import ProfileForm
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -39,6 +42,8 @@ urlpatterns = patterns(
 
 #	(r'^accounts/', include('registration.backends.default.urls')),
 	(r'^accounts/', include('registration.urls')),
+
+    ('^profiles/edit', 'profiles.views.edit_profile', {'form_class': ProfileForm,}),
     (r'^profiles/', include('profiles.urls')),
     (r'^users/(?P<username>\w+)/?$','django.views.generic.simple.redirect_to', {'url': '/profiles/%(username)s', 'permanent': False}),
 
