@@ -8,19 +8,18 @@
 
 {%block content%}
 <div class="orange">
-        <div id="waxcontainer">
-        <div id="waxnav">
-        <ul>
-        <li><a href="/" title=""><span>Home</span></a></li>
-        {%if user.is_authenticated%}
-		<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
-		{%endif%}
-		<li><a href="" title=""><span>About Us</span></a></li>
-        </ul>
-        </div>
-        </div>
-        </div>	
-		<br />
+	<div id="waxcontainer">
+		<div id="waxnav">
+			<ul>
+				<li><a href="/" title=""><span>Home</span></a></li>
+				{%if user.is_authenticated%}
+				<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
+				{%endif%}
+				<li><a href="" title=""><span>About Us</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>	
 		
 <div id="container">
 <form action="" method="post" class="niceform">
