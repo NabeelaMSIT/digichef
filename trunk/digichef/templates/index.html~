@@ -1,26 +1,32 @@
 {% extends "base.html" %}
 
-{%block styles%}
-	<link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
-	<link rel="stylesheet" href="/media/css/demo.css" type="text/css" media="all" title="Stylesheet" charset="utf-8" />
+{%load util_tags%}
 
+{%block title%}
+DigiChef
+{%endblock title%}
+
+{%block styles%}
+	<!-- for slideshow -->
+	<link rel="stylesheet" href="/media/css/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+	<!-- for search box-->
 	<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
 {%endblock styles%}
 
 {%block scripts%}
+	<!-- mootools framework -->
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
+	<!-- for slideshow -->
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/Fx.MorphList.js"></script>
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/BarackSlideshow.js"></script>    
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/demo.js"></script>
-
+	<!-- for searchbox-->
 	<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
-		
 	<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
 	<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>
-
 	<script type="text/javascript" charset="utf-8">
 		//<![CDATA[
 
@@ -28,7 +34,7 @@
 
 			// Autocomplete initialization
 			var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
-//			t4.add('John Doe').add('Jane Roe');
+			t4.add('Search recipes by ingredient. Please press enter after adding each ingredient to tokenise it.');
 
 			t4.container.addClass('textboxlist-loading');													 
 			new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
@@ -41,11 +47,48 @@
 	</script> 
 {%endblock scripts%}
 
-{% block home_link %}
-	<h1>Digichef<h1>
-{% endblock home_link%}
+{% block content%}	
+	<div class="orange">
+        <div id="waxcontainer">
+			<div id="waxnav">
+			<ul>
+				<li><a href="/" title="" class="current"><span>Home</span></a></li>
+				{%if user.is_authenticated%}
+					<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+				{%endif%}
+				<li><a href="" title=""><span>About Us</span></a></li>
+			</ul>
+			</div>
+        </div>
+	</div>	
+	
+	<div id="join-now">
+		<p>Are you tired of ROUTINE? Are you living in CULINARY AGONY?
+		Are your meals reminiscent of PRISON FOOD?</p>
+	</div>
 
-{% block content%}
+	<div id='intro'>
+		<img class="user-showcase-thumbnail " src="/media/img/spices.jpg" alt="User thumbnail"/>
+		
+		<div class="one-of-three" id="how-many-recipes">
+			<p>We have</p>
+			<p id="num-recipes">{{number_of_recipes}}</p>
+			<p>great recipes!</p>
+		</div>
+		
+		<div class="one-of-three" id="welcome-message">
+			<p>Well then, why not SPICE UP YOUR LIFE by using DIGICHEF, the online
+			recipe robot. Simply provide what ingredients you have and watch as
+			DIGICHEF conjures recipes FOR YOU!</p>
+		</div>
+				
+		<div class='clear'></div>
+	</div>
+	
+	<div id="join-now">
+		<p>JOIN NOW for personalised recommendations. ITS FREE!</p>
+	</div>
+		
 	<div id='search-wrapper'>
 		<form action="{%url api_collab_search%}" accept-charset="utf-8" method="post">
 			<div class="form_friends">
@@ -56,26 +99,9 @@
 		</form>
 	</div>
 
-	<div id='intro'>
-		<div class="one-of-three">
-			<p>Welcome to Digichef! Just type what ingredients you have into the box to get started.</p>
-		</div>
-		<div class="one-of-three" id="how-many-recipes">
-			<p>We have</p>
-			<p id="num-recipes">{{number_of_recipes}}</p>
-			<p>great recipes!</p>
-		</div>
-		<div class="one-of-three">
-			<p>If you join up we can recommend recipes that you'd like</p>
-		</div>
-		<div class='clear'></div>
-	</div>
-
 	</div id='container'>
 		<div id="slideshow">   
-
 			<span id="loading">Loading</span>
-
 			<ul id="pictures">
 				{%for s_recipe in slideshow_recipes%}
 				<li><a href="{{s_recipe.get_absolute_url}}"><img src="{{s_recipe.image_url}}" alt="{{s_recipe.title}}" title="{{s_recipe.title}}" class="slideshow-picture" width=438px /></a></li>
@@ -87,12 +113,12 @@
 				<li><a href="{{s_recipe.image_url}}">{{s_recipe.title|truncatewords:5}}</a></li>
 				{%endfor%}
 			</ul>
+
 			<div id="slideshow-options">
 				<!--<h3><label for="option-auto">Auto</label> <input type="checkbox" name="auto" checked="checked" id="option-auto" /></h3>-->
 				<p name="auto" id="option-auto" />
 			</div>
 		</div><!--end slideshow-->
-
 
 		<div id='right-column'>
 			<div id="signIn">
@@ -109,17 +135,13 @@
 
 			<div id="user-showcase">
 				<div class="photo-wrapper"  id="user-showcase-thumbnail">
-					<img class="user-thumbnail" src="/media/img/user.jpg" alt="User thumbnail"/>
+					<img class="user-thumbnail" src="/media/img/profile-pictures/{{showcase_user.username}}-300x300.jpg" alt="User thumbnail"/>
 				</div>
-				<p>User of the week:<br/>Scarlett Johansson.<br/>
-				About:<br/>Cookings my favourite hobby.</p>
+				<p>Showcase User: {{showcase_user.get_full_name}}</p>
+				<p>About:{{showcase_user.get_profile.about|truncatechars:60}}</p>
 			</div>
 			<div class='clear'></div>
 		</div><!-- end right column div -->
-		<div class='clear'></div>
+		<div class='clear'></div>	
 	</div>
 {% endblock %}
-
-
-
-
