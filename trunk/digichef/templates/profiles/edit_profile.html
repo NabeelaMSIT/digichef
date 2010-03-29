@@ -20,32 +20,22 @@
 		</div>
 	</div>
 </div>	
-		
+		<p/>
 <div id="container">
 <form action="" method="post" class="niceform">
 	<fieldset>
     	<legend>Edit Profile</legend>
-		<dl>
-        	<dt><label for="email">{{ field.label_tag }}</label></dt>
-            <dd><input type="text" name="email" id="email" size="32" maxlength="128" />{{ field }}</dd>
-        </dl>
+		{% for field in form %}
+		<dl>		
+        	<dd>{{ field.label_tag }}</dd> 
+			<dt>{{ field }}</dt>        
+		</dl>
+		{% endfor %}
        <p><input type="submit" value="Submit" /></p>
+	    
     </fieldset>
     
 </form>
 </div>
-		
-		
-	
-<form action="" method="post">
-    {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }}: {{ field }}
-        </div>
-    {% endfor %}
-    <p><input type="submit" value="Submit" /></p>
-</form>
-
 
 {%endblock content%}
