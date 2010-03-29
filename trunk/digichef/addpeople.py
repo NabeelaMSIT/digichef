@@ -1,5 +1,7 @@
 """To run this just import `addpeople` it from `python manage.py shell`"""
 
+# By Robert Miles
+
 from digichef.profiles.models import Profile
 from digichef.recipes.models import Recipe
 from digichef.voting.models import Vote
