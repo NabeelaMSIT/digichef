@@ -134,7 +134,7 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 #signIn {
 	padding:5px;
 	background:#ffcc99;
-	height:128px;
+	height:112px;
 }
 
 .form-label {
@@ -158,12 +158,16 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 
 #user-showcase {
 	background:#ffe297;
-	height:129px;
+	height:145px;
 	padding:5px;
 }
 
 #user-showcase-thumbnail {
 	float:right;
+}
+
+.user-thumbnail {
+	width:100px;
 }
 
 .photo-wrapper {

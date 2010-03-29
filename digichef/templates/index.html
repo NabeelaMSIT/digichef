@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{%load util_tags%}
+
 {%block title%}
 DigiChef
 {%endblock title%}
@@ -133,10 +135,10 @@ DigiChef
 
 			<div id="user-showcase">
 				<div class="photo-wrapper"  id="user-showcase-thumbnail">
-					<img class="user-thumbnail" src="/media/img/user.jpg" alt="User thumbnail"/>
+					<img class="user-thumbnail" src="/media/img/profile-pictures/{{showcase_user.username}}-300x300.jpg" alt="User thumbnail"/>
 				</div>
-				<p>User of the week:<br/>Scarlett Johansson.<br/>
-				About:<br/>Cookings my favourite hobby.</p>
+				<p>Showcase User: {{showcase_user.get_full_name}}</p>
+				<p>About:{{showcase_user.get_profile.about|truncatechars:70}}</p>
 			</div>
 			<div class='clear'></div>
 		</div><!-- end right column div -->
