@@ -1,12 +1,14 @@
-# Django settings for digichef project.
-import os
+"""Django settings for digichef project."""
 
+# The default django project file, heavily modified by Robert Miles
+
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Rob Miles', 'robertskmiles@gmail.com'),
 )
 
 MANAGERS = ADMINS
