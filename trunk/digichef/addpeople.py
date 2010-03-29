@@ -87,6 +87,22 @@ people_list = [
 		'likes':		['meatball', 'swedish', 'sweden'],
 		'dislikes':		[],
 	},
+	
+	
+	{	'username':		'amy',
+		'first_name':	'Amy Jane',
+		'last_name':	'Wesson',
+		'is_superuser':	1,
+		'is_staff':		1,
+		'email':		"psycrajw@nottingham.ac.uk",
+		'password':		"iamamy",
+
+		'gender':		'F',
+		'about':		"""I am document head for the project DigiChef. I love chocolate and love to bake cakes :-)""",
+
+		'likes':		['cake', 'chocolate'], #strings in the title of liked recipes
+		'dislikes':		['pork'],
+	},
 
 ]
 
