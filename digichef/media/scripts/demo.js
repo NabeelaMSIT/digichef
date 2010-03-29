@@ -16,7 +16,7 @@ window.addEvent('domready', function(){
     slideshow.options.auto = this.checked;
   });
   
-  var slideshow = new BarackSlideshow('menu', 'pictures', 'loading', { transition: slideTransition, auto: $('option-auto').checked });
+  var slideshow = new BarackSlideshow('menu', 'pictures', 'loading', { transition: slideTransition, auto: $('option-auto').checked, autostart: true });
 
 	// the example above is only fitting for this demo, since we let the user pick the transition and turn auto on/off
 	// for most scenarios, it's only enough with: 
