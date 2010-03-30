@@ -5,52 +5,14 @@
 {%endblock title%}
 
 {%block styles%}
-
-<style type="text/css">
-body{
-	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif; 
-	font-size:11px;
-}
-a.button{
-	background:url(/media/img/button.gif);
-	display:block;
-	color:#555555;
-	font-weight:bold;
-	height:30px;
-	line-height:29px;
-	margin-bottom:14px;
-	text-decoration:none;
-	width:191px;
-}
-a:hover.button{
-	color:#0066CC;
-}
-
-/* -------------------- */
-/* CLASSES				*/
-/* -------------------- */
-	.add{
-		background:url(/media/img/add.gif) no-repeat 10px 8px;
-		text-indent:30px;
-		display:block;
-	}
-	.delete{
-		background:url(/media/img/delete.gif) no-repeat 10px 8px;
-		text-indent:30px;
-		display:block;
-	}
-	.recycle{
-		background:url(/media/img/recycle.gif) no-repeat 10px 8px;
-		text-indent:30px;
-		display:block;
-	}
-</style>
+	<!-- for voting bars -->
+	<link rel="stylesheet" href="/media/css/voting.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
 {%endblock styles%}
-
 
 {%block scripts%}
 	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
-
+	
+	<!-- for voting bars-->
 	<script type="text/javascript" charset="utf-8">
 		$(function() {
 			$("#voting a").click(function() {
@@ -81,7 +43,7 @@ a:hover.button{
 					   }, 'json'
 					  )
 			}
-
+			//used to load a list of similar recipes
 			var similar_recipes = $('#similar_recipes');
 			similar_recipes.text("Loading...");
 			$.get("{%url api_similar recipe.id%}", {}, function(data) {
@@ -100,39 +62,39 @@ a:hover.button{
 {%endblock scripts%}
 
 {%block content%}
-	
-<div class="orange">
-	<div id="waxcontainer">
-		<div id="waxnav">
-			<ul>
-				<li><a href="/" title=""><span>Home</span></a></li>
-				{%if user.is_authenticated%}
-				<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
-				{%endif%}
-				<li><a href="" title=""><span>About Us</span></a></li>
-			</ul>
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->	
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+					<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 		
-<div id="page">
-	<div class="photo-wrapper clipped_image_wrapper" id="recipe_image_wrapper">
-		<span></span>
-		<img id="recipe_image" src="{{recipe.image_url}}" alt="{{recipe.title}}"\>
-	</div>
+	<div id="page">
+		<div class="photo-wrapper clipped_image_wrapper" id="recipe_image_wrapper">
+			<span></span>
+			<img id="recipe_image" src="{{recipe.image_url}}" alt="{{recipe.title}}"\>
+		</div>
 
-	<h1>{{recipe.title}}</h1>
+		<h1>{{recipe.title}}</h1>
 
-	<h2>Ingredients</h2>
+		<h2>Ingredients</h2>
 
-	<ul>
-		{% for ingredient in ingredient_list %}
-		<li>{{ ingredient }}</li>
-		{% endfor %}
-	</ul>
+		<ul>
+			{% for ingredient in ingredient_list %}
+			<li>{{ ingredient }}</li>
+			{% endfor %}
+		</ul>
 
-	<h2>Instructions</h2>
-	<div class="instructions">{{recipe.instructions|linebreaks}}</div>
+		<h2>Instructions</h2>
+		<div class="instructions">{{recipe.instructions|linebreaks}}</div>
 
 	<!--
 	<h2>Tags:</h2>
@@ -140,29 +102,26 @@ a:hover.button{
 	{{tag.name}}{%if not forloop.last%} |{%endif%}
 	{% endfor %}</p>
 	-->
-	<h2>Vote recipe</h2>
-	<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
-	 after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5><br />
-	{% if user.is_authenticated %}
-	<ul id="voting" recipeId="{{ recipe.id }}">
-		<li><a id="voting-upvote" href="" class="button"><span class="add">I like it.</span></a></li>
-		<li><a id="voting-downvote" href="" class="button"><span class="delete">I hate it.</span></a></li>
-		<li><a id="voting-clearvote" href="" class="button"><span class="recycle">Clear my vote.</span></a></li>
-	</ul>
-	{% else %}
-	<p>Please <a href="/accounts/login/">log in</a> to rate</p>
-	{% endif %}
+		<h2>Vote recipe</h2>
+		<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
+		after <span id="num_votes">{{ score.num_votes }}</span> vote{{ score.num_votes|pluralize }}</h5><br />
+		{% if user.is_authenticated %}
+			<ul id="voting" recipeId="{{ recipe.id }}">
+				<li><a id="voting-upvote" href="" class="button"><span class="add">I like it.</span></a></li>
+				<li><a id="voting-downvote" href="" class="button"><span class="delete">I hate it.</span></a></li>
+				<li><a id="voting-clearvote" href="" class="button"><span class="recycle">Clear my vote.</span></a></li>
+			</ul>
+		{% else %}
+			<p>Please <a href="/accounts/login/">log in</a> to rate</p>
+		{% endif %}
 
-	<div class="clear"></div>
+		<div class="clear"></div>
 	
-<h2>Similar stuff</h2>
+		<h2>Similar stuff</h2>
 
-<ul id="similar_recipes">
-	<li>Loading recipes requires Javascript</li>
-</ul>
+		<ul id="similar_recipes">
+			<li>Loading recipes requires Javascript</li>
+		</ul>
 	
 	</div><!-- end div page -->
-
-
-
 {%endblock content%}
