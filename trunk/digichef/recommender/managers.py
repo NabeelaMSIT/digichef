@@ -246,21 +246,35 @@ class RecommenderManager(models.Manager):
         return value
 
     def get_pred_vote_for_user_on_items(self, user, items):
+        poke("total","none")
+        try:
+            iter(items) #try and treat the object as a sequence
+        except:
+            items = [items] #we were passed a single item, stick in in a list
+
         objectType = type(items[0])
         mean_user_vote = self.get_mean_vote_for_user(user) #rbar_u
         neighbours = User.objects.exclude(id=user.id)
-        sum_sim = sum([self.userSim(neighbour, user) for neighbour in neighbours])	#bottom frac
+
+        sum_sim = 0 #bottom frac
+        sims = {} #store similarities in dict to save recomputing them
+        for neighbour in neighbours:
+            sim = self.userSim(neighbour, user)
+            sims[neighbour.id] = sim
+
+            sum_sim += sim #accumulate the sum of similarities (bottom of frac)
 
         return_list = []
         for item in items:
             poke("iter", "None")
-            sum_votes = sum([(self.userSim(neighbour, user)*							#top frac
+            sum_votes = sum([(sims[neighbour.id]*							#top frac
                 (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour) ) )
                 for neighbour in neighbours])
-            value = mean_user_vote+(sum_votes/sum_sim)
+            value = mean_user_vote+(sum_votes/float(sum_sim))
             return_list.append((value,item))
             poke("iter", "post")
 
+        poke("total","done")
         output()
         return return_list
 
