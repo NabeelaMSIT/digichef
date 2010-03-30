@@ -1,5 +1,29 @@
 {%extends 'base.html'%}
 
+{%block scripts%}
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.4.2.min.js"></script>
+	
+	<!-- for voting bars-->
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			//used to load a list of recommedded recipes
+			var recommended_recipes = $('#recommended_recipes');
+			recommended_recipes.text("Loading...");
+			$.get("{%url api_recommended profile.user.username%}", {}, function(data) {
+				recommended_recipes.text("");
+				$.each(data, function(i, item){
+					var title = item.title;
+					var url = item.url;
+					var img_url = item.img_url;
+//					similar_recipes.append('<li><a href="'+url+'">'+title+'</a></li>');
+					recommended_recipes.append('<li><span class=\"thumbnail_item\"><a href=\"'+url+'\"><span class=\"photo-wrapper recipe-thumbnail\"><img class=\"recommended_thumbnail\" src=\"'+img_url+'\" /></span>'+title+'</a></span></li>');
+				});
+			}, 'json');
+		});
+	</script>
+
+{%endblock scripts%}
+
 {%block title%}
 	{{profile.user.get_full_name}}'s Profile - Digichef
 {%endblock title%}
@@ -44,7 +68,9 @@
 		{%endfor%}
 		</ul>
 		<h2>Recommended</h2>
-		<p>recommended:{{recipes_recommended}}<p>
+		<ul id="recommended_recipes">
+			<li>Loading recipes requires Javascript</li>
+		</ul>
 	</div>
 {%endblock content%}
 
