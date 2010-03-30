@@ -233,7 +233,7 @@ class RecommenderManager(models.Manager):
         
         to get the predicted vote of a user on an item
         """
-        poke("full", "none")
+#        poke("full", "none")
         objectType = type(item)
         mean_user_vote = self.get_mean_vote_for_user(user) #rbar_u
         neighbours = User.objects.exclude(id=user.id)
@@ -242,8 +242,8 @@ class RecommenderManager(models.Manager):
             (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour) ) )
             for neighbour in neighbours])
         value = mean_user_vote+(sum_votes/sum_sim)
-        poke("full", "post")
-        output()
+#        poke("full", "post")
+#        output()
         return value
 
 
