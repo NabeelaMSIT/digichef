@@ -246,7 +246,7 @@ class RecommenderManager(models.Manager):
         return value
 
     def get_pred_vote_for_user_on_items(self, user, items):
-        poke("total","none")
+#        poke("total","none")
         try:
             iter(items) #try and treat the object as a sequence
         except:
@@ -266,16 +266,16 @@ class RecommenderManager(models.Manager):
 
         return_list = []
         for item in items:
-            poke("iter", "None")
+#            poke("iter", "None")
             sum_votes = sum([(sims[neighbour.id]*							#top frac
                 (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour) ) )
                 for neighbour in neighbours])
             value = mean_user_vote+(sum_votes/float(sum_sim))
             return_list.append((value,item))
-            poke("iter", "post")
+#            poke("iter", "post")
 
-        poke("total","done")
-        output()
+#        poke("total","done")
+#        output()
         return return_list
 
 
