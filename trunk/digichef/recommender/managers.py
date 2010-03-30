@@ -9,6 +9,8 @@ import utils
 from voting.models import Vote
 from tagging.models import Tag
 
+from digichef.util.tools import poke, output
+
 class RecommenderManager(models.Manager):
 
     MIN_RECOMMENDATION_VALUE = 0
@@ -206,24 +208,23 @@ class RecommenderManager(models.Manager):
         item_user_matrix = self.rotate_matrix(user_item_matrix)
         return utils.kcluster(item_user_matrix, users, cluster_count)
 
-    def get_votearray_for_user(self, user, objectType):
+
+# Home-made methods
+    def get_votearray_for_user(self, user):
         """Return a list of all of the values (1,0,-1) on all votes objects of objectType"""
-        votesdict = Vote.objects.get_for_user_in_bulk(objectType.objects.all(), user)
-        votes = []
-        for i in range(objectType.objects.count()):
-            try:
-                votes.append(votesdict[i].vote )
-            except KeyError:
-                votes.append(0)
-        return votes
+        votearray = user.usermeta.all()[0].votearray
+        return votearray
 
-    def userSim(self, user1, user2, objectType):
+    def userSim(self, user1, user2):
         """Get the simmilarity in votes between 2 users (between 0 and 1)"""
-        return utils.pearson_correlation(self.get_votearray_for_user(user1,objectType),self.get_votearray_for_user(user2,objectType))
+        va1 = self.get_votearray_for_user(user1)
+        va2 = self.get_votearray_for_user(user2)
+        sim = utils.pearson_correlation(va1,va2)
+        return sim
 
-    def get_mean_vote_for_user(self, user, objectType):
-        votes = [vote.vote for vote in Vote.objects.get_for_user_in_bulk(objectType.objects.all(), user).values()]
-        return (sum(votes, 0.0) / len(votes))
+    def get_mean_vote_for_user(self, user):
+        mean = user.usermeta.all()[0].meanvote
+        return mean
 
     def get_pred_vote_for_user_on_item(self, user, item):
         """Does the following equation
@@ -232,14 +233,17 @@ class RecommenderManager(models.Manager):
         
         to get the predicted vote of a user on an item
         """
+        poke("full", "none")
         objectType = type(item)
-        mean_user_vote = self.get_mean_vote_for_user(user, objectType) #rbar_u
-        neighbours = User.objects.all()
-        sum_sim = sum([self.userSim(neighbour, user, objectType) for neighbour in neighbours])	#bottom frac
-        sum_votes = sum([(self.userSim(neighbour, user, objectType)*							#top frac
-            (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour, objectType) ) )
+        mean_user_vote = self.get_mean_vote_for_user(user) #rbar_u
+        neighbours = User.objects.exclude(id=user.id)
+        sum_sim = sum([self.userSim(neighbour, user) for neighbour in neighbours])	#bottom frac
+        sum_votes = sum([(self.userSim(neighbour, user)*							#top frac
+            (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour) ) )
             for neighbour in neighbours])
         value = mean_user_vote+(sum_votes/sum_sim)
+        poke("full", "post")
+        output()
         return value
 
 

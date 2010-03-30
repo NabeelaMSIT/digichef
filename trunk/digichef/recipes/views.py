@@ -11,9 +11,11 @@ from digichef.voting.models import Vote
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.views.generic.simple import redirect_to
-
+from voting.views import vote_on_object
 from digichef import simplejson
 
+from digichef.util.models import UserMeta
+import digichef.util.models
 
 import re
 
@@ -138,12 +140,26 @@ def recipe_detail(request, recipe_id):
 	return render_to_response('recipe_detail.html', locals(), RequestContext(request))
 
 
+def vote_on_recipe(request, object_id, direction):
+	print "val", direction
+	returnval = vote_on_object(request, Recipe, direction, object_id=object_id, template_object_name='recipe', allow_xmlhttprequest=True)
+#	try:
+#		try:
+#			usermeta = UserMeta.objects.get(user__id=request.user.id)#
+#		except:
+#			usermeta = UserMeta(request.user)
+#		print usermeta.votearray
+#	except Exception as e:
+#		print type(e), e
+	return returnval
+
 def test(request):
 	objectType = Recipe
 	man = RecommenderManager()
 	user1 = User.objects.get(id=1)
-	vote = man.get_pred_vote_for_user_on_item(user1, Recipe.objects.filter(title__contains='sush')[:1][0])
-	assert False, vote
+	votes = [man.get_pred_vote_for_user_on_item(user1, recipe) for recipe in Recipe.objects.all()[:100]]
+#	votes = user1.usermeta.all()[0].votearray
+	assert False, votes
 
 
 

@@ -9,6 +9,7 @@ from voting.models import Vote
 
 VOTE_DIRECTIONS = (('up', 1), ('down', -1), ('clear', 0))
 
+
 def vote_on_object(request, model, direction, post_vote_redirect=None,
         object_id=None, slug=None, slug_field=None, template_name=None,
         template_loader=loader, extra_context=None, context_processors=None,
