@@ -1,51 +1,49 @@
 {% extends "base.html" %}
 
-
 {%block styles%}
-<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
-
+	<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
 {%endblock styles%}
 
 {%block content%}
-<div class="orange">
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
         <div id="waxcontainer">
-        <div id="waxnav">
-        <ul>
-        <li><a href="/" title=""><span>Home</span></a></li>
-        {%if user.is_authenticated%}
-		<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
-		{%endif%}
-		<li><a href="" title=""><span>About Us</span></a></li>
-        </ul>
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+						<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
         </div>
-        </div>
-        </div>
+	</div>
 		<br/><br/>
-<div id="container">
-<form action="vars.php" method="post" class="niceform">
-	<fieldset>
-    	<legend>Upload Recipe</legend>
-		<dl>
-        	<dt><label for="email">Title:</label></dt>
-            <dd><input type="text" name="email" id="email" size="32" maxlength="128" /></dd>
-        </dl>
-        <dl>
-        	<dt><label for="comments">Ingredients:</label></dt>
-            <dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
-        </dl>
-		<dl>
-        	<dt><label for="comments">Instructions:</label></dt>
-            <dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
-        </dl>
-        <dl>
-        	<dt><label for="upload">Upload Image:</label></dt>
-            <dd><input type="file" name="upload" id="upload" /></dd>
-        </dl>
-    </fieldset>
-    	<input type="submit" name="submit" id="submit" value="Submit" />
-    
-</form>
-</div>
+	<div id="container">
+		<form action="vars.php" method="post" class="niceform">
+			<fieldset>
+				<legend>Upload Recipe</legend>
+				<dl>
+					<dt><label for="email">Title:</label></dt>
+					<dd><input type="text" name="email" id="email" size="32" maxlength="128" /></dd>
+				</dl>
+				<dl>
+					<dt><label for="comments">Ingredients:</label></dt>
+					<dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
+				</dl>
+				<dl>
+					<dt><label for="comments">Instructions:</label></dt>
+					<dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
+				</dl>
+				<dl>
+					<dt><label for="upload">Upload Image:</label></dt>
+					<dd><input type="file" name="upload" id="upload" /></dd>
+				</dl>
+			</fieldset>
+			<input type="submit" name="submit" id="submit" value="Submit" />
+		</form>
+	</div>
 		
 	<!--	
 <form action="" method="post">
@@ -58,5 +56,4 @@
     <p><input type="submit" value="Submit" /></p>
 </form>
 -->
-
 {%endblock content%}

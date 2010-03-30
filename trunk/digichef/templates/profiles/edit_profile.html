@@ -1,41 +1,38 @@
 {% extends "base.html" %}
 
-
 {%block styles%}
-<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
-
+	<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
 {%endblock styles%}
 
 {%block content%}
-<div class="orange">
-	<div id="waxcontainer">
-		<div id="waxnav">
-			<ul>
-				<li><a href="/" title=""><span>Home</span></a></li>
-				{%if user.is_authenticated%}
-				<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
-				{%endif%}
-				<li><a href="" title=""><span>About Us</span></a></li>
-			</ul>
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+						<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
 		</div>
+	</div>	
+	<p/>
+	<div id="container">
+		<form action="" method="post" class="niceform">
+			<fieldset>
+			<legend>Edit Profile</legend>
+			{% for field in form %}
+				<dl>		
+				<dd>{{ field.label_tag }}</dd> 
+				<dt>{{ field }}</dt>        
+				</dl>
+			{% endfor %}
+			<p><input type="submit" value="Submit" /></p>
+			</fieldset>    
+		</form>
 	</div>
-</div>	
-		<p/>
-<div id="container">
-<form action="" method="post" class="niceform">
-	<fieldset>
-    	<legend>Edit Profile</legend>
-		{% for field in form %}
-		<dl>		
-        	<dd>{{ field.label_tag }}</dd> 
-			<dt>{{ field }}</dt>        
-		</dl>
-		{% endfor %}
-       <p><input type="submit" value="Submit" /></p>
-	    
-    </fieldset>
-    
-</form>
-</div>
 
 {%endblock content%}

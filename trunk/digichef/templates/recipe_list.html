@@ -39,32 +39,30 @@
  
 
 {%block content%}
-	
-<div class="orange">
-	<div id="waxcontainer">
-		<div id="waxnav">
-			<ul>
-				<li><a href="/" title=""><span>Home</span></a></li>
-				{%if user.is_authenticated%}
-				<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
-				{%endif%}
-				<li><a href="" title=""><span>About Us</span></a></li>
-			</ul>
+	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<div class="orange">
+		<div id="waxcontainer">
+			<div id="waxnav">
+				<ul>
+					<li><a href="/" title=""><span>Home</span></a></li>
+					{%if user.is_authenticated%}
+						<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
+					{%endif%}
+					<li><a href="" title=""><span>About Us</span></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 		
-	
-
 	<div id='page'>
-	<h1>Recipes Returned</h1>
+		<h1>Recipes Returned</h1>
 		{%if recipes.object_list%}
 			<p> Showing {{recipes.object_list|length}} of {{recipes.paginator.count}} recipe{{recipes.paginator.count|pluralize}}.</p>
 			<br />
 			{% for recipe in recipes.object_list %}
 	<!--		<p><a id="voting-upvote" href="/recipe/{{recipe.id}}" class="button"><span class="add">{{recipe.title}}</span></a></p>
 		-->
-			<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
+				<p><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></p>
 			{% endfor %}
 			<br />
 			<div class="pagination">
@@ -82,7 +80,6 @@
 					{% endif %}
 				</span>
 			</div>
-
 		{%else%}
 			<p>No recipes found for your search</p>
 		{%endif%}
