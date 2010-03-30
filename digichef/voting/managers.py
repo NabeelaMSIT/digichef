@@ -3,6 +3,9 @@
 from django.conf import settings
 from django.db import connection, models
 
+import digichef
+import traceback
+
 try:
     from django.db.models.sql.aggregates import Aggregate
 except ImportError:
@@ -98,7 +101,35 @@ class VoteManager(models.Manager):
         
         return vote_dict
 
-    def record_vote(self, obj, user, vote):
+
+# Custom Decorator class to make record_vote cache data for faster filtering
+
+    def record_vote_and_update(self, obj, user, vote):
+        try:
+            returnval = self.record_vote_simple(obj, user, vote)# do the voting first
+
+            #get any usermeta objects for the user
+            usermetas = digichef.util.models.UserMeta.objects.filter(user__id=user.id)
+
+            if len(usermetas) == 1: #if there's one thats the one we want
+                usermeta = usermetas[0]
+            elif len(usermetas) == 0: #make a new one if there isnt one
+                usermeta = digichef.util.models.UserMeta(user=user)
+            else: #there's more than 1? that ain't right
+                for usermeta in usermetas: #get rid of them all and start again
+                    usermeta.delete()
+                usermeta = digichef.util.models.UserMeta(user=user) 
+
+            usermeta.update()
+            usermeta.save()
+        except Exception as e:#this is often called with ajax so errors won't show up
+            print type(e), e #make sure we can see something to debug
+            raise e
+        return returnval
+
+    record_vote = record_vote_and_update
+
+    def record_vote_simple(self, obj, user, vote):#renamed from original record_vote
         """
         Record a user's vote on a given object. Only allows a given user
         to vote once, though that vote may be changed.
