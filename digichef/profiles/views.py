@@ -288,10 +288,7 @@ def profile_detail(request, username, public_profile_field=None,
     recipes_voted = Vote.objects.get_for_user_in_bulk(Recipe.objects.all(), user)
     recipes_liked = [vote.object for number, vote in recipes_voted.items() if vote.is_upvote()][:5]
 
-    man = RecommenderManager()
-    recipes_recommended = man.get_items_for_user(user, Recipe, -1)
-
-    context.update({'recipes_liked':recipes_liked, 'recipes_recommended':recipes_recommended})
+    context.update({'recipes_liked':recipes_liked,})
 
     return render_to_response(template_name,
                               { 'profile': profile_obj,},

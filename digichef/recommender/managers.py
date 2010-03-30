@@ -245,7 +245,7 @@ class RecommenderManager(models.Manager):
 
         return value
 
-    def get_pred_vote_for_user_on_items(self, user, items):
+    def get_pred_votes_for_user_on_items(self, user, items):
 #        poke("total","none")
         try:
             iter(items) #try and treat the object as a sequence
@@ -276,7 +276,13 @@ class RecommenderManager(models.Manager):
 
 #        poke("total","done")
 #        output()
-        return return_list
+        return sorted(return_list, reverse=True)
+
+    def get_recommendations_for_user_on_items(self, user, items, number=False):
+        if number:
+            return sorted(self.get_pred_votes_for_user_on_items(user, items), reverse=True)[:number]
+        else:
+            return sorted(self.get_pred_votes_for_user_on_items(user, items), reverse=True)
 
 
 

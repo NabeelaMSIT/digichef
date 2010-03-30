@@ -58,18 +58,19 @@ def api_similar_recipes(request, recipe_id, number):
 	json = simplejson.dumps(similar_recipes)
 	return HttpResponse(json, mimetype="application/json")
 
-def api_recommended_recipes(request, number):
+def api_recommended_recipes(request, username, number):
 	if not number:
 		number = 5
 	else:
 		number = int(number)
 	man = RecommenderManager()
 
-	recommended_recipes = man.get_best_items_for_user(request.user, User.objects.all(), Recipe.objects.all(), 0)
+	recommended_recipes = man.get_recommendations_for_user_on_items(User.objects.get(username=username), Recipe.objects.all(), number)
 	recommended_recipes.sort(reverse=True)
 	recommended_recipes = [{'title':	recipe.title,
 						'url':		recipe.get_absolute_url(),
 						'img_url':	recipe.image_url,
+						'rating':	rating,
 					} for rating, recipe in recommended_recipes[:number]]
 
 	json = simplejson.dumps(recommended_recipes)
