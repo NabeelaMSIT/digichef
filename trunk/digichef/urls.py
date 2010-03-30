@@ -17,10 +17,15 @@ from voting.views import vote_on_object
 
 
 from digichef.profiles.forms import ProfileForm
+from digichef.recommender.managers import RecommenderManager
+from digichef.recipes.models import Recipe
+from django.contrib.auth.models import User
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+man = RecommenderManager()
 
 urlpatterns = patterns(
 '',
@@ -41,8 +46,11 @@ urlpatterns = patterns(
     url(r'^api/recommended(/(?P<number>\d+))?$', recipes.views.api_recommended_recipes, name="api_recommended"),
     url(r'^api/json_tags$', 'util.views.json_tags', name="json_tags"),
 
+    url(r'^testing$', 'recipes.views.test', name="test"),
+
 #	(r'^accounts/', include('registration.backends.default.urls')),
 	(r'^accounts/', include('registration.urls')),
+
 
     ('^profiles/edit', 'profiles.views.edit_profile', {'form_class': ProfileForm,}),
     (r'^profiles/', include('profiles.urls')),
