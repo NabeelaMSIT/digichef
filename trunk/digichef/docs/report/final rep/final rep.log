@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.2.16)  30 MAR 2010 15:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.3.30)  30 MAR 2010 23:38
 entering extended mode
  %&-line parsing enabled.
 **"final rep.tex"
@@ -275,15 +275,24 @@ Missing character: There is no ’ in font cmr12!
 Missing character: There is no ’ in font cmr12!
 Missing character: There is no ‘ in font cmr12!
 Missing character: There is no ‘ in font cmr12!
+ <jamieoliver.png, id=44, 415.5525pt x 265.99374pt>
+File: jamieoliver.png Graphic file (type png)
+
+<use jamieoliver.png>
 Missing character: There is no ’ in font cmr12!
+ [10 <./jamieoliver.png>]
+<jamieIphone.png, id=50, 123.46124pt x 230.8625pt>
+File: jamieIphone.png Graphic file (type png)
+ <use jamieIphone.png>
 Missing character: There is no ’ in font cmr12!
 Missing character: There is no “ in font cmr12!
 Missing character: There is no ” in font cmr12!
-) [10] (./technical_research.tex
+)
+[11 <./jamieIphone.png>] (./technical_research.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [11]
+ [12]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
@@ -291,9 +300,12 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
- [12]) [13]
-(./collab_filtering.tex [14] [15] [16] [17]) [18] (./product_spec.tex [19])
-[20] (./initial_design.tex <home_page.png, id=83, 905.3825pt x 547.04375pt>
+ [13]
+Missing character: There is no “ in font cmr12!
+Missing character: There is no ” in font cmr12!
+) [14]
+(./collab_filtering.tex [15] [16] [17] [18]) [19] (./product_spec.tex [20])
+[21] (./initial_design.tex <home_page.png, id=91, 905.3825pt x 547.04375pt>
 File: home_page.png Graphic file (type png)
 
 <use home_page.png>
@@ -303,39 +315,39 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- <recipe_list_page.png, id=84, 833.1125pt x 574.145pt>
+ <recipe_list_page.png, id=92, 833.1125pt x 574.145pt>
 File: recipe_list_page.png Graphic file (type png)
 
-<use recipe_list_page.png> [21 <./home_page.png>]
-<recipe_page.png, id=89, 933.4875pt x 555.07375pt>
+<use recipe_list_page.png> [22 <./home_page.png>]
+<recipe_page.png, id=97, 933.4875pt x 555.07375pt>
 File: recipe_page.png Graphic file (type png)
  <use recipe_page.png>
-[22 <./recipe_list_page.png (PNG copy)> <./recipe_page.png (PNG copy)>])
-[23] (./implementation_options.tex
+[23 <./recipe_list_page.png (PNG copy)> <./recipe_page.png (PNG copy)>])
+[24] (./implementation_options.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ò in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-) [24] (./implementation_decisions.tex
+) [25] (./implementation_decisions.tex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 37.
 
-[25]) [26] [27] (./results.tex
-<result_1.png, id=109, 900.36375pt x 589.20125pt>
+[26]) [27] [28] (./results.tex
+<result_1.png, id=117, 900.36375pt x 589.20125pt>
 File: result_1.png Graphic file (type png)
  <use result_1.png>
-<result_2.png, id=110, 675.27281pt x 458.46281pt>
+<result_2.png, id=118, 675.27281pt x 458.46281pt>
 File: result_2.png Graphic file (type png)
  <use result_2.png>
-<result_3.png, id=111, 676.02562pt x 458.46281pt>
+<result_3.png, id=119, 676.02562pt x 458.46281pt>
 File: result_3.png Graphic file (type png)
- <use result_3.png>) [28 <./result_1.png (PNG copy)>] [29 <./result_2.png (PNG 
-copy)> <./result_3.png (PNG copy)>] (./testing_data.tex [30]) [31] (./probs_enc
-ountered.tex [32])
-(./conclusion.tex) [33] (./timescale.tex
-<timescale.png, id=131, 814.04124pt x 513.92pt>
+ <use result_3.png>) [29 <./result_1.png (PNG copy)>] [30 <./result_2.png (PNG 
+copy)> <./result_3.png (PNG copy)>] (./testing_data.tex [31]) [32] (./probs_enc
+ountered.tex [33])
+(./conclusion.tex) [34] (./timescale.tex
+<timescale.png, id=139, 814.04124pt x 513.92pt>
 File: timescale.png Graphic file (type png)
  <use timescale.png>
 Missing character: There is no ‚ in font cmr12!
@@ -344,7 +356,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [34 <./timescale.png (PNG copy)>] [35]) (./MInutes_compiled.tex (./Minutes14.0
+ [35 <./timescale.png (PNG copy)>] [36]) (./MInutes_compiled.tex (./Minutes14.0
 9.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -356,7 +368,7 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
 
-[36]
+[37]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no î in font cmr12!
@@ -366,38 +378,42 @@ Missing character: There is no ò in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-) [37] (./Minutes07.10.tex
+) [38] (./Minutes07.10.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-) [38] (./Minutes09.10.tex) [39]
-(./Minutes21.10.tex) [40] (./Minutes11.11.tex) [41] (./Minutes18.11v2.tex)
-[42]) (./final rep.aux) ) 
+) [39] (./Minutes09.10.tex) [40]
+(./Minutes21.10.tex) [41] (./Minutes11.11.tex) [42] (./Minutes18.11v2.tex)
+[43]) (./final rep.aux) ) 
 Here is how much of TeX's memory you used:
- 887 strings out of 95086
- 11571 string characters out of 1183255
- 60157 words of memory out of 1500000
- 4021 multiletter control sequences out of 10000+50000
- 9839 words of font info for 35 fonts, out of 1200000 for 2000
- 28 hyphenation exceptions out of 8191
- 25i,8n,20p,1291b,337s stack positions out of 5000i,500n,6000p,200000b,5000s
-</usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmbx1
-2.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/t
-exmf-texlive/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/
-type1/bluesky/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr
-10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/t
-exmf-texlive/fonts/type1/bluesky/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/t
-ype1/bluesky/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr8.
-pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/tex
-mf-texlive/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/bluesky/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmtt1
-0.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmtt12.pfb>
-Output written on "final rep.pdf" (42 pages, 2403472 bytes).
+ 1222 strings out of 493848
+ 16409 string characters out of 3149207
+ 69063 words of memory out of 3000000
+ 4455 multiletter control sequences out of 15000+200000
+ 9839 words of font info for 35 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 25i,8n,20p,1291b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2009/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmex10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pf
+b>
+Output written on "final rep.pdf" (43 pages, 2652532 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
