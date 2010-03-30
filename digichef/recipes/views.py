@@ -157,7 +157,7 @@ def test(request):
 	objectType = Recipe
 	man = RecommenderManager()
 	user1 = User.objects.get(id=1)
-	votes = [man.get_pred_vote_for_user_on_item(user1, recipe) for recipe in Recipe.objects.all()[:100]]
+	votes = man.get_pred_vote_for_user_on_items(user1, Recipe.objects.all())
 #	votes = user1.usermeta.all()[0].votearray
 	assert False, votes
 
