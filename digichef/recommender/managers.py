@@ -25,6 +25,23 @@ class RecommenderManager(models.Manager):
         items = [(value,ctype.get_object_for_this_type(id = rec)) for value,rec in recs if value>min_value]
         return items
         
+    def get_items_for_user(self, user, itemtype, min_value=MIN_RECOMMENDATION_VALUE):
+        items_voted = Vote.objects.get_for_user_in_bulk(itemtype.objects.all(), user)
+        items_liked = [vote.object for number, vote in items_voted.items() if vote.is_upvote()]
+        items_disliked = [vote.object for number, vote in items_voted.items() if vote.is_downvote()]
+        good_tags = set([])
+        bad_tags = set([])
+        for item in items_liked:
+            for tag in item.tags:
+                good_tags.add(tag)
+        for item in items_disliked:
+            for tag in item.tags:
+                bad_tags.add(tag)
+        tagset = good_tags-bad_tags
+        return sorted(self.get_by_relevance_to_tags(tagset, itemtype.objects.all(), min_value), reverse=True)
+
+        
+
     def get_similar_users(self, user, user_list, item_list, min_value=MIN_SIMILARITY_VALUE):
         user_item_matrix = self.create_matrix(user_list, item_list)
         sim_list = []
@@ -51,7 +68,7 @@ class RecommenderManager(models.Manager):
     def get_similar_items(self, item, user_list, item_list, min_value=MIN_SIMILARITY_VALUE):
         user_item_matrix = self.create_matrix(user_list, item_list)
         item_user_matrix = self.rotate_matrix(user_item_matrix)
-	assert False, (user_item_matrix, item_user_matrix)
+#	assert False, (user_item_matrix, item_user_matrix)
         sim_list = []
         for other in item_list:
             if item==other:continue
@@ -188,3 +205,54 @@ class RecommenderManager(models.Manager):
         user_item_matrix = self.create_matrix(users, items)
         item_user_matrix = self.rotate_matrix(user_item_matrix)
         return utils.kcluster(item_user_matrix, users, cluster_count)
+
+    def get_votearray_for_user(self, user, objectType):
+        """Return a list of all of the values (1,0,-1) on all votes objects of objectType"""
+        votesdict = Vote.objects.get_for_user_in_bulk(objectType.objects.all(), user)
+        votes = []
+        for i in range(objectType.objects.count()):
+            try:
+                votes.append(votesdict[i].vote )
+            except KeyError:
+                votes.append(0)
+        return votes
+
+    def userSim(self, user1, user2, objectType):
+        """Get the simmilarity in votes between 2 users (between 0 and 1)"""
+        return utils.pearson_correlation(self.get_votearray_for_user(user1,objectType),self.get_votearray_for_user(user2,objectType))
+
+    def get_mean_vote_for_user(self, user, objectType):
+        votes = [vote.vote for vote in Vote.objects.get_for_user_in_bulk(objectType.objects.all(), user).values()]
+        return (sum(votes, 0.0) / len(votes))
+
+    def get_pred_vote_for_user_on_item(self, user, item):
+        """Does the following equation
+        
+        $\\bar{r}_u + \\frac{\sum_{n \subset neighbours(u)}{usersim(u,n)\mul(r_{ni}-\\bar{r}_n)}}{\sum_{n \subset neighbours(u)}{usersim(u,n)}}$
+        
+        to get the predicted vote of a user on an item
+        """
+        objectType = type(item)
+        mean_user_vote = self.get_mean_vote_for_user(user, objectType) #rbar_u
+        neighbours = User.objects.all()
+        sum_sim = sum([self.userSim(neighbour, user, objectType) for neighbour in neighbours])	#bottom frac
+        sum_votes = sum([(self.userSim(neighbour, user, objectType)*							#top frac
+            (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour, objectType) ) )
+            for neighbour in neighbours])
+        value = mean_user_vote+(sum_votes/sum_sim)
+        return value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

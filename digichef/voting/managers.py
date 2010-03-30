@@ -189,6 +189,13 @@ class VoteManager(models.Manager):
             vote = None
         return vote
 
+    def get_val_for_user(self, obj, user):
+        vote = self.get_for_user(obj, user)
+        if vote:
+            return vote.vote
+        else:
+            return 0
+
     def get_for_user_in_bulk(self, objects, user):
         """
         Get a dictionary mapping object ids to votes made by the given

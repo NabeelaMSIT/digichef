@@ -26,6 +26,7 @@ def pearson_correlation(v1,v2):
         pc= -1
     return (pc+1.0)/2.0
 
+
 def tanamoto2(v1,v2):
     ''' >>> v1=['a','b','c']
         >>> v2=['c','a','b']

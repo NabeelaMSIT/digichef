@@ -87,6 +87,7 @@ def api_collab_search(request):
 def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in re.split(r"[,; \t]*", search_string) if item]
 	man = RecommenderManager()
+	man = RecommenderManager()
 
 	results = man.get_by_relevance_to_tags(search_terms, Recipe.objects.all(),0)
 
@@ -137,7 +138,12 @@ def recipe_detail(request, recipe_id):
 	return render_to_response('recipe_detail.html', locals(), RequestContext(request))
 
 
-
+def test(request):
+	objectType = Recipe
+	man = RecommenderManager()
+	user1 = User.objects.get(id=1)
+	vote = man.get_pred_vote_for_user_on_item(user1, Recipe.objects.filter(title__contains='sush')[:1][0])
+	assert False, vote
 
 
 
