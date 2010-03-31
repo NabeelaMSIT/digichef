@@ -13,6 +13,11 @@
 
 	<body>
 		<div id=wrapper>
+			<div id="top">
+				{%if user.is_authenticated%}
+					<p>Logged in as {{user.username}} <a href="/accounts/logout/">Log out</a></p>
+				{%endif%}
+			</div>
 			<div id="header">
 				<!-- this is the groups banner -->
 				{% block header	%}<img src="/media/img/logowebsite.png" id="fruit"></img>{% endblock header%}
