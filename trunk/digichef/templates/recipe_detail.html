@@ -85,6 +85,11 @@
 
 		<h1>{{recipe.title}}</h1>
 
+		{%if recipe.uploader%}
+		<p>by <a href="{{recipe.uploader.get_absolute_url}}">{{recipe.uploader.first_name}}</a></p>
+		{%endif%}
+
+
 		<h2>Ingredients</h2>
 
 		<ul>
