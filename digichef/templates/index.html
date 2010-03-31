@@ -48,7 +48,7 @@
 {%endblock scripts%}
 
 {% block content%}	
-	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
+	<!--menubar code; modified from source: http://13styles.com/css-menus/wax/-->
 	<div class="orange">
         <div id="waxcontainer">
 			<div id="waxnav">
@@ -63,20 +63,26 @@
         </div>
 	</div>	
 	
+	<!-- the sales pitch -->
 	<div id="join-now">
 		<p>Are you tired of ROUTINE? Are you living in CULINARY AGONY?
 		Are your meals reminiscent of PRISON FOOD?</p>
 	</div>
-
+	
+	<!-- promoting our service -->
 	<div id='intro'>
+	
+		<!-- just a promotional image; source: http://kashifiat.files.wordpress.com/2009/06/indian_spices.jpg-->
 		<img class="user-showcase-thumbnail " src="/media/img/spices.jpg" alt="User thumbnail"/>
 		
+		<!-- shows users the number of recipes in our database -->
 		<div class="one-of-three" id="how-many-recipes">
 			<p>We have</p>
 			<p id="num-recipes">{{number_of_recipes}}</p>
 			<p>great recipes!</p>
 		</div>
 		
+		<!-- promotional paragraph -->
 		<div class="one-of-three" id="welcome-message">
 			<p>Well then, why not SPICE UP YOUR LIFE by using DIGICHEF, the online
 			recipe robot. Simply provide what ingredients you have and watch as
