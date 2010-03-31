@@ -41,117 +41,59 @@ To make the testing of our product comprehensive, it was decided that we run thr
 The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as speciied. 
 
 The functionality of the website will be tested using black-box-testing. The testing will primarily be done by using three different input data for each area where input is accepted. The three different inputs will be one of each: valid, invalid and extreme.
-Valid data is data that is usually accepted by the system and would be 'normal' data by a user. Invalid data is data that is not accepted by the system and should create some kind of error message. Extreme data is valid data that is on either end of the spectrum of what is normally accepted. An example of this could be testing whether a data field, which asks for a password of up to 12 characters, will actually accept 12 characters. The output of entering these three different input data will then be compared to the expected outcome. If the outcomes match then that particular test can be deemed as passed. Below is the formal test plan that outlines the actual tests and what the expected outcomes of these tests are.
+Valid data is data that is usually accepted by the system and would be 'normal' data by a user. Invalid data is data that is not accepted by the system and should create some kind of error message. Extreme data is valid data that is on either end of the spectrum of what is normally accepted. An example of this could be testing whether a data field, which asks for a password of up to 12 characters, will actually accept 12 characters. The output of entering these three different input data will then be compared to the expected outcome. If the outcomes match then that particular test has been passed. Below is the formal test plan that outlines the actual tests and what the expected outcomes of these tests are.
  
-The tests listed 1.1 through 1.4 are concerning the search box inputs and the outcomes from the recipe results page. The functionality of the search is to be tested in different scenarios. 
+The tests listed 1.1 through 1.3 concern the search box, 2.1 through 2.5 concern user accounts and 3.1 through 3.2 are miscellaneous general tests. 
 
     \begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
     \hline
     Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
     
     1.1 &	Test that the search box will accept and auto-complete with three common, tagged ingredients by entering the three ingredients and clicking the search button. &	Valid/normal data.
-Data - Cheese, Egg, Milk. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+Data - \emph{Cheese, Egg, Milk}. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
 
 
-1.2	& Test that the search box accepts 10 common tagged ingredients by entering the 10 ingredients and clicking the search button. &	Extreme data.
-Data - Cheese, Egg, Bacon, Milk, Onion, Mushroom, Tomato, Salt, Butter. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+1.2	& Test that the search box accepts 10 common tagged ingredients by entering them into the search bar&	Extreme data.
+Data - \emph{Cheese, Egg, Bacon, Milk, Onion, Mushroom, Tomato, Salt, Butter, Flour}. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
 
-
-1.3	& Test that the search box accepts only one common tagged ingredient by entering the ingredient and clicking the search button.	& Extreme data. 
-Data - Cheese. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
-
-1.4	& Test that the search function will run with no ingredients by clicking the search button while the box is empty. &	Extreme data.
-Data - '<EMPTY>' &	Clicking the search button should make the browser redirect the user to the recipe results page where no recipes are shown.\\ \hline
-
-1.6	& Test that a new 'normal/valid' user account containing numbers and letter for both username and password variables can be created. The password and username will be of valid length. &	Valid data.
-&	The account should be created and should also be accessible in a future session.\\ \hline
-
-1.7	& Test that new users account with 'extreme' data can be added. This 'extreme' data will be on the upper length threshold of what is accepted as valid usernames and password. &	Extreme data. &	The account should be created and should also be accessible in a future session.\\ \hline
-
-1.8	& Test that new users account with 'extreme' data can be added. This 'extreme' data will be on the lower length threshold of what is accepted as valid usernames and password. &	Extreme data.& The account should be created and should also be accessible in a future session.\\ \hline
-
-1.9	& Test whether an account can be created with username of an existing account. This will be done by conducting test 1.5 and then trying to create another account with the same details as the account in test 1.5.	& Invalid data.&	The account should not be created as one already exists with the same username. The system should throw some kind of error and instruct the user to identify a different unique username to use. The original account created in test 1.5 should remain intact/valid and not be changed.\\
+1.3	& Test that the search function will run with no ingredients by clicking the search button while the box is empty. &	Extreme data.
+Data - \emph{nothing} &	Clicking the search button should make the browser redirect the user to the recipe results page where no recipes are shown.\\
     \hline
     \end{tabular}
+    
+		\begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
 
-When testing the website there are many things to consider. 
-Firstly, it should be considered what aspects of the website are to be tested. 
-It has been identified that there are three areas of the website to be tested. 
-The functionality of the website needs to be tested. 
-This is to be conducted on the search function, results page from a query and on 
-the user sign-up pages. 
-Other smaller less obvious tests will also be conducted on the website that test 
-navigation and such.
-The compatibility of the website on different browsers needs to be tested. OSmarket
-This is to ensure that we can be certain that we can maximize our potential audience on 
-all different platforms and browsers. 
-This is to be done using a free online service provided on [http://browsershots.org/]. 
-This service automatically produces results in screenshots that show OSmarkethow the website 
-is displayed on various pre-determined browsers across many platforms. 
-These screenshots will then be compared with a screenshot of the ideal display/layout 
-of the website and the tests will be judged successful or not depending on how closely 
-the screenshots match the ideal layout.
-The website speed needs also to be tested i.e. the speed of connection to the website 
-and speed of the search facility. 
-This data can then be compared to the other websites indentified in the market
-research section. This will give a gauge as to how the website compares to existing 
-competitors with respect to speed of results etc.
-
-\subsubsection{Functional Testing Plan w/Data}
-OSmarket
-The functionality of the website will be tested using black-box-testing. 
-The testing will primarily be done by using three different input datum 
-for each area where input is accepted. The three different inputs will 
-be one of each: valid, invalid and extreme.
-Valid data is data that is usually accepted by the system and would be 
-‘normal’ data by a user. Invalid data is data that is not accepted by 
-the system and should create some kind of error message. Extreme data 
-is valid data that is on either end of the spectrum of what is normally 
-accepted. An example of this could be testing whether a data field,
- which asks for a password of up to 12 characters, will actually accept 
-12 characters. The output of entering these three different input data 
-will then be compared to the expected outcome. If the outcomes match OSmarket
-then that particular test can be deemed as passed. Below is the formal 
-test plan that outlines the actual tests and what the expected outcomes 
-of these tests are.h
+2.1	& Test that users are able to login to their accounts. &	Valid data. \emph { valid username, valid password}
+&	The account can be accessed and user is directed to the home page to begin search. Additionally, user can now view his profile from the menubar.\\ \hline
 
 
-The tests listed 1.1 through 1.4 are concerning the search box inputs 
-and the outcomes from the recipe results page. The functionality of the 
-search is to be tested in different scenarios. Although the search function 
-is a standard function obtained externally which may or may not have been 
-extensively tested, we are going to test it again for peace of mind.
-\newline{}
+2.2	& Users can like or dislike recipes, or cancel their vote. &	Valid data. &	Recipe score is updated accordingly and if the user likes the recipe, it should now appear on his profile page and generate new recommendations. Users can only rate on recipe if he is logged into his account.\\ \hline
 
-Need to add search box test plan table
-The tests listed 1.5 through 1.9 are all concerned with the systems ability 
-to create user accounts. Aspects to be tested are whether new account can be 
-successfully created in different scenarios and whether accounts will be created 
-with existing usernames etc.
+2.3	& Test if users can like the same recipe twice. &	Invalid data. & The recipe can only be liked once, provided the user is logged into his account.\\ \hline
 
-\subsection{Platform \& Browser Compatibility Tests}
-\begin{figure}[h]
-\includegraphics[width=0.9\textwidth]{OSmarket.png}
-\caption{Usage share of web client operating systems: Feb 2010}
-\label{fig:OSmarket}
-\end{figure}
+2.4	& Test if users can submit a recipe. &	Valid data. & The recipe now appears in the database.\\ \hline
 
+2.5	& Test whether users can edit their profiles. & Valid data.&	New profile page should be updated accordingly.\\
+		\hline
+    \end{tabular}
 
-As stated in the introduction to the testing section the platform and browser 
-compatibility is to be tested. This is an essential part of the testing as it needs 
-to be known whether our maximum potential user-base is utilized. Firstly, 
-the statistics regarding operating system market shares were considered. Below is
- a graph concerning this which is correct as of February 2010(Fig~\ref{fig:OSmarket}).
-\newline{}
+		\begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
+    
+3.1	& Test that new recipes are loaded into the slideshow with each page refresh. &	Valid data.& Not only new recipes must be loaded but their images must allow users to link to the recipe detail page.\\ \hline
 
+3.2	& Test that all links are valid &	Valid data. &	All links work as per normal.\\
+		\hline
+    \end{tabular}
+    
+All the tests were passed. Although an exhaustive testing was not possible, due to the large scope of possibilities, we did test our product on over 25 users, who thoroughly examined our website and were unable to find any functionality faults with it.
 
-From the below graph it can be seen that the dominant operating systems are Windows XP, 
-Windows Vista, Windows 7 and Mac OS X respectively.
-The next factor that needs to be taken into consideration is the web browser market share. 
-This is because different web browsers may display the website different and therefore it 
-is essential that this is identified for any future improvements which may or may not be 
-needed. Below are the statistics for web browser market share as of February 2010.
-\newline{}
+\subsubsection{Website Compatibility}
+
+Before we proceed with testing our product on different browsers, we need to determine the 
 
 \begin{tabular}{|l|l|}
 \hline
