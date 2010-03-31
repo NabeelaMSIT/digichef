@@ -1,5 +1,8 @@
-Obtaining suitable testing data for the project was technical challenge of substantial proportions. This section deals with the requirements decisions we made and the technical solutions we used.
+Testing the product is an essetial component of any good software development, and this section deals not only with the
+details of the various test which we conducted on our software, but also highlights the issue of obtaining suitable test
+data to run the tests on.
 
+\subsection{Obtaining Test Data}
 \subsubsection{Requirements}
 In order for testing to be effective for a database-driven project of this type it was necessary to have a large database of recipes, for several reasons.
 
@@ -21,7 +24,7 @@ So to summarise the technical requirements;
 A database of about 1000 real recipes, each with relevant semantic metadata representing their ingredients, and a relevant image, \textit{without} any human input.
 \end{quotation}
 
-\subsubsection{Solutions}
+\subsubsection{Meeting the requirements}
 
 Obtaining raw recipe data was achieved by use of a recursive web-spider. All recipe detail pages of the website \texttt{AllRecipes.com} were downloaded as html files. The required data were scraped from the resulting 941 html files using a python scraping script, which used the XML/HTML parsing package BeautifulSoup to extract the data from the files in bulk, reformatted the data a little, and interfaced directly with the django database API to input the recipes into the database.
 
@@ -31,6 +34,190 @@ To find suitable images, a custom script was written to query Google Image Searc
 
 
 
+\subsection{Running Tests}                                      % automatic title!
+To make the testing of our product comprehensive, it was decided that we run three types of broad based tests dealing with website functionality, website compatibility and website speed. 
+
+\subsubsection{Website Functionality}
+The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as speciied. 
+
+The functionality of the website will be tested using black-box-testing. The testing will primarily be done by using three different input data for each area where input is accepted. The three different inputs will be one of each: valid, invalid and extreme.
+Valid data is data that is usually accepted by the system and would be 'normal' data by a user. Invalid data is data that is not accepted by the system and should create some kind of error message. Extreme data is valid data that is on either end of the spectrum of what is normally accepted. An example of this could be testing whether a data field, which asks for a password of up to 12 characters, will actually accept 12 characters. The output of entering these three different input data will then be compared to the expected outcome. If the outcomes match then that particular test can be deemed as passed. Below is the formal test plan that outlines the actual tests and what the expected outcomes of these tests are.
+ 
+The tests listed 1.1 through 1.4 are concerning the search box inputs and the outcomes from the recipe results page. The functionality of the search is to be tested in different scenarios. 
+
+    \begin{tabular}{ | l | p{4cm} |  p{4cm} | p{4cm} |}
+    \hline
+    Test Id	& Description and Process &	Test type and Data &	Expected Outcome \\ \hline
+    
+    1.1 &	Test that the search box will accept and auto-complete with three common, tagged ingredients by entering the three ingredients and clicking the search button. &	Valid/normal data.
+Data - Cheese, Egg, Milk. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+
+
+1.2	& Test that the search box accepts 10 common tagged ingredients by entering the 10 ingredients and clicking the search button. &	Extreme data.
+Data - Cheese, Egg, Bacon, Milk, Onion, Mushroom, Tomato, Salt, Butter. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+
+
+1.3	& Test that the search box accepts only one common tagged ingredient by entering the ingredient and clicking the search button.	& Extreme data. 
+Data - Cheese. &	The search bar should accept the input data with the auto-completion function and the browser should move to the recipe results page for that query showing relevant recipes.\\ \hline
+
+1.4	& Test that the search function will run with no ingredients by clicking the search button while the box is empty. &	Extreme data.
+Data - '<EMPTY>' &	Clicking the search button should make the browser redirect the user to the recipe results page where no recipes are shown.\\ \hline
+
+1.6	& Test that a new 'normal/valid' user account containing numbers and letter for both username and password variables can be created. The password and username will be of valid length. &	Valid data.
+&	The account should be created and should also be accessible in a future session.\\ \hline
+
+1.7	& Test that new users account with 'extreme' data can be added. This 'extreme' data will be on the upper length threshold of what is accepted as valid usernames and password. &	Extreme data. &	The account should be created and should also be accessible in a future session.\\ \hline
+
+1.8	& Test that new users account with 'extreme' data can be added. This 'extreme' data will be on the lower length threshold of what is accepted as valid usernames and password. &	Extreme data.& The account should be created and should also be accessible in a future session.\\ \hline
+
+1.9	& Test whether an account can be created with username of an existing account. This will be done by conducting test 1.5 and then trying to create another account with the same details as the account in test 1.5.	& Invalid data.&	The account should not be created as one already exists with the same username. The system should throw some kind of error and instruct the user to identify a different unique username to use. The original account created in test 1.5 should remain intact/valid and not be changed.\\
+    \hline
+    \end{tabular}
+
+When testing the website there are many things to consider. 
+Firstly, it should be considered what aspects of the website are to be tested. 
+It has been identified that there are three areas of the website to be tested. 
+The functionality of the website needs to be tested. 
+This is to be conducted on the search function, results page from a query and on 
+the user sign-up pages. 
+Other smaller less obvious tests will also be conducted on the website that test 
+navigation and such.
+The compatibility of the website on different browsers needs to be tested. OSmarket
+This is to ensure that we can be certain that we can maximize our potential audience on 
+all different platforms and browsers. 
+This is to be done using a free online service provided on [http://browsershots.org/]. 
+This service automatically produces results in screenshots that show OSmarkethow the website 
+is displayed on various pre-determined browsers across many platforms. 
+These screenshots will then be compared with a screenshot of the ideal display/layout 
+of the website and the tests will be judged successful or not depending on how closely 
+the screenshots match the ideal layout.
+The website speed needs also to be tested i.e. the speed of connection to the website 
+and speed of the search facility. 
+This data can then be compared to the other websites indentified in the market
+research section. This will give a gauge as to how the website compares to existing 
+competitors with respect to speed of results etc.
+
+\subsubsection{Functional Testing Plan w/Data}
+OSmarket
+The functionality of the website will be tested using black-box-testing. 
+The testing will primarily be done by using three different input datum 
+for each area where input is accepted. The three different inputs will 
+be one of each: valid, invalid and extreme.
+Valid data is data that is usually accepted by the system and would be 
+‘normal’ data by a user. Invalid data is data that is not accepted by 
+the system and should create some kind of error message. Extreme data 
+is valid data that is on either end of the spectrum of what is normally 
+accepted. An example of this could be testing whether a data field,
+ which asks for a password of up to 12 characters, will actually accept 
+12 characters. The output of entering these three different input data 
+will then be compared to the expected outcome. If the outcomes match OSmarket
+then that particular test can be deemed as passed. Below is the formal 
+test plan that outlines the actual tests and what the expected outcomes 
+of these tests are.h
+
+
+The tests listed 1.1 through 1.4 are concerning the search box inputs 
+and the outcomes from the recipe results page. The functionality of the 
+search is to be tested in different scenarios. Although the search function 
+is a standard function obtained externally which may or may not have been 
+extensively tested, we are going to test it again for peace of mind.
+\newline{}
+
+Need to add search box test plan table
+The tests listed 1.5 through 1.9 are all concerned with the systems ability 
+to create user accounts. Aspects to be tested are whether new account can be 
+successfully created in different scenarios and whether accounts will be created 
+with existing usernames etc.
+
+\subsection{Platform \& Browser Compatibility Tests}
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth]{OSmarket.png}
+\caption{Usage share of web client operating systems: Feb 2010}
+\label{fig:OSmarket}
+\end{figure}
+
+
+As stated in the introduction to the testing section the platform and browser 
+compatibility is to be tested. This is an essential part of the testing as it needs 
+to be known whether our maximum potential user-base is utilized. Firstly, 
+the statistics regarding operating system market shares were considered. Below is
+ a graph concerning this which is correct as of February 2010(Fig~\ref{fig:OSmarket}).
+\newline{}
+
+
+From the below graph it can be seen that the dominant operating systems are Windows XP, 
+Windows Vista, Windows 7 and Mac OS X respectively.
+The next factor that needs to be taken into consideration is the web browser market share. 
+This is because different web browsers may display the website different and therefore it 
+is essential that this is identified for any future improvements which may or may not be 
+needed. Below are the statistics for web browser market share as of February 2010.
+\newline{}
+
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Web Browsers by market share} \\
+\hline
+1 Internet Explorer 8 & 24.25\% \\
+2 Firefox 3.5 & 19.95\% \\
+3 Internet Explorer 7 & 14.40\% \\
+4 Internet Explorer 6 & 9.79\% \\
+5 Firefox 3.6 & 6.94\% \\
+6 Chrome 4 & 6.12\% \\
+7 Safari 4 & 5.21\% \\
+8 Firefox 4 & 4.42\% \\
+9 Opera 10 & 1.38\% \\
+10 Firefox 2 & 0.66\% \\
+\hline
+\end{tabular}
+\newline{}
+\newline{}
+From the above information it can be seen that the web browsers with the majority of the 
+market share are: Internet Explorer 8, Firefox 3.5 and Internet Explorer 7 respectively. 
+An alternative browser which is also very popular is Google’s Chrome 4 which came in at 
+position six. This web browser is the one which is used by the majority of our group 
+therefore a significant amount of the web-site was designed with this in mind. Having said 
+the above and with all the statistics regarding market share the below test plan was 
+produced. It should be noted that the site used to test the webpage will not test on 
+different versions of Windows instead treating all the named versions as one. This is 
+reflected in the test plan.
+\newline{}
+\newline{}
+\begin{tabular}{|l|l|l|}
+\hline
+Test Id & Operating System & Web Browser \\
+\hline
+2.1 & Windows & Internet Explorer 8 \\
+2.2 & Windows & Firefox 3.5 \\
+2.3 & Windows & Internet Explorer 7 \\
+2.4 & Windows & Chrome 4 \\
+2.5 & Mac OS X & Internet Explorer 8 \\
+2.6 & Mac OS X & Firefox 3.5 \\
+2.7 & Mac OS X & Internet Explorer 7 \\
+2.8 & Mac OS X & Chrome 4 \\
+2.9 & Mac OS X & Safari 4 \\
+\hline
+\end{tabular}
+\newline{}
+\newline{}
+As an additional test we are going to test the standard browser Safari 4 
+on the Mac OS X operating system. Although this browser has a fairly small market 
+share this is the preferred browser for Mac OS X users.
+
+\subsection{Website upload \& Search speeds}
+For this section of the testing the speed that the website loads and the search speeds need
+ to be tested. There are many reliable/trusted online services that will test the uplink 
+speed of the website for free and display all relevant data regarding this. This is the 
+method that we are going to use as this is the most time-efficient and accessible method. 
+Firstly, the website loading speeds for each page need to be tested. Users who use high-
+speed broadband connections are not likely to wait more than 10 seconds for a search to 
+return recipes as many competitor sites can produce a result far faster.  This therefore 
+means that we need to analyse the results of the upload speeds and compare them to data 
+that we can gather from competitors and elsewhere with regards to ‘normal’ speeds etc. 
+All of this information will be added to the Appendices along with the results to the 
+previous tests.
+
+This concludes the testing section. Test results will be in the Appendix of the report. 
+The Test Id should be used to match the test plans with the results. 
 
 
 
