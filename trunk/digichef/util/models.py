@@ -15,7 +15,7 @@ class UserMeta(models.Model):
 	def update(self):
 		votesdict = Vote.objects.get_for_user_in_bulk(Recipe.objects.all(), self.user)
 		votes = []
-		for i in range(Recipe.objects.count()):
+		for i in xrange(Recipe.objects.count()):
 			try:
 				votes.append(votesdict[i].vote )
 			except KeyError:#if there is no vote
