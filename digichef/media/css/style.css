@@ -25,6 +25,10 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 	margin:0 auto;
 }
 
+#top{
+	text-align:right;
+}
+
 #header {
 	padding:30px;
 }
@@ -118,8 +122,8 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 }
 
 #num-recipes {
-	font-size:20px;
-	line-height:20px;
+	font-size:30px;
+	line-height:30px;
 }
 
 #slideshow {

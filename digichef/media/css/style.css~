@@ -25,6 +25,10 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 	margin:0 auto;
 }
 
+#top{
+	text-align:right;
+}
+
 #header {
 	padding:30px;
 }
@@ -134,7 +138,7 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 #signIn {
 	padding:5px;
 	background:#ffcc99;
-	height:108px;
+	height:112px;
 }
 
 .form-label {
@@ -158,7 +162,7 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 
 #user-showcase {
 	background:#ffe297;
-	height:149px;
+	height:145px;
 	padding:5px;
 }
 

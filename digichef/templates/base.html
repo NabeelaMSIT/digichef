@@ -15,7 +15,7 @@
 		<div id=wrapper>
 			<div id="top">
 				{%if user.is_authenticated%}
-					<p>Logged in as {{user.username}} <a href="/accounts/logout/">Log out</a></p>
+					<p>Logged in as <strong>{{user.get_full_name}}</strong> <a href="/accounts/logout/">Log out</a></p>
 				{%endif%}
 			</div>
 			<div id="header">
