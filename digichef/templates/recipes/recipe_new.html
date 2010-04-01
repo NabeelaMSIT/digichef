@@ -28,7 +28,8 @@
 			{% for field in form %}
 				<dl>		
 				<dd>{{ field.label_tag }}</dd> 
-				<dd>{{ field }}</dd>     
+				<dd> {{ field.errors }} </dd>
+				<dd>{{ field }}</dd>    
 				</dl>
 			{% endfor %}
 			<p><input type="submit" value="Submit" /></p>
