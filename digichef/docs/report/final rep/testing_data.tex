@@ -1,5 +1,5 @@
-Testing the product is an essetial component of any good software development, and this section deals not only with the
-details of the various test which we conducted on our software, but also highlights the issue of obtaining suitable test
+Testing the product is an essential component of any good software development, and this section deals not only with the
+details of the various tests which we conducted on our software, but also highlights the issue of obtaining suitable test
 data to run the tests on.
 
 \subsection{Obtaining Test Data}
@@ -35,7 +35,7 @@ To find suitable images, a custom script was written to query Google Image Searc
 
 
 \subsection{Running Tests}                                      % automatic title!
-To make the testing of our product comprehensive, it was decided that we run three types of broad based tests dealing with website functionality, website compatibility and website speed. 
+To make the testing of our product comprehensive, it was decided that we run three types of broad based tests dealing with website functionality, website compatibility and recipe search speed. 
 
 \subsubsection{Website Functionality}
 The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as speciied. 
@@ -93,78 +93,31 @@ All the tests were passed. Although an exhaustive testing was not possible, due 
 
 \subsubsection{Website Compatibility}
 
-Before we proceed with testing our product on different browsers, we need to determine the 
+Before we proceed with testing our product on different browsers, we need to determine the relative popularity of the different browsers.
 
 \begin{tabular}{|l|l|}
 \hline
 \multicolumn{2}{|c|}{Web Browsers by market share} \\
 \hline
-1 Internet Explorer 8 & 24.25\% \\
-2 Firefox 3.5 & 19.95\% \\
-3 Internet Explorer 7 & 14.40\% \\
-4 Internet Explorer 6 & 9.79\% \\
-5 Firefox 3.6 & 6.94\% \\
-6 Chrome 4 & 6.12\% \\
-7 Safari 4 & 5.21\% \\
-8 Firefox 4 & 4.42\% \\
-9 Opera 10 & 1.38\% \\
-10 Firefox 2 & 0.66\% \\
+1 Firefox & 46.5\% \\
+2 Internet Explorer 8 & 14.7\% \\
+3 Chrome 4 & 11.6\% \\
+4.Internet Explorer 7 & 11.0\% \\
+5 Internet Explorer 6 & 9.6\% \\
+6 Safari & 3.8\% \\
+7 Opera & 2.1\% \\
 \hline
 \end{tabular}
 \newline{}
 \newline{}
-From the above information it can be seen that the web browsers with the majority of the 
-market share are: Internet Explorer 8, Firefox 3.5 and Internet Explorer 7 respectively. 
-An alternative browser which is also very popular is Google’s Chrome 4 which came in at 
-position six. This web browser is the one which is used by the majority of our group 
-therefore a significant amount of the web-site was designed with this in mind. Having said 
-the above and with all the statistics regarding market share the below test plan was 
-produced. It should be noted that the site used to test the webpage will not test on 
-different versions of Windows instead treating all the named versions as one. This is 
-reflected in the test plan.
-\newline{}
-\newline{}
-\begin{tabular}{|l|l|l|}
-\hline
-Test Id & Operating System & Web Browser \\
-\hline
-2.1 & Windows & Internet Explorer 8 \\
-2.2 & Windows & Firefox 3.5 \\
-2.3 & Windows & Internet Explorer 7 \\
-2.4 & Windows & Chrome 4 \\
-2.5 & Mac OS X & Internet Explorer 8 \\
-2.6 & Mac OS X & Firefox 3.5 \\
-2.7 & Mac OS X & Internet Explorer 7 \\
-2.8 & Mac OS X & Chrome 4 \\
-2.9 & Mac OS X & Safari 4 \\
-\hline
-\end{tabular}
-\newline{}
-\newline{}
-As an additional test we are going to test the standard browser Safari 4 
-on the Mac OS X operating system. Although this browser has a fairly small market 
-share this is the preferred browser for Mac OS X users.
 
-\subsection{Website upload \& Search speeds}
-For this section of the testing the speed that the website loads and the search speeds need
- to be tested. There are many reliable/trusted online services that will test the uplink 
-speed of the website for free and display all relevant data regarding this. This is the 
-method that we are going to use as this is the most time-efficient and accessible method. 
-Firstly, the website loading speeds for each page need to be tested. Users who use high-
-speed broadband connections are not likely to wait more than 10 seconds for a search to 
-return recipes as many competitor sites can produce a result far faster.  This therefore 
-means that we need to analyse the results of the upload speeds and compare them to data 
-that we can gather from competitors and elsewhere with regards to ‘normal’ speeds etc. 
-All of this information will be added to the Appendices along with the results to the 
-previous tests.
+Broadly, we would assign a priority as to which browser the website should be tested on most thoroughly. Firefox, Internet Explorer 6, 7 and 8 and Chrome are assigned the highest priority. Our website successfully passed the tests on the aforementioned browsers, also, including Safari. Moreover, the test was carried out on different screen widths, and passed that as well.
 
-This concludes the testing section. Test results will be in the Appendix of the report. 
-The Test Id should be used to match the test plans with the results. 
-
-
-
-
-
-
-
-
+\subsubsection{Recipe Search Speed}
+Testing of the search speed is a convoluted task, because if we are to arrive at an exact big-oh complexity of the search, this would involve dealing with the Tanimoto coefficient and with tf-idf (term frequency�inverse document frequency) weighting which is used in text mining to compare the ingredients with tags. Rather than dealing directly with such nuanced topics, we can, however suggest an indirect big oh derivation by evaluting how the search works.
+First, all the tags for each object are collected and put into a matrix, by using a \emph{for} loop and this is done for all objects (recipes).
+Then, a \emph{for} loop is run on each tag for a particular recipe, which compares the tag with the specified ingredient based on some Tanimoto computation which returns a value.
+Then, if this value is sufficiently high, it is appended (along with the related recipe) to an array, which contains all the recipes which match the input ingredients. The value in the array with the highest value appears higher up in the seach.
+Hence, this gives a speed described by the following Big-Oh notation: O(number of tags*tanimoto value for each recipe*appending to list*sorting the array).
+We could have tried evaluating the effeciency of our search experimentally but it would have been of little use due to variations in database caching and other server performance variations.
+If observational evalution is used to assess the seach speed, the speed is indistinguishable from the search speed of similar commercial websites, given our database which contains over 900 recipes.
