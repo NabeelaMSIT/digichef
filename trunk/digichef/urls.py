@@ -36,7 +36,10 @@ urlpatterns = patterns(
 
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'show_indexes': True}), 
 
+
     url(r'^$', 'core.views.home', name="home" ),
+
+    url(r'^about/?$', 'django.views.generic.simple.redirect_to', {'template':'about.html'}, name="about" ),
 
     (r'^search/?$','django.views.generic.simple.redirect_to', {'url': '/', 'permanent': False}),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
