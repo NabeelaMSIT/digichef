@@ -28,7 +28,9 @@ As mentioned, white and orange are the colours of choice, along with an appealin
 The group thoroughly scoured the website of bugs by doing exhaustive testing of all the possible ingredients and checking if the returned list matches the input ingredients. Exhaustive testing was possible for version 1 due to the small database and only three ingredient boxes. However, as our system gets more complicated, this form of testing will be unwieldy. A better method of testing will be required then.
 
 
-\subsection{Implementation Points of Interest}
+\subsection{Version 2 Implementation}
+
+The main addition to Version 2 was the much more advanced collaborative filtering functionality.
 
 \subsubsection{Collaborative filtering implementation}
 
@@ -47,7 +49,7 @@ neighbours(u)}userSim(u,n)}
 
 A direct translation of this function into code was implemented. This proved to be extremely inefficient, taking approximately 1.5 to 2.0 seconds to rate each recipe, suggesting a total recommendation time for the database of 24 to 31 minutes. This was obviously unacceptable, so optimisations were sought.
 
-A lot of things were being unnecessarily recalculated each time. Some of these things, like average vote for a user, or a 1-dimensional array of all votes for a user, could be calculated once per vote and stored in the database, so these calculations were moved to the voting part of the operation. This introduced a small delay in voting, which is far less of a problem than it would be here, because voting is done with \textsc{Ajax}, so the user isn't interrupted, and voting is very fast anyway. These re-factorings made the method run on one tenth the original time.
+A lot of things were being unnecessarily recalculated each time. Some of these things, like average vote for a user, or a 1-dimensional array of all votes for a user, could be calculated once per vote and stored in the database, so these calculations were moved to the voting part of the operation. This introduced a small delay in voting, which is far less of a problem than it would be here, because voting is done with \textsc{Ajax}, so the user isn't interrupted, and voting is very fast anyway. These re-factorings made the method run in one tenth the original time.
 
 Some things, like the sum of similarity ratings to neighbours, had to be calculated each time recommendations were sought, but not for each recipe, so these were moved to be pre-calculated before the loop over recipes. Moving out the similarity sum calculations doubled the running speed again, and pre-calculating individual user similarities caused further drastic speed increases. The final implementation operated 171 times faster than the original.
 
