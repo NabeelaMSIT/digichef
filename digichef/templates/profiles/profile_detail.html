@@ -51,11 +51,12 @@
 		</div>
 
 		<h1>{{profile.user.get_full_name}}'s Profile</h1>
-
 		<h2>About me</h2>
+		<a href="/profiles/edit">Edit Profile</a>
 		<p>{{profile.about}}</p>
-
+		
 		<h2>Recipes Liked</h2>
+		<a href="/recipes/new">Submit original recipe</a>
 		<ul>
 		{%for recipe in recipes_liked%}
 			<li><a href="{{recipe.get_absolute_url}}">
