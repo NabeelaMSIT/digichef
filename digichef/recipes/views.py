@@ -85,7 +85,31 @@ def api_collab_search(request):
 			assert False, "This API method requires the post variable 'q', the query"
 	else:
 		assert False, "This API method requires POST data"
-	
+
+def recipe_tag(request, recipe_id):
+	recipe = get_object_or_404(Recipe, pk=recipe_id)
+
+	try:
+		recipe.uploader
+		has_uploader = True
+	except:
+		has_uploader = False		
+
+	if request.user.is_authenticated() and \
+			(request.user.is_staff or request.user.is_superuser or \
+			(has_uploader and (recipe.uploader == request.user))):
+		if request.method == 'POST':
+			tags = request.POST.get('tags', None)
+			if tags is not None:
+				recipe.tags = tags
+				return redirect_to(request, url='/recipe/%s/%s'%(recipe_id, tags))
+			else:
+				assert False, "This method requires the post variable 'tags'"
+		else:
+			return render_to_response('recipes/recipe_tag.html', {'recipe' : recipe})
+	else:
+		assert False, "To edit this recipe's tags you must own it or be an admin"
+
 
 def collab_search(request, search_string):
 	search_terms = [str(item.strip(',')) for item in re.split(r"[,; \t]*", search_string) if item]
