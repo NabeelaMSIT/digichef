@@ -1,43 +1,5 @@
 {% extends "base.html" %}
 
-{%block styles%}
-	<link rel="stylesheet" href="/media/css/TextboxList.css" type="text/css" media="screen" charset="utf-8" />
-	<link rel="stylesheet" href="/media/css/TextboxList.Autocomplete.css" type="text/css" media="screen" charset="utf-8" />
-{%endblock styles%}
-
-{%block scripts%}
-	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.1-core-yc.js"></script> 
-	<script type="text/javascript" charset="utf-8" src="/media/scripts/mootools-1.2.2.2-more.js"></script>
-	
-	<script src="/media/scripts/GrowingInput.js" type="text/javascript" charset="utf-8"></script>
-		
-	<script src="/media/scripts/TextboxList.js" type="text/javascript" charset="utf-8"></script>		
-	<script src="/media/scripts/TextboxList.Autocomplete.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/media/scripts/TextboxList.Autocomplete.Binary.js" type="text/javascript" charset="utf-8"></script>
-
-	<script type="text/javascript" charset="utf-8">
-		//<![CDATA[
-
-		window.addEvent('load', function(){
-
-			// Autocomplete initialization
-			var t4 = new TextboxList('form_tags_input_3', {unique: true, plugins: {autocomplete: {}}});
-			{%for tag in taglist%}
-			t4.add('{{tag}}');
-			{%endfor%}
-
-			t4.container.addClass('textboxlist-loading');													 
-			new Request.JSON({url: 'api/json_tags', onSuccess: function(r){
-				t4.plugins['autocomplete'].setValues(r);
-				t4.container.removeClass('textboxlist-loading');
-			}}).send();														 
-
-		});
-		//]]>
-	</script> 
-{%endblock scripts%}
- 
-
 {%block content%}
 	<!--menubar code; source: http://13styles.com/css-menus/wax/-->
 	<div class="orange">
