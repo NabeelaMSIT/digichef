@@ -1,8 +1,9 @@
 #main{
 	text-align:left;
-	margin:0px 155px auto 155px;
 	background-color: #FFE297;
 	color: #000000;
+	width:1000px;
+	margin:0 auto;
 	
 }
 
@@ -93,7 +94,7 @@
 
 #advert{
 	
-	
+	clear:both;
 	float:right;
 
 }
