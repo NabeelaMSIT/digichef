@@ -105,16 +105,17 @@
 		<h2>Instructions</h2>
 		<div class="instructions">{{recipe.instructions|linebreaks}}</div>
 
-		<h2>Tags:</h2>
+		<h2>Tags</h2>
 		<p>{% for tag in recipe.tags %}
 		{{tag.name}}{%if not forloop.last%} |{%endif%}
 		{% endfor %}
 		{%ifequal request.user recipe.uploader%}
-		<a href="{%url recipe_tag recipe.id%}">edit</a></p>
+		<a href="{%url recipe_tag recipe.id%}">edit</a>
 		{%endifequal%}
 		{%if request.user.is_superuser or request.user.is_staff%}
-		<a href="{%url recipe_tag recipe.id%}">edit</a></p>
+		<a href="{%url recipe_tag recipe.id%}">edit</a>
 		{%endif%}
+		</p>
 
 		<h2>Vote recipe</h2>
 		<h5><span id="score">{{ score.score }}</span> point{{ score.score|pluralize }}
