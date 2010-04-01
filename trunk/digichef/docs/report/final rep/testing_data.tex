@@ -34,11 +34,11 @@ To find suitable images, a custom script was written to query Google Image Searc
 
 
 
-\subsection{Running Tests}                                      % automatic title!
+\subsection{Running Tests}
 To make the testing of our product comprehensive, it was decided that we run three types of broad based tests dealing with website functionality, website compatibility and recipe search speed. 
 
 \subsubsection{Website Functionality}
-The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as speciied. 
+The functionality of the website needs to be tested. It is of dire importance that the different functions of our website adhere to their specifications and that the navigation around the website works as specified. 
 
 The functionality of the website will be tested using black-box-testing. The testing will primarily be done by using three different input data for each area where input is accepted. The three different inputs will be one of each: valid, invalid and extreme.
 Valid data is data that is usually accepted by the system and would be 'normal' data by a user. Invalid data is data that is not accepted by the system and should create some kind of error message. Extreme data is valid data that is on either end of the spectrum of what is normally accepted. An example of this could be testing whether a data field, which asks for a password of up to 12 characters, will actually accept 12 characters. The output of entering these three different input data will then be compared to the expected outcome. If the outcomes match then that particular test has been passed. Below is the formal test plan that outlines the actual tests and what the expected outcomes of these tests are.
@@ -93,7 +93,9 @@ All the tests were passed. Although an exhaustive testing was not possible, due 
 
 \subsubsection{Website Compatibility}
 
-Before we proceed with testing our product on different browsers, we need to determine the relative popularity of the different browsers.
+Before we proceed with testing our product on different browsers, we need to determine the relative popularity of the different browsers.\footnotemark
+
+\footnotetext{\texttt{http://w3schools.com/browsers/browsers\_stats.asp}}
 
 \begin{tabular}{|l|l|}
 \hline
@@ -114,10 +116,10 @@ Before we proceed with testing our product on different browsers, we need to det
 Broadly, we would assign a priority as to which browser the website should be tested on most thoroughly. Firefox, Internet Explorer 6, 7 and 8 and Chrome are assigned the highest priority. Our website successfully passed the tests on the aforementioned browsers, also, including Safari. Moreover, the test was carried out on different screen widths, and passed that as well.
 
 \subsubsection{Recipe Search Speed}
-Testing of the search speed is a convoluted task, because if we are to arrive at an exact big-oh complexity of the search, this would involve dealing with the Tanimoto coefficient and with tf-idf (term frequency-inverse document frequency) weighting which is used in text mining to compare the ingredients with tags. Rather than dealing directly with such nuanced topics, we can, however suggest an indirect big oh derivation by evaluting how the search works.
+Testing of the search speed is a convoluted task, because if we are to arrive at an exact big-oh complexity of the search, this would involve dealing with the Tanimoto coefficient and with tf-idf (term frequency-inverse document frequency) weighting which is used in text mining to compare the ingredients with tags. Rather than dealing directly with such nuanced topics, we can, however suggest an indirect big oh derivation by evaluating how the search works.
 First, all the tags for each object are collected and put into a matrix, by using a \emph{for} loop and this is done for all objects (recipes).
 Then, a \emph{for} loop is run on each tag for a particular recipe, which compares the tag with the specified ingredient based on some Tanimoto computation which returns a value.
 Then, if this value is sufficiently high, it is appended (along with the related recipe) to an array, which contains all the recipes which match the input ingredients. The value in the array with the highest value appears higher up in the seach.
 Hence, this gives a speed described by the following Big-Oh notation: O(number of tags*tanimoto value for each recipe*appending to list*sorting the array).
-We could have tried evaluating the effeciency of our search experimentally but it would have been of little use due to variations in database caching and other server performance variations.
+We could have tried evaluating the efficiency of our search experimentally but it would have been of little use due to variations in database caching and other server performance variations.
 If observational evalution is used to assess the seach speed, the speed is indistinguishable from the search speed of similar commercial websites, given our database which contains over 900 recipes.
