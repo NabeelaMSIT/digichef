@@ -39,6 +39,11 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 	text-align: center;
 }
 
+.errorlist li {
+	color:#900;
+	
+}
+
 #search-wrapper {
 	width:820px;
 	padding:10px;
