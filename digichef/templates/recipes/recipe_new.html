@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {%block styles%}
+	<!-- styling for forms; source http://www.emblematiq.com/lab/niceforms/-->
 	<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
 {%endblock styles%}
 
@@ -14,7 +15,7 @@
 					{%if user.is_authenticated%}
 						<li><a href="/profiles/{{user.username}}" title=""><span>My Profile</span></a></li>
 					{%endif%}
-					<li><a href="" title=""><span>About Us</span></a></li>
+					<li><a href="/about" title=""><span>About Us</span></a></li>
 				</ul>
 			</div>
         </div>
@@ -36,41 +37,4 @@
 			</fieldset>    
 		</form>
 	</div>
-		<!--
-	<div id="container">
-		<form action="vars.php" method="post" class="niceform">
-			<fieldset>
-				<legend>Upload Recipe</legend>
-				<dl>
-					<dt><label for="email">Title:</label></dt>
-					<dd><input type="text" name="email" id="email" size="32" maxlength="128" /></dd>
-				</dl>
-				<dl>
-					<dt><label for="comments">Ingredients:</label></dt>
-					<dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
-				</dl>
-				<dl>
-					<dt><label for="comments">Instructions:</label></dt>
-					<dd><textarea name="comments" id="comments" rows="5" cols="60"></textarea></dd>
-				</dl>
-				<dl>
-					<dt><label for="upload">Upload Image:</label></dt>
-					<dd><input type="file" name="upload" id="upload" /></dd>
-				</dl>
-			</fieldset>
-			<input type="submit" name="submit" id="submit" value="Submit" />
-		</form>
-	</div>
-		-->
-	<!--	
-<form action="" method="post">
-    {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }}: {{ field }}
-        </div>
-    {% endfor %}
-    <p><input type="submit" value="Submit" /></p>
-</form>
--->
 {%endblock content%}
