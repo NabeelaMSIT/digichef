@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {%block styles%}
+	<!-- styling for forms; source http://www.emblematiq.com/lab/niceforms/-->
 	<link rel="stylesheet" media="all" href="/media/css/niceforms-default.css" />
 {%endblock styles%}
 
@@ -14,7 +15,7 @@
 					{%if user.is_authenticated%}
 						<li><a href="/profiles/{{user.username}}" title="" class="current"><span>My Profile</span></a></li>
 					{%endif%}
-					<li><a href="" title=""><span>About Us</span></a></li>
+					<li><a href="/about" title=""><span>About Us</span></a></li>
 				</ul>
 			</div>
 		</div>

@@ -13,7 +13,7 @@
 				<ul>
 					<li><a href="/" title=""><span>Home</span></a></li>
 					<li><a href="" title=""><span>My Profile</span></a></li>
-					<li><a href="" title=""><span>About Us</span></a></li>
+					<li><a href="/about" title=""><span>About Us</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -26,41 +26,21 @@
 	<br />
 		
 	<div id="container">
-	<form method="post" action="{% url django.contrib.auth.views.login %}" class="niceform">
-	<fieldset>
-    	<legend>Input Username/Password</legend>
-		<dl>
-        	<dt><label for="email">{{ form.username.label_tag }}</label></dt>
-            <dd>{{ form.username }}</dd>
-        </dl>
-		<dl>
-        	<dt><label for="email">{{ form.password.label_tag }}</label></dt>
-            <dd>{{ form.password }}</dd>
-        </dl>
-		<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-    </fieldset>
-   
-</form>
+		<form method="post" action="{% url django.contrib.auth.views.login %}" class="niceform">
+		<fieldset>
+			<legend>Input Username/Password</legend>
+			<dl>
+				<dt><label for="email">{{ form.username.label_tag }}</label></dt>
+				<dd>{{ form.username }}</dd>
+			</dl>
+			<dl>
+				<dt><label for="email">{{ form.password.label_tag }}</label></dt>
+				<dd>{{ form.password }}</dd>
+			</dl>
+			<input type="submit" value="login" />
+			<input type="hidden" name="next" value="{{ next }}" />
+		</fieldset>
+		</form>
 </div>
 
-<!--
-
-
-
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
--->
 {% endblock %}
