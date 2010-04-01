@@ -86,7 +86,11 @@
 		<h1>{{recipe.title}}</h1>
 
 		{%if recipe.uploader%}
-		<p>by <a href="{{recipe.uploader.get_absolute_url}}">{{recipe.uploader.first_name}}</a></p>
+			{%ifequal recipe.uploader request.user%}
+				<p>by <a href="{{recipe.uploader.get_absolute_url}}">You</a></p>
+			{%else%}
+				<p>by <a href="{{recipe.uploader.get_absolute_url}}">{{recipe.uploader.get_full_name}}</a></p>
+			{%endifequal%}
 		{%endif%}
 
 
