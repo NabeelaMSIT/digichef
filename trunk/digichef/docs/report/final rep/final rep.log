@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.2.16)  1 APR 2010 12:07
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.2.16)  1 APR 2010 12:09
 entering extended mode
  %&-line parsing enabled.
 **"final rep.tex"
@@ -331,8 +331,8 @@ File: logowebsite.png Graphic file (type png)
 
 <use logowebsite.png>
 
-LaTeX Warning: Reference `fig:logowebsite' on page 22 undefined on input line 8
-.
+LaTeX Warning: Reference `fig:logowebsite' on page 22 undefined on input line 1
+0.
 
 <home_page_v2.png, id=91, 605.26125pt x 486.81876pt>
 File: home_page_v2.png Graphic file (type png)
@@ -348,19 +348,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 <slideshow.png, id=93, 605.26125pt x 279.0425pt>
 File: slideshow.png Graphic file (type png)
- <use slideshow.png> [22 <./logowebsite.png (PNG copy)>]
-<result_list_v2.png, id=97, 607.26875pt x 476.78125pt>
+ <use slideshow.png> [22 <./logowebsite.png (PNG copy)>] [23 <./home_page_v2.pn
+g (PNG copy)> <./slideshow.png (PNG copy)>] <result_list_v2.png, id=100, 607.26
+875pt x 476.78125pt>
 File: result_list_v2.png Graphic file (type png)
 
-<use result_list_v2.png> [23 <./home_page_v2.png (PNG copy)> <./slideshow.png (
-PNG copy)>] <recipe_page_v2.png, id=101, 690.58pt x 476.78125pt>
+<use result_list_v2.png> [24 <./auto_complete.png (PNG copy)> <./result_list_v2
+.png (PNG copy)>] <recipe_page_v2.png, id=104, 690.58pt x 476.78125pt>
 File: recipe_page_v2.png Graphic file (type png)
 
-<use recipe_page_v2.png> [24 <./auto_complete.png (PNG copy)> <./result_list_v2
-.png (PNG copy)>]
+<use recipe_page_v2.png>
 
 LaTeX Warning: Reference `fig:recipe_page_v2' on page 25 undefined on input lin
-e 54.
+e 66.
 
 <profile_page_v2.png, id=105, 695.59875pt x 495.8525pt>
 File: profile_page_v2.png Graphic file (type png)
@@ -600,13 +600,11 @@ Missing character: There is no ’ in font cmr12!
 <milestone.png, id=169, 762.85pt x 472.76625pt>
 File: milestone.png Graphic file (type png)
  <use milestone.png>
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
- [43 <./milestone.png>] [44]) (./MInutes_compiled.tex (./Minutes14.09.tex
+Overfull \hbox (45.1715pt too wide) in paragraph at lines 4--5
+[][] 
+ []
+
+[43 <./milestone.png>] [44]) (./MInutes_compiled.tex (./Minutes14.09.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -616,7 +614,8 @@ Missing character: There is no ô in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [45]
+
+[45]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no î in font cmr12!
@@ -626,19 +625,19 @@ Missing character: There is no ò in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-) [46]
-(./Minutes07.10.tex
+) [46] (./Minutes07.10.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-) [47] (./Minutes09.10.tex) [48] (./Minutes21.10.tex)
-[49] (./Minutes11.11.tex) [50] (./Minutes18.11v2.tex) [51] (./Minutes27.01.tex)
-[52] (./Minutes29.01.tex) [53] (./Minutes03.02.tex) [54] (./Minutes10.02.tex)
-[55] (./Minutes24.02.tex) [56] (./Minutes03.03.tex) [57] (./Minutes10.03.tex)
-[58] (./Minutes17.03.tex) [59] (./Minutes24.03.tex) [60]) (./final rep.aux)
+) [47] (./Minutes09.10.tex) [48]
+(./Minutes21.10.tex) [49] (./Minutes11.11.tex) [50] (./Minutes18.11v2.tex)
+[51] (./Minutes27.01.tex) [52] (./Minutes29.01.tex) [53] (./Minutes03.02.tex)
+[54] (./Minutes10.02.tex) [55] (./Minutes24.02.tex) [56] (./Minutes03.03.tex)
+[57] (./Minutes10.03.tex) [58] (./Minutes17.03.tex) [59] (./Minutes24.03.tex)
+[60]) (./final rep.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -666,7 +665,7 @@ f-texlive/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1
 fb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texm
 f-texlive/fonts/type1/bluesky/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/bluesky/cm/cmtt12.pfb>
-Output written on "final rep.pdf" (60 pages, 3147195 bytes).
+Output written on "final rep.pdf" (60 pages, 3148698 bytes).
 PDF statistics:
  277 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
