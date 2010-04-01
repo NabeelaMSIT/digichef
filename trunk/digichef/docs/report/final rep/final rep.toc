@@ -58,95 +58,97 @@
 \contentsline {paragraph}{The \texttt {search} View}{29}
 \contentsline {subsubsection}{\numberline {9.2.5}Template Design}{30}
 \contentsline {section}{\numberline {10}Implementation Results}{31}
-\contentsline {section}{\numberline {11}Testing}{33}
-\contentsline {subsection}{\numberline {11.1}Obtaining Test Data}{33}
-\contentsline {subsubsection}{\numberline {11.1.1}Requirements}{33}
-\contentsline {subsubsection}{\numberline {11.1.2}Meeting the requirements}{33}
-\contentsline {subsection}{\numberline {11.2}Running Tests}{34}
-\contentsline {subsubsection}{\numberline {11.2.1}Website Functionality}{34}
-\contentsline {subsubsection}{\numberline {11.2.2}Website Compatibility}{37}
-\contentsline {subsubsection}{\numberline {11.2.3}Recipe Search Speed}{37}
-\contentsline {section}{\numberline {12}Reflections on project}{38}
-\contentsline {subsection}{\numberline {12.1}Technical Issues}{38}
-\contentsline {subsection}{\numberline {12.2}Time Management Issues}{38}
-\contentsline {subsection}{\numberline {12.3}Group Working Issues}{38}
-\contentsline {subsection}{\numberline {12.4}Success of Project}{39}
-\contentsline {section}{\numberline {13}Conclusion}{39}
-\contentsline {section}{\numberline {14}Evaluation}{40}
-\contentsline {section}{\numberline {15}Appendices}{42}
-\contentsline {subsection}{\numberline {15.1}Timescale}{42}
-\contentsline {subsection}{\numberline {15.2}Meeting Minutes}{44}
-\contentsline {paragraph}{Minutes 14.09.2009}{44}
-\contentsline {paragraph}{Present}{44}
-\contentsline {paragraph}{Tasks completed}{44}
-\contentsline {paragraph}{Issues discussed}{44}
-\contentsline {paragraph}{To do}{45}
-\contentsline {paragraph}{Minutes 07.10.2009}{46}
-\contentsline {paragraph}{Present}{46}
-\contentsline {paragraph}{Issues discussed}{46}
+\contentsline {subsection}{\numberline {10.1}Implementation Points of Interest}{31}
+\contentsline {subsubsection}{\numberline {10.1.1}Collaborative filtering implementation}{31}
+\contentsline {section}{\numberline {11}Testing}{34}
+\contentsline {subsection}{\numberline {11.1}Obtaining Test Data}{34}
+\contentsline {subsubsection}{\numberline {11.1.1}Requirements}{34}
+\contentsline {subsubsection}{\numberline {11.1.2}Meeting the requirements}{34}
+\contentsline {subsection}{\numberline {11.2}Running Tests}{35}
+\contentsline {subsubsection}{\numberline {11.2.1}Website Functionality}{35}
+\contentsline {subsubsection}{\numberline {11.2.2}Website Compatibility}{38}
+\contentsline {subsubsection}{\numberline {11.2.3}Recipe Search Speed}{38}
+\contentsline {section}{\numberline {12}Reflections on project}{39}
+\contentsline {subsection}{\numberline {12.1}Technical Issues}{39}
+\contentsline {subsection}{\numberline {12.2}Time Management Issues}{39}
+\contentsline {subsection}{\numberline {12.3}Group Working Issues}{39}
+\contentsline {subsection}{\numberline {12.4}Success of Project}{40}
+\contentsline {section}{\numberline {13}Conclusion}{40}
+\contentsline {section}{\numberline {14}Evaluation}{41}
+\contentsline {section}{\numberline {15}Appendices}{43}
+\contentsline {subsection}{\numberline {15.1}Timescale}{43}
+\contentsline {subsection}{\numberline {15.2}Meeting Minutes}{45}
+\contentsline {paragraph}{Minutes 14.09.2009}{45}
+\contentsline {paragraph}{Present}{45}
+\contentsline {paragraph}{Tasks completed}{45}
+\contentsline {paragraph}{Issues discussed}{45}
 \contentsline {paragraph}{To do}{46}
-\contentsline {paragraph}{Minutes 09.10.2009}{47}
+\contentsline {paragraph}{Minutes 07.10.2009}{47}
 \contentsline {paragraph}{Present}{47}
-\contentsline {paragraph}{Tasks Completed}{47}
 \contentsline {paragraph}{Issues discussed}{47}
 \contentsline {paragraph}{To do}{47}
-\contentsline {paragraph}{Minutes 21.10.2009}{48}
+\contentsline {paragraph}{Minutes 09.10.2009}{48}
 \contentsline {paragraph}{Present}{48}
-\contentsline {paragraph}{Apologies}{48}
+\contentsline {paragraph}{Tasks Completed}{48}
 \contentsline {paragraph}{Issues discussed}{48}
 \contentsline {paragraph}{To do}{48}
-\contentsline {paragraph}{Minutes 11.11.2009}{49}
+\contentsline {paragraph}{Minutes 21.10.2009}{49}
 \contentsline {paragraph}{Present}{49}
-\contentsline {paragraph}{Tasks completed}{49}
+\contentsline {paragraph}{Apologies}{49}
 \contentsline {paragraph}{Issues discussed}{49}
 \contentsline {paragraph}{To do}{49}
-\contentsline {paragraph}{Minutes 18.11.2009}{50}
+\contentsline {paragraph}{Minutes 11.11.2009}{50}
 \contentsline {paragraph}{Present}{50}
 \contentsline {paragraph}{Tasks completed}{50}
 \contentsline {paragraph}{Issues discussed}{50}
 \contentsline {paragraph}{To do}{50}
-\contentsline {paragraph}{Minutes 27.01.2010}{51}
+\contentsline {paragraph}{Minutes 18.11.2009}{51}
 \contentsline {paragraph}{Present}{51}
-\contentsline {paragraph}{Apologies}{51}
+\contentsline {paragraph}{Tasks completed}{51}
 \contentsline {paragraph}{Issues discussed}{51}
 \contentsline {paragraph}{To do}{51}
-\contentsline {paragraph}{Minutes 29.01.2010}{52}
+\contentsline {paragraph}{Minutes 27.01.2010}{52}
 \contentsline {paragraph}{Present}{52}
 \contentsline {paragraph}{Apologies}{52}
 \contentsline {paragraph}{Issues discussed}{52}
 \contentsline {paragraph}{To do}{52}
-\contentsline {paragraph}{Minutes 03.02.2010}{53}
+\contentsline {paragraph}{Minutes 29.01.2010}{53}
 \contentsline {paragraph}{Present}{53}
 \contentsline {paragraph}{Apologies}{53}
 \contentsline {paragraph}{Issues discussed}{53}
 \contentsline {paragraph}{To do}{53}
-\contentsline {paragraph}{Minutes 12.02.2010}{54}
+\contentsline {paragraph}{Minutes 03.02.2010}{54}
 \contentsline {paragraph}{Present}{54}
-\contentsline {paragraph}{Tasks completed}{54}
+\contentsline {paragraph}{Apologies}{54}
 \contentsline {paragraph}{Issues discussed}{54}
 \contentsline {paragraph}{To do}{54}
-\contentsline {paragraph}{Minutes 24.02.2010}{55}
+\contentsline {paragraph}{Minutes 12.02.2010}{55}
 \contentsline {paragraph}{Present}{55}
-\contentsline {paragraph}{Apologies}{55}
+\contentsline {paragraph}{Tasks completed}{55}
 \contentsline {paragraph}{Issues discussed}{55}
 \contentsline {paragraph}{To do}{55}
-\contentsline {paragraph}{Minutes 03.03.2010}{56}
+\contentsline {paragraph}{Minutes 24.02.2010}{56}
 \contentsline {paragraph}{Present}{56}
-\contentsline {paragraph}{Tasks completed}{56}
+\contentsline {paragraph}{Apologies}{56}
 \contentsline {paragraph}{Issues discussed}{56}
 \contentsline {paragraph}{To do}{56}
-\contentsline {paragraph}{Minutes 10.03.2010}{57}
+\contentsline {paragraph}{Minutes 03.03.2010}{57}
 \contentsline {paragraph}{Present}{57}
 \contentsline {paragraph}{Tasks completed}{57}
 \contentsline {paragraph}{Issues discussed}{57}
 \contentsline {paragraph}{To do}{57}
-\contentsline {paragraph}{Minutes 17.03.2010}{58}
+\contentsline {paragraph}{Minutes 10.03.2010}{58}
 \contentsline {paragraph}{Present}{58}
 \contentsline {paragraph}{Tasks completed}{58}
 \contentsline {paragraph}{Issues discussed}{58}
 \contentsline {paragraph}{To do}{58}
-\contentsline {paragraph}{Minutes 24.03.2010}{59}
+\contentsline {paragraph}{Minutes 17.03.2010}{59}
 \contentsline {paragraph}{Present}{59}
 \contentsline {paragraph}{Tasks completed}{59}
 \contentsline {paragraph}{Issues discussed}{59}
 \contentsline {paragraph}{To do}{59}
+\contentsline {paragraph}{Minutes 24.03.2010}{60}
+\contentsline {paragraph}{Present}{60}
+\contentsline {paragraph}{Tasks completed}{60}
+\contentsline {paragraph}{Issues discussed}{60}
+\contentsline {paragraph}{To do}{60}
