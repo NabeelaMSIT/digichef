@@ -64,6 +64,7 @@ urlpatterns = patterns(
     (r'^recipe/(?P<recipe_id>\d+).*$', recipes.views.recipe_detail),
 
 
+#    (r'^recipes/new/?$', recipes.views.create_recipe, {'template_name': 'recipes/recipe_new.html', 'login_required': True}),
     (r'^recipes/new/?$', create_object, {'model': recipes.models.Recipe,'template_name': 'recipes/recipe_new.html', 'login_required': True}),
 
     (r'^recipes/?$', recipes.views.recipes_all),

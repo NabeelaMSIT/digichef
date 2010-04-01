@@ -56,18 +56,21 @@
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class VoteManager</h1><p class="nomargin-top"><span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_digichef_45" name="uml_class_diagram_for_digichef_45">
+<center>  <map id="uml_class_diagram_for_digichef_65" name="uml_class_diagram_for_digichef_65">
 <area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_score" title="Get a dictionary containing the total score for ``obj`` and the number of votes it&#39;s received." alt="" coords="17,36,287,55"/>
 <area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_scores_in_bulk" title="Get a dictionary mapping object ids to total score and number of votes for each object." alt="" coords="17,55,287,73"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#record_vote" title="Record a user&#39;s vote on a given object." alt="" coords="17,73,287,92"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_top" title="Get the top N scored objects for a given model." alt="" coords="17,92,287,111"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_bottom" title="Get the bottom (i.e." alt="" coords="17,111,287,129"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user" title="Get the vote made on the given object by the given user, or ``None`` if no matching vote exists." alt="" coords="17,129,287,148"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user_in_bulk" title="Get a dictionary mapping object ids to votes made by the given user on the corresponding objects." alt="" coords="17,148,287,167"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user_from_model" title="Get a dictionary mapping object ids to votes made by the given user on the corresponding objects." alt="" coords="17,167,287,185"/>
-<area shape="rect" href="digichef.voting.managers.VoteManager-class.html" title="digichef.voting.managers.VoteManager" alt="" coords="16,11,288,187"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#record_vote_and_update" title="digichef.voting.managers.VoteManager.record_vote_and_update" alt="" coords="17,73,287,92"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#record_vote" title="digichef.voting.managers.VoteManager.record_vote" alt="" coords="17,92,287,111"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#record_vote_simple" title="Record a user&#39;s vote on a given object." alt="" coords="17,111,287,129"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_top" title="Get the top N scored objects for a given model." alt="" coords="17,129,287,148"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_bottom" title="Get the bottom (i.e." alt="" coords="17,148,287,167"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user" title="Get the vote made on the given object by the given user, or ``None`` if no matching vote exists." alt="" coords="17,167,287,185"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_val_for_user" title="digichef.voting.managers.VoteManager.get_val_for_user" alt="" coords="17,185,287,204"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user_in_bulk" title="Get a dictionary mapping object ids to votes made by the given user on the corresponding objects." alt="" coords="17,204,287,223"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html#get_for_user_from_model" title="Get a dictionary mapping object ids to votes made by the given user on the corresponding objects." alt="" coords="17,223,287,241"/>
+<area shape="rect" href="digichef.voting.managers.VoteManager-class.html" title="digichef.voting.managers.VoteManager" alt="" coords="16,11,288,243"/>
 </map>
-  <img src="uml_class_diagram_for_digichef_45.gif" alt='' usemap="#uml_class_diagram_for_digichef_45" ismap="ismap" class="graph-without-title" />
+  <img src="uml_class_diagram_for_digichef_65.gif" alt='' usemap="#uml_class_diagram_for_digichef_65" ismap="ismap" class="graph-without-title" />
 </center>
 </center>
 <hr />
@@ -132,13 +135,51 @@ of votes for each object.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="digichef.voting.managers.VoteManager-class.html#record_vote" class="summary-sig-name">record_vote</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a name="record_vote_and_update"></a><span class="summary-sig-name">record_vote_and_update</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">vote</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote_and_update">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="record_vote"></a><span class="summary-sig-name">record_vote</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">vote</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote_and_update">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="digichef.voting.managers.VoteManager-class.html#record_vote_simple" class="summary-sig-name">record_vote_simple</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">obj</span>,
         <span class="summary-sig-arg">user</span>,
         <span class="summary-sig-arg">vote</span>)</span><br />
       Record a user's vote on a given object.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote">source&nbsp;code</a></span>
+            <span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote_simple">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -211,6 +252,24 @@ of votes for each object.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a name="get_val_for_user"></a><span class="summary-sig-name">get_val_for_user</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">user</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.get_val_for_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a name="get_for_user_in_bulk"></a><span class="summary-sig-name">get_for_user_in_bulk</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">objects</span>,
         <span class="summary-sig-arg">user</span>)</span><br />
@@ -264,20 +323,20 @@ user on the corresponding objects.</td>
   </td>
 </tr>
 </table>
-<a name="record_vote"></a>
+<a name="record_vote_simple"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">record_vote</span>(<span class="sig-arg">self</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">record_vote_simple</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">obj</span>,
         <span class="sig-arg">user</span>,
         <span class="sig-arg">vote</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="digichef.voting.managers-pysrc.html#VoteManager.record_vote_simple">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -373,7 +432,7 @@ Yields (object, score) tuples.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar 23 21:07:56 2010
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:28 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
