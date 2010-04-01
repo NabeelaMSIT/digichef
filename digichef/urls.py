@@ -39,7 +39,7 @@ urlpatterns = patterns(
 
     url(r'^$', 'core.views.home', name="home" ),
 
-    url(r'^about/?$', 'django.views.generic.simple.redirect_to', {'template':'about.html'}, name="about" ),
+    url(r'^about/?$', 'django.views.generic.simple.direct_to_template', {'template':'about.html'}, name="about" ),
 
     (r'^search/?$','django.views.generic.simple.redirect_to', {'url': '/', 'permanent': False}),
     (r'^search/(?P<search_string>.*).*$', recipes.views.collab_search),
