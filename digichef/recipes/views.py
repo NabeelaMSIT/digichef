@@ -19,6 +19,8 @@ import digichef.util.models
 
 import re
 
+from django.views.generic.create_update import create_object
+
 def stupid_search(request):
 	"""Search page"""
 	if request.GET.get('submitted', ''):#if this a form submit;-
@@ -177,6 +179,10 @@ def vote_on_recipe(request, object_id, direction):
 #	except Exception as e:
 #		print type(e), e
 	return returnval
+
+def create_recipe(request, *args, **kwargs):
+	kwargs.update({'model': Recipe})
+	assert False, (args, kwargs)
 
 def test(request):
 	objectType = Recipe

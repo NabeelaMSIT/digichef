@@ -61,20 +61,22 @@
 <a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
 <a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
-<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module digichef.recipes.forms=digichef.recipes.forms-module.html,Module digichef.registration.forms=digichef.registration.forms-module.html,Module digichef.tagging.forms=digichef.tagging.forms-module.html"><a title="digichef.recipes.forms
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module digichef.profiles.forms=digichef.profiles.forms-module.html,Module digichef.recipes.forms=digichef.recipes.forms-module.html,Module digichef.registration.forms=digichef.registration.forms-module.html,Module digichef.tagging.forms=digichef.tagging.forms-module.html"><a title="digichef.profiles.forms
+digichef.recipes.forms
 digichef.registration.forms
 digichef.tagging.forms" class="py-name" href="#" onclick="return doclink('link-0', 'forms', 'link-0');">forms</a></tt> </tt>
 <a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module digichef.settings=digichef.settings-module.html,Module digichef.tagging.settings=digichef.tagging.settings-module.html,Module digichef.tagging.tests.settings=digichef.tagging.tests.settings-module.html,Module digichef.voting.tests.settings=digichef.voting.tests.settings-module.html"><a title="digichef.settings
 digichef.tagging.settings
 digichef.tagging.tests.settings
 digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-1', 'settings', 'link-1');">settings</a></tt> </tt>
-<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.util.models=digichef.util.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
 digichef.profiles.models
 digichef.recipes.models
 digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">get_model</tt> </tt>
 <a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
@@ -85,6 +87,7 @@ digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">SiteProfileNotAvailable</tt> </tt>
 <a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
@@ -127,8 +130,9 @@ digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink
 <a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">    <tt class="py-name">profile_mod</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Function digichef.profiles.utils.get_profile_model()=digichef.profiles.utils-module.html#get_profile_model"><a title="digichef.profiles.utils.get_profile_model" class="py-name" href="#" onclick="return doclink('link-10', 'get_profile_model', 'link-10');">get_profile_model</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-keyword">class</tt> <tt class="py-def-name">_ProfileForm</tt><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">class</tt> <tt class="py-def-name">Meta</tt><tt class="py-op">:</tt> </tt>
-<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt id="link-11" class="py-name" targets="Variable digichef.tagging.forms.TagAdminForm.Meta.model=digichef.tagging.forms.TagAdminForm.Meta-class.html#model"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-11', 'model', 'link-11');">model</a></tt> <tt class="py-op">=</tt> <tt class="py-name">profile_mod</tt> </tt>
-<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt class="py-name">exclude</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'user'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> <tt class="py-comment"># User will be filled in by the view.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt id="link-11" class="py-name" targets="Variable digichef.profiles.forms.ProfileForm.Meta.model=digichef.profiles.forms.ProfileForm.Meta-class.html#model,Variable digichef.tagging.forms.TagAdminForm.Meta.model=digichef.tagging.forms.TagAdminForm.Meta-class.html#model"><a title="digichef.profiles.forms.ProfileForm.Meta.model
+digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-11', 'model', 'link-11');">model</a></tt> <tt class="py-op">=</tt> <tt class="py-name">profile_mod</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt id="link-12" class="py-name" targets="Variable digichef.profiles.forms.ProfileForm.Meta.exclude=digichef.profiles.forms.ProfileForm.Meta-class.html#exclude"><a title="digichef.profiles.forms.ProfileForm.Meta.exclude" class="py-name" href="#" onclick="return doclink('link-12', 'exclude', 'link-12');">exclude</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'user'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> <tt class="py-comment"># User will be filled in by the view.</tt> </tt>
 </div></div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">_ProfileForm</tt> </tt>
 </div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
@@ -160,7 +164,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar 23 21:07:58 2010
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:32 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

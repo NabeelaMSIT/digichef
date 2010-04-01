@@ -74,15 +74,22 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="digichef.urls-module.html#urlpatterns" class="summary-name">urlpatterns</a> = <code title="patterns('', (r'^admin/(.*)', admin.site.root), (r'^media/(?P&lt;path&gt;.*)\
-$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC\
-_ROOT, 'show_indexes': True}), url(r'^$', 'core.views.home', name= &quot;ho\
-me&quot;), (r'^search/?$', recipes.views.stupid_search), (r'^search/(?P&lt;sea\
-rch_string&gt;.*).*$', recipes.views.collab_search), url(r'^api/search$',\
- recipes.views.api_collab_search, name= &quot;api_collab_search&quot;), url(r'^a\
-pi/similar/(?P&lt;recipe_id&gt;\d+)/$', recipes.views.api_similar_recipes, n\
-ame= &quot;api_similar&quot;), url(r'^api/json_tags$', 'util.views.json_tags', n\
-...">patterns('', (r'^admin/(.*)', admin.site.root), <code class="variable-ellipsis">...</code></code>
+        <a name="man"></a><span class="summary-name">man</span> = <code title="RecommenderManager()">RecommenderManager()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="digichef.urls-module.html#urlpatterns" class="summary-name">urlpatterns</a> = <code title="patterns('', (r'^admin/doc/', include('django.contrib.admindocs.urls')\
+), (r'^admin/(.*)', admin.site.root), (r'^media/(?P&lt;path&gt;.*)$', 'djang\
+o.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'sh\
+ow_indexes': True}), url(r'^$', 'core.views.home', name= &quot;home&quot;), (r'^\
+search/?$', 'django.views.generic.simple.redirect_to', {'url': '/', 'p\
+ermanent': False}), (r'^search/(?P&lt;search_string&gt;.*).*$', recipes.view\
+s.collab_search), url(r'^api/search$', recipes.views.api_collab_search\
+, name= &quot;api_collab_search&quot;), url(r'^api/similar/(?P&lt;recipe_id&gt;\d+)(/(\
+...">patterns('', (r'^admin/doc/', include('django.co<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 </table>
@@ -116,14 +123,14 @@ ame= &quot;api_similar&quot;), url(r'^api/json_tags$', 'util.views.json_tags', n
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-patterns('', (r'^admin/(.*)', admin.site.root), (r'^media/(?P&lt;path&gt;.*)<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-_ROOT, 'show_indexes': True}), url(r'^$', 'core.views.home', name= &quot;ho<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-me&quot;), (r'^search/?$', recipes.views.stupid_search), (r'^search/(?P&lt;sea<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-rch_string&gt;.*).*$', recipes.views.collab_search), url(r'^api/search$',<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- recipes.views.api_collab_search, name= &quot;api_collab_search&quot;), url(r'^a<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-pi/similar/(?P&lt;recipe_id&gt;\d+)/$', recipes.views.api_similar_recipes, n<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ame= &quot;api_similar&quot;), url(r'^api/json_tags$', 'util.views.json_tags', n<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+patterns('', (r'^admin/doc/', include('django.contrib.admindocs.urls')<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+), (r'^admin/(.*)', admin.site.root), (r'^media/(?P&lt;path&gt;.*)$', 'djang<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+o.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT, 'sh<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ow_indexes': True}), url(r'^$', 'core.views.home', name= &quot;home&quot;), (r'^<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+search/?$', 'django.views.generic.simple.redirect_to', {'url': '/', 'p<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ermanent': False}), (r'^search/(?P&lt;search_string&gt;.*).*$', recipes.view<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+s.collab_search), url(r'^api/search$', recipes.views.api_collab_search<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+, name= &quot;api_collab_search&quot;), url(r'^api/similar/(?P&lt;recipe_id&gt;\d+)(/(<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -154,7 +161,7 @@ ame= &quot;api_similar&quot;), url(r'^api/json_tags$', 'util.views.json_tags', n
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar 23 21:07:50 2010
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:20 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

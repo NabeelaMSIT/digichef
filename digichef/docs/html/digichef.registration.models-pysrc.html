@@ -63,13 +63,14 @@
 digichef.tagging.settings
 digichef.tagging.tests.settings
 digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-1', 'settings', 'link-1');">settings</a></tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module digichef.core.models=digichef.core.models-module.html,Module digichef.profiles.models=digichef.profiles.models-module.html,Module digichef.recipes.models=digichef.recipes.models-module.html,Module digichef.recommender.models=digichef.recommender.models-module.html,Module digichef.registration.models=digichef.registration.models-module.html,Module digichef.tagging.models=digichef.tagging.models-module.html,Module digichef.tagging.tests.models=digichef.tagging.tests.models-module.html,Module digichef.util.models=digichef.util.models-module.html,Module digichef.voting.models=digichef.voting.models-module.html,Module digichef.voting.tests.models=digichef.voting.tests.models-module.html"><a title="digichef.core.models
 digichef.profiles.models
 digichef.recipes.models
 digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> </tt>
 <a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Function re.template()=re-module.html#template"><a title="re.template" class="py-name" href="#" onclick="return doclink('link-3', 'template', 'link-3');">template</a></tt><tt class="py-op">.</tt><tt class="py-name">loader</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render_to_string</tt> </tt>
@@ -83,6 +84,7 @@ digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
 <a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">sites</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="digichef.core.models
@@ -92,6 +94,7 @@ digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-6', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">Site</tt> </tt>
 <a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
@@ -133,24 +136,33 @@ digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('
 <a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-10" class="py-name"><a title="digichef.registration.models.SHA1_RE" class="py-name" href="#" onclick="return doclink('link-10', 'SHA1_RE', 'link-7');">SHA1_RE</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Function re.search()=re-module.html#search"><a title="re.search" class="py-name" href="#" onclick="return doclink('link-11', 'search', 'link-11');">search</a></tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Variable digichef.registration.models.RegistrationProfile.activation_key=digichef.registration.models.RegistrationProfile-class.html#activation_key"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-12', 'activation_key', 'link-12');">activation_key</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
 <a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                <tt class="py-name">profile</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-13', 'activation_key', 'link-12');">activation_key</a></tt><tt class="py-op">=</tt><tt id="link-14" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-14', 'activation_key', 'link-12');">activation_key</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable digichef.tagging.forms.TagAdminForm.Meta.model=digichef.tagging.forms.TagAdminForm.Meta-class.html#model"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-15', 'model', 'link-15');">model</a></tt><tt class="py-op">.</tt><tt class="py-name">DoesNotExist</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable digichef.profiles.forms.ProfileForm.Meta.model=digichef.profiles.forms.ProfileForm.Meta-class.html#model,Variable digichef.tagging.forms.TagAdminForm.Meta.model=digichef.tagging.forms.TagAdminForm.Meta-class.html#model"><a title="digichef.profiles.forms.ProfileForm.Meta.model
+digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-15', 'model', 'link-15');">model</a></tt><tt class="py-op">.</tt><tt class="py-name">DoesNotExist</tt><tt class="py-op">:</tt> </tt>
 <a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
 <a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method digichef.registration.models.RegistrationProfile.activation_key_expired()=digichef.registration.models.RegistrationProfile-class.html#activation_key_expired"><a title="digichef.registration.models.RegistrationProfile.activation_key_expired" class="py-name" href="#" onclick="return doclink('link-16', 'activation_key_expired', 'link-16');">activation_key_expired</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt id="link-17" class="py-name" targets="Variable digichef.profiles.models.Profile.user=digichef.profiles.models.Profile-class.html#user,Variable digichef.registration.models.RegistrationProfile.user=digichef.registration.models.RegistrationProfile-class.html#user,Variable digichef.voting.models.Vote.user=digichef.voting.models.Vote-class.html#user"><a title="digichef.profiles.models.Profile.user
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt id="link-17" class="py-name" targets="Variable digichef.profiles.models.Profile.user=digichef.profiles.models.Profile-class.html#user,Variable digichef.registration.models.RegistrationProfile.user=digichef.registration.models.RegistrationProfile-class.html#user,Variable digichef.util.models.UserMeta.user=digichef.util.models.UserMeta-class.html#user,Variable digichef.voting.models.Vote.user=digichef.voting.models.Vote-class.html#user"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-17', 'user', 'link-17');">user</a></tt> <tt class="py-op">=</tt> <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-18', 'user', 'link-17');">user</a></tt> </tt>
 <a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                <tt id="link-19" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-19', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
 <a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt id="link-20" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
-digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-20', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method digichef.registration.forms.RegistrationForm.save()=digichef.registration.forms.RegistrationForm-class.html#save"><a title="digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-21', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-22', 'activation_key', 'link-12');">activation_key</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-23', 'model', 'link-15');">model</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable digichef.registration.models.RegistrationProfile.ACTIVATED=digichef.registration.models.RegistrationProfile-class.html#ACTIVATED"><a title="digichef.registration.models.RegistrationProfile.ACTIVATED" class="py-name" href="#" onclick="return doclink('link-24', 'ACTIVATED', 'link-24');">ACTIVATED</a></tt> </tt>
-<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-25', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+digichef.util.models.UserMeta.user
+digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-20', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method digichef.profiles.forms.ProfileForm.save()=digichef.profiles.forms.ProfileForm-class.html#save,Method digichef.registration.forms.RegistrationForm.save()=digichef.registration.forms.RegistrationForm-class.html#save"><a title="digichef.profiles.forms.ProfileForm.save
+digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-21', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-22', 'activation_key', 'link-12');">activation_key</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="digichef.profiles.forms.ProfileForm.Meta.model
+digichef.tagging.forms.TagAdminForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-23', 'model', 'link-15');">model</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable digichef.registration.models.RegistrationProfile.ACTIVATED=digichef.registration.models.RegistrationProfile-class.html#ACTIVATED"><a title="digichef.registration.models.RegistrationProfile.ACTIVATED" class="py-name" href="#" onclick="return doclink('link-24', 'ACTIVATED', 'link-24');">ACTIVATED</a></tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="digichef.profiles.forms.ProfileForm.save
+digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-25', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-26" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-26', 'user', 'link-17');">user</a></tt> </tt>
 <a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
 </div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">     </tt>
@@ -200,9 +212,11 @@ digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return docli
 digichef.registration.models.RegistrationProfile.objects
 digichef.tagging.models.Tag.objects
 digichef.tagging.models.TaggedItem.objects
-digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-27', 'objects', 'link-27');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">create_user</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Variable digichef.registration.forms.RegistrationForm.username=digichef.registration.forms.RegistrationForm-class.html#username"><a title="digichef.registration.forms.RegistrationForm.username" class="py-name" href="#" onclick="return doclink('link-28', 'username', 'link-28');">username</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name" targets="Variable digichef.registration.forms.RegistrationForm.email=digichef.registration.forms.RegistrationForm-class.html#email"><a title="digichef.registration.forms.RegistrationForm.email" class="py-name" href="#" onclick="return doclink('link-29', 'email', 'link-29');">email</a></tt><tt class="py-op">,</tt> <tt class="py-name">password</tt><tt class="py-op">)</tt> </tt>
+digichef.voting.models.Vote.objects" class="py-name" href="#" onclick="return doclink('link-27', 'objects', 'link-27');">objects</a></tt><tt class="py-op">.</tt><tt class="py-name">create_user</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Variable digichef.registration.forms.RegistrationForm.username=digichef.registration.forms.RegistrationForm-class.html#username"><a title="digichef.registration.forms.RegistrationForm.username" class="py-name" href="#" onclick="return doclink('link-28', 'username', 'link-28');">username</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name" targets="Variable digichef.profiles.forms.ProfileForm.email=digichef.profiles.forms.ProfileForm-class.html#email,Variable digichef.registration.forms.RegistrationForm.email=digichef.registration.forms.RegistrationForm-class.html#email"><a title="digichef.profiles.forms.ProfileForm.email
+digichef.registration.forms.RegistrationForm.email" class="py-name" href="#" onclick="return doclink('link-29', 'email', 'link-29');">email</a></tt><tt class="py-op">,</tt> <tt class="py-name">password</tt><tt class="py-op">)</tt> </tt>
 <a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">new_user</tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
-<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">new_user</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-30', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">new_user</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="digichef.profiles.forms.ProfileForm.save
+digichef.registration.forms.RegistrationForm.save" class="py-name" href="#" onclick="return doclink('link-30', 'save', 'link-21');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">         </tt>
 <a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">registration_profile</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Function digichef.profiles.views.create_profile()=digichef.profiles.views-module.html#create_profile,Method digichef.registration.models.RegistrationManager.create_profile()=digichef.registration.models.RegistrationManager-class.html#create_profile"><a title="digichef.profiles.views.create_profile
 digichef.registration.models.RegistrationManager.create_profile" class="py-name" href="#" onclick="return doclink('link-31', 'create_profile', 'link-31');">create_profile</a></tt><tt class="py-op">(</tt><tt class="py-name">new_user</tt><tt class="py-op">)</tt> </tt>
@@ -210,6 +224,7 @@ digichef.registration.models.RegistrationManager.create_profile" class="py-name"
 <a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">profile_callback</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
 <a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">            <tt class="py-name">profile_callback</tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-32', 'user', 'link-17');">user</a></tt><tt class="py-op">=</tt><tt class="py-name">new_user</tt><tt class="py-op">)</tt> </tt>
 <a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">         </tt>
 <a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">send_email</tt><tt class="py-op">:</tt> </tt>
@@ -236,7 +251,8 @@ digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink
 <a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-name">send_mail</tt><tt class="py-op">(</tt><tt class="py-name">subject</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="digichef.settings
 digichef.tagging.settings
 digichef.tagging.tests.settings
-digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-37', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt class="py-name">DEFAULT_FROM_EMAIL</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">new_user</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="digichef.registration.forms.RegistrationForm.email" class="py-name" href="#" onclick="return doclink('link-38', 'email', 'link-29');">email</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink('link-37', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt class="py-name">DEFAULT_FROM_EMAIL</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">new_user</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="digichef.profiles.forms.ProfileForm.email
+digichef.registration.forms.RegistrationForm.email" class="py-name" href="#" onclick="return doclink('link-38', 'email', 'link-29');">email</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
 <a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">new_user</tt> </tt>
 </div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">     </tt>
 <a name="RegistrationManager.create_profile"></a><div id="RegistrationManager.create_profile-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="RegistrationManager.create_profile-toggle" onclick="return toggle('RegistrationManager.create_profile');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.registration.models.RegistrationManager-class.html#create_profile">create_profile</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -252,11 +268,14 @@ digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink
 <a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">salt</tt> <tt class="py-op">=</tt> <tt class="py-name">sha</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">hexdigest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">5</tt><tt class="py-op">]</tt> </tt>
 <a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt id="link-39" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-39', 'activation_key', 'link-12');">activation_key</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sha</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-name">salt</tt><tt class="py-op">+</tt><tt id="link-40" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-40', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="digichef.registration.forms.RegistrationForm.username" class="py-name" href="#" onclick="return doclink('link-41', 'username', 'link-28');">username</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">hexdigest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">create</tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-42', 'user', 'link-17');">user</a></tt><tt class="py-op">=</tt><tt id="link-43" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-43', 'user', 'link-17');">user</a></tt><tt class="py-op">,</tt> </tt>
 <a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">                           <tt id="link-44" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-44', 'activation_key', 'link-12');">activation_key</a></tt><tt class="py-op">=</tt><tt id="link-45" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-45', 'activation_key', 'link-12');">activation_key</a></tt><tt class="py-op">)</tt> </tt>
 </div><a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">         </tt>
@@ -304,14 +323,18 @@ digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return docli
 <a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key_expired" class="py-name" href="#" onclick="return doclink('link-46', 'activation_key_expired', 'link-16');">activation_key_expired</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                <tt id="link-47" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-47', 'user', 'link-17');">user</a></tt> <tt class="py-op">=</tt> <tt class="py-name">profile</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-48', 'user', 'link-17');">user</a></tt> </tt>
 <a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-49" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-49', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt><tt class="py-op">:</tt> </tt>
 <a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">                    <tt id="link-50" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-50', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">delete</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 </div></div><a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"> </tt>
 <a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt>
@@ -338,6 +361,7 @@ digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return docli
 <a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">     </tt>
 <a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">    <tt id="link-52" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-52', 'user', 'link-17');">user</a></tt> <tt class="py-op">=</tt> <tt id="link-53" class="py-name"><a title="digichef.core.models
 digichef.profiles.models
 digichef.recipes.models
@@ -345,6 +369,7 @@ digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-53', 'models', 'link-2');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ForeignKey</tt><tt class="py-op">(</tt><tt class="py-name">User</tt><tt class="py-op">,</tt> <tt class="py-name">unique</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt id="link-54" class="py-name" targets="Variable digichef.registration.models.RegistrationProfile.Meta.verbose_name=digichef.registration.models.RegistrationProfile.Meta-class.html#verbose_name,Variable digichef.tagging.models.Tag.Meta.verbose_name=digichef.tagging.models.Tag.Meta-class.html#verbose_name,Variable digichef.tagging.models.TaggedItem.Meta.verbose_name=digichef.tagging.models.TaggedItem.Meta-class.html#verbose_name"><a title="digichef.registration.models.RegistrationProfile.Meta.verbose_name
 digichef.tagging.models.Tag.Meta.verbose_name
@@ -356,6 +381,7 @@ digichef.recommender.models
 digichef.registration.models
 digichef.tagging.models
 digichef.tagging.tests.models
+digichef.util.models
 digichef.voting.models
 digichef.voting.tests.models" class="py-name" href="#" onclick="return doclink('link-56', 'models', 'link-2');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">_</tt><tt class="py-op">(</tt><tt class="py-string">'activation key'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">40</tt><tt class="py-op">)</tt> </tt>
 <a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">     </tt>
@@ -376,6 +402,7 @@ digichef.tagging.models.TaggedItem.Meta.verbose_name_plural" class="py-name" hre
 <a name="RegistrationProfile.__unicode__"></a><div id="RegistrationProfile.__unicode__-def"><a name="L222"></a><tt class="py-lineno">222</tt> <a class="py-toggle" href="#" id="RegistrationProfile.__unicode__-toggle" onclick="return toggle('RegistrationProfile.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.registration.models.RegistrationProfile-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="RegistrationProfile.__unicode__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RegistrationProfile.__unicode__-expanded"><a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">u"Registration information for %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-61', 'user', 'link-17');">user</a></tt> </tt>
 </div><a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">     </tt>
 <a name="RegistrationProfile.activation_key_expired"></a><div id="RegistrationProfile.activation_key_expired-def"><a name="L225"></a><tt class="py-lineno">225</tt> <a class="py-toggle" href="#" id="RegistrationProfile.activation_key_expired-toggle" onclick="return toggle('RegistrationProfile.activation_key_expired');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="digichef.registration.models.RegistrationProfile-class.html#activation_key_expired">activation_key_expired</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -407,6 +434,7 @@ digichef.voting.tests.settings" class="py-name" href="#" onclick="return doclink
 <a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key" class="py-name" href="#" onclick="return doclink('link-63', 'activation_key', 'link-12');">activation_key</a></tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="digichef.registration.models.RegistrationProfile.ACTIVATED" class="py-name" href="#" onclick="return doclink('link-64', 'ACTIVATED', 'link-24');">ACTIVATED</a></tt> <tt class="py-keyword">or</tt> \ </tt>
 <a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">               <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="digichef.profiles.models.Profile.user
 digichef.registration.models.RegistrationProfile.user
+digichef.util.models.UserMeta.user
 digichef.voting.models.Vote.user" class="py-name" href="#" onclick="return doclink('link-65', 'user', 'link-17');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">date_joined</tt> <tt class="py-op">+</tt> <tt class="py-name">expiration_date</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">now</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">    <tt id="link-66" class="py-name"><a title="digichef.registration.models.RegistrationProfile.activation_key_expired" class="py-name" href="#" onclick="return doclink('link-66', 'activation_key_expired', 'link-16');">activation_key_expired</a></tt><tt class="py-op">.</tt><tt class="py-name">boolean</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
 </div><a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"> </tt><script type="text/javascript">
@@ -439,7 +467,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar 23 21:07:58 2010
+    Generated by Epydoc 3.0.1 on Thu Apr  1 02:28:31 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
