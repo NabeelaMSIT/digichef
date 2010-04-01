@@ -60,7 +60,7 @@ urlpatterns = patterns(
 	url(r'^recipes/(?P<object_id>\d+)/(?P<direction>up|down|clear)vote/?$', recipes.views.vote_on_recipe, name="recipe_voting"),
  
 
-    url(r'^recipe/(?P<recipe_id>\d+)/tag$', recipes.views.recipe_tag, name="recipe_tag"),
+    url(r'^recipe/tag/(?P<recipe_id>\d+)$', recipes.views.recipe_tag, name="recipe_tag"),
     (r'^recipe/(?P<recipe_id>\d+).*$', recipes.views.recipe_detail),
 
 
