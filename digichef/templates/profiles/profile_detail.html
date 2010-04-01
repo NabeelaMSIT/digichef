@@ -52,11 +52,14 @@
 
 		<h1>{{profile.user.get_full_name}}'s Profile</h1>
 		<h2>About me</h2>
+		{%ifequal profile.user user%}
 		<a href="/profiles/edit">Edit Profile</a>
-		<p>{{profile.about}}</p>
-		
+		{%endifequal%}
+		<p>{{profile.about}}</p>		
 		<h2>Recipes Liked</h2>
+		{%ifequal profile.user user%}
 		<a href="/recipes/new">Submit original recipe</a>
+		{%endifequal%}
 		<ul>
 		{%for recipe in recipes_liked%}
 			<li><a href="{{recipe.get_absolute_url}}">
