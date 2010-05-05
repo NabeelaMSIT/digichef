@@ -7,6 +7,8 @@ source: http://devthought.com/blog/projects-news/2008/06/barackslideshow-an-eleg
 p a { color: #BE7A40; }
 h1 { font: 20px "Georgia"; color: #666; }
 p, ul { font: 13px "Lucida Grande", "Verdana"; color: #333; }
+/*
+p, ul { font: 12px "Georgia"; color: #666; font-weight:700;}*/
 #back a { font-size: 11px; }
 #demo { margin: 40px 70px 70px; }
 h2 { font: 18px "Georgia"; color: #666; margin-top: 0; }
