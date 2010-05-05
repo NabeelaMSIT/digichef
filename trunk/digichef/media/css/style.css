@@ -131,6 +131,11 @@ h3 { font: 13px "Lucida Grande", "Verdana"; color: #999; text-transform: upperca
 	line-height:30px;
 }
 
+#hello-user {
+	font-size:15px;
+	font-weight:bold;
+}
+
 #slideshow {
 	float:left;
 }
