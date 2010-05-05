@@ -270,7 +270,7 @@ class RecommenderManager(models.Manager):
             sum_votes = sum([(sims[neighbour.id]*							#top frac
                 (Vote.objects.get_val_for_user(item, user)-self.get_mean_vote_for_user(neighbour) ) )
                 for neighbour in neighbours])
-            value = mean_user_vote+(sum_votes/float(sum_sim))
+            value = mean_user_vote+(sum_votes/float(sum_sim+0.0001))
             return_list.append((value,item))
 #            poke("iter", "post")
 
