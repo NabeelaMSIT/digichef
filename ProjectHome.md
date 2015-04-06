@@ -1,0 +1,1 @@
+A project to apply collaborative filtering techniques to recipe data
